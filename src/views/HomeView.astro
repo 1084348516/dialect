@@ -1,0 +1,62 @@
+---
+import Base from '../layouts/Base.astro';
+import SearchBox from '../components/SearchBox.astro';
+import DialectCard from '../components/DialectCard.astro';
+import { LANGS, LANG_STORAGE_KEY, homePath, dialectPath, entryPath, pick, type Lang } from '../i18n/langs';
+import { t } from '../i18n/ui';
+import { featuredEntries, sceneLinks } from '../lib/entries';
+import type { Dialect } from '../lib/schema';
+
+interface Props {
+  lang: Lang;
+  dialects: Dialect[];
+}
+const { lang, dialects } = Astro.props;
+const alternates = Object.fromEntries(LANGS.map((l) => [l, homePath(l)])) as Record<Lang, string>;
+const featured = featuredEntries(dialects);
+const scenes = sceneLinks(dialects);
+const showSample = dialects.some((d) => d.status === 'live' && !d.reviewed);
+---
+<Base lang={lang} title={t(lang, 'metaHomeTitle')} description={t(lang, 'metaHomeDesc')} alternates={alternates} preloadFont>
+  {lang === 'zh-hans' && (
+    <script slot="head" is:inline define:vars={{ key: LANG_STORAGE_KEY }}>
+      try { var l = localStorage.getItem(key); if (l === 'zh-hant' || l === 'en') location.replace('/' + l + '/'); } catch (e) {}
+    </script>
+  )}
+  <a slot="header" class="header-link" href="#dialects">{t(lang, 'navDialects')}</a>
+
+  <section class="wrap hero">
+    <p class="eyebrow">{t(lang, 'heroEyebrow')}</p>
+    <h1 class="hero-title">{t(lang, 'heroTitle')}</h1>
+    <p class="lead">{t(lang, 'heroLead')}</p>
+    <SearchBox lang={lang} placeholder={t(lang, 'searchPlaceholderAll')} />
+    {featured.length > 0 && (
+      <p class="hot">
+        {t(lang, 'hot')}
+        {featured.map((f, i) => (
+          <>{i > 0 && ' · '}<a href={entryPath(lang, f.dialect.id, f.entry.id)}>{f.entry.text}</a></>
+        ))}
+      </p>
+    )}
+  </section>
+
+  <section class="wrap section" id="dialects">
+    <h2 class="section-title">{t(lang, 'chooseDialect')}</h2>
+    <div class="dialect-grid">
+      {dialects.map((d) => <DialectCard lang={lang} dialect={d} />)}
+    </div>
+  </section>
+
+  {scenes.length > 0 && (
+    <section class="wrap section">
+      <h2 class="section-title">{t(lang, 'byScene')}</h2>
+      <div class="chips">
+        {scenes.map((s) => (
+          <a class="chip" href={`${dialectPath(lang, s.dialectId)}?cat=${s.category.id}`}>{pick(lang, s.category.name, s.category.nameEn)}</a>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {showSample && <p class="wrap sample-notice">{t(lang, 'sampleNotice')}</p>}
+</Base>

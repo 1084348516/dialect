@@ -1,0 +1,121 @@
+name: 闽南语
+nameEn: Hokkien / Taiwanese
+status: live
+order: 1
+reviewed: false
+areas: 厦门、泉州、漳州、台湾、新加坡、马来西亚
+areasEn: Xiamen, Quanzhou, Zhangzhou, Taiwan, Singapore, Malaysia
+intro: 通行于福建南部、台湾，以及新加坡、马来西亚、菲律宾等地的华人社区。各地读音和用词有差异，词条中会分别标注。拼音采用台罗。
+introEn: Spoken in southern Fujian, Taiwan, and Chinese communities in Singapore, Malaysia and the Philippines. Pronunciation and wording vary by place; entries note the differences. Romanization follows Tâi-lô.
+romanization: { name: 台罗拼音, nameEn: Tâi-lô }
+
+regions:
+  - { id: xm, name: 厦门, nameEn: Xiamen }
+  - { id: qz, name: 泉州, nameEn: Quanzhou }
+  - { id: zz, name: 漳州, nameEn: Zhangzhou }
+  - { id: tw, name: 台湾, nameEn: Taiwan }
+  - { id: sgmy, name: 新马, nameEn: Singapore / Malaysia }
+
+categories:
+  - { id: kinship, name: 亲属称谓, nameEn: Family }
+  - { id: greeting, name: 日常问候, nameEn: Greetings }
+  - { id: food, name: 饮食, nameEn: Food }
+  - { id: newyear, name: 过年拜年, nameEn: Chinese New Year }
+  - { id: slang, name: 俚语, nameEn: Slang }
+  - { id: crude, name: 粗口, nameEn: Crude, caution: true }
+
+entries:
+  - id: a-ma
+    text: 阿嬷
+    alt: [阿妈, 阿嫲]
+    pron: a-má
+    homophone: 阿妈
+    enReading: ah-MAH
+    zh: 奶奶；祖母
+    en: grandma
+    meaning: 奶奶，父亲的母亲。日常当面称呼和背后提起都可以用。
+    meaningEn: Grandma (father's mother). Used both to address her directly and to talk about her.
+    note: 外婆（母亲的母亲）一般叫"外嬷"（guā-má），见家长时别叫错。
+    noteEn: Your mother's mother is usually "guā-má" (外嬷) — don't mix them up when meeting the family.
+    category: kinship
+    featured: true
+    examples:
+      - text: 阿嬷，我转来矣。
+        pron: A-má, guá tńg--lâi--ah.
+        zh: 奶奶，我回来了。
+        en: Grandma, I am home.
+      - text: 阿嬷，你食饱未？
+        pron: A-má, lí tsia̍h-pá--buē?
+        zh: 奶奶，你吃饱了吗？
+        en: Grandma, have you eaten?
+    variants:
+      - { region: 台湾, text: 阿嬷 a-má, note: 最常见的写法 }
+      - { region: 新加坡 / 马来西亚, text: Ah Ma, note: 英文常写作 Ah Ma 或 Ama }
+      - { region: 厦门, text: ~, note: ~ }
+      - { region: 泉州 / 漳州, text: ~, note: 部分地区说法可能不同 }
+
+  - id: a-kong
+    text: 阿公
+    pron: a-kong
+    homophone: 阿公
+    enReading: ah-KONG
+    zh: 爷爷；祖父
+    en: grandpa
+    meaning: 爷爷，父亲的父亲。
+    meaningEn: Grandpa (father's father).
+    category: kinship
+
+  - id: gua-ma
+    text: 外嬷
+    pron: guā-má
+    homophone: 瓜妈
+    enReading: gwah-MAH
+    zh: 外婆
+    en: grandma (mother's side)
+    meaning: 外婆，母亲的母亲。
+    meaningEn: Grandma on your mother's side.
+    category: kinship
+
+  - id: to-sia
+    text: 多谢
+    pron: to-siā
+    homophone: 多下
+    enReading: doh-SIAH
+    zh: 谢谢
+    en: thank you
+    category: greeting
+    featured: true
+
+  - id: tsiah-pa-bue
+    text: 食饱未
+    pron: tsia̍h-pá--buē
+    homophone: 甲饱没
+    enReading: jah-PAH-bweh
+    zh: 吃饱了吗（打招呼）
+    en: have you eaten?
+    note: 熟人见面的问候，不一定真的在问你吃没吃。
+    noteEn: A greeting between people who know each other — not necessarily a question about food.
+    category: greeting
+
+  - id: phainn-se
+    text: 歹势
+    pron: pháinn-sè
+    homophone: 派谢
+    enReading: PIE-seh
+    zh: 不好意思；抱歉
+    en: sorry / paiseh
+    note: 新加坡、马来西亚的英语里也常说 "paiseh"。
+    noteEn: Singaporean and Malaysian English also use "paiseh".
+    category: greeting
+    regions: [tw, sgmy]
+    featured: true
+
+  - id: tsiah-sai
+    text: 食屎
+    alt: [炸塞, 呷赛]
+    pron: tsia̍h-sái
+    homophone: 呷赛
+    enReading: jah-SAI
+    zh: 骂人或表示不满（粗口）
+    en: crude insult
+    category: crude

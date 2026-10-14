@@ -1,0 +1,26 @@
+---
+import { LANGS, LANG_LABEL, HTML_LANG, type Lang } from '../i18n/langs';
+
+interface Props {
+  lang: Lang;
+  alternates: Record<Lang, string>;
+}
+const { lang, alternates } = Astro.props;
+---
+<nav class="lang-switch" aria-label="Language">
+  {LANGS.map((l) => (
+    <a href={alternates[l]} hreflang={HTML_LANG[l]} data-lang={l} class={l === lang ? 'is-active' : undefined} aria-current={l === lang ? 'true' : undefined}>
+      {LANG_LABEL[l]}
+    </a>
+  ))}
+</nav>
+<script>
+  import { LANG_STORAGE_KEY } from '../i18n/langs';
+  for (const a of document.querySelectorAll<HTMLAnchorElement>('.lang-switch a')) {
+    a.addEventListener('click', () => {
+      try {
+        localStorage.setItem(LANG_STORAGE_KEY, a.dataset.lang ?? 'zh-hans');
+      } catch {}
+    });
+  }
+</script>

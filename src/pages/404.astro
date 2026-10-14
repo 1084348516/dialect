@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import { LANGS, homePath, type Lang } from '../i18n/langs';
+import { t } from '../i18n/ui';
+
+const alternates = Object.fromEntries(LANGS.map((l) => [l, homePath(l)])) as Record<Lang, string>;
+---
+<Base lang="zh-hans" title={`${t('zh-hans', 'notFoundTitle')} | Familect`} description={t('zh-hans', 'metaHomeDesc')} alternates={alternates} noindex>
+  <section class="wrap not-found">
+    <h1>{t('zh-hans', 'notFoundTitle')}</h1>
+    <p class="meaning-secondary">{t('en', 'notFoundTitle')}</p>
+    <p>
+      <a href={homePath('zh-hans')}>{t('zh-hans', 'notFoundBack')}</a> ·
+      <a href={homePath('zh-hant')}>{t('zh-hant', 'notFoundBack')}</a> ·
+      <a href={homePath('en')}>{t('en', 'notFoundBack')}</a>
+    </p>
+  </section>
+</Base>

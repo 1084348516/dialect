@@ -1,0 +1,126 @@
+---
+import Base from '../layouts/Base.astro';
+import SearchBox from '../components/SearchBox.astro';
+import EntryCard from '../components/EntryCard.astro';
+import { LANGS, homePath, dialectPath, pick, type Lang } from '../i18n/langs';
+import { t } from '../i18n/ui';
+import { isCaution } from '../lib/entries';
+import type { Dialect } from '../lib/schema';
+
+interface Props {
+  lang: Lang;
+  dialects: Dialect[];
+  dialectId: string;
+}
+const { lang, dialects, dialectId } = Astro.props;
+const d = dialects.find((x) => x.id === dialectId)!;
+const alternates = Object.fromEntries(LANGS.map((l) => [l, dialectPath(l, d.id)])) as Record<Lang, string>;
+const name = pick(lang, d.name, d.nameEn);
+const otherName = pick(lang, d.nameEn, d.name);
+const intro = pick(lang, d.intro, d.introEn) ?? '';
+const catName = (id: string) => {
+  const c = d.categories.find((x) => x.id === id)!;
+  return pick(lang, c.name, c.nameEn);
+};
+const abs = (p: string) => new URL(p, Astro.site).href;
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t(lang, 'home'), item: abs(homePath(lang)) },
+    { '@type': 'ListItem', position: 2, name, item: abs(dialectPath(lang, d.id)) },
+  ],
+};
+---
+<Base lang={lang} title={`${t(lang, 'metaDialectTitle', { dialect: name })} | Familect`} description={intro} alternates={alternates} jsonLd={[breadcrumb]}>
+  <SearchBox slot="header" lang={lang} placeholder={t(lang, 'searchPlaceholderDialect', { dialect: name })} dialectId={d.id} variant="compact" />
+
+  <div class="wrap page" data-dialect-page>
+    <nav class="breadcrumb"><a href={homePath(lang)}>{t(lang, 'home')}</a> / <span>{name}</span></nav>
+
+    <header class="dialect-head">
+      <h1>{name}<span class="dialect-en">{otherName}</span></h1>
+      <p class="lead">{intro}</p>
+    </header>
+
+    {d.regions.length > 0 && (
+      <div class="chips" data-filter-group="region">
+        <a class="chip is-active" href="?" data-value="">{t(lang, 'all')}</a>
+        {d.regions.map((r) => <a class="chip" href={`?region=${r.id}`} data-value={r.id}>{pick(lang, r.name, r.nameEn)}</a>)}
+      </div>
+    )}
+
+    <div class="dialect-layout">
+      <aside>
+        <p class="cat-label">{t(lang, 'categories')}</p>
+        <div class="cat-list" data-filter-group="cat">
+          <a class="cat-item is-active" href="?" data-value="">{t(lang, 'allEntries')}</a>
+          {d.categories.map((c) => (
+            <a class="cat-item" href={`?cat=${c.id}`} data-value={c.id} data-name={pick(lang, c.name, c.nameEn)}>
+              <span>{pick(lang, c.name, c.nameEn)}</span>
+              {c.caution && <small>{t(lang, 'caution')}</small>}
+            </a>
+          ))}
+        </div>
+      </aside>
+
+      <section>
+        <h2 class="list-title" data-list-title data-all={t(lang, 'allEntries')}>{t(lang, 'allEntries')}</h2>
+        <ul class="entry-list">
+          {d.entries.map((e) => (
+            <EntryCard lang={lang} dialectId={d.id} entry={e} badge={isCaution(d, e) ? catName(e.category) : undefined} />
+          ))}
+        </ul>
+        <p class="filter-empty" hidden>{t(lang, 'filterEmpty')}</p>
+        {!d.reviewed && <p class="sample-notice">{t(lang, 'sampleNotice')}</p>}
+      </section>
+    </div>
+  </div>
+</Base>
+
+<script>
+  import { parseFilter, matchesFilter, filterQuery, type Filter } from '../lib/filter';
+
+  const root = document.querySelector<HTMLElement>('[data-dialect-page]');
+  if (root) {
+    const links = (group: 'cat' | 'region') => [...root.querySelectorAll<HTMLAnchorElement>(`[data-filter-group="${group}"] a`)];
+    const groups = { cat: links('cat'), region: links('region') };
+    const ids = (group: 'cat' | 'region') => groups[group].map((a) => a.dataset.value ?? '').filter(Boolean);
+    const cards = [...root.querySelectorAll<HTMLElement>('[data-entry]')];
+    const title = root.querySelector<HTMLElement>('[data-list-title]')!;
+    const empty = root.querySelector<HTMLElement>('.filter-empty')!;
+    let filter: Filter = parseFilter(location.search, ids('cat'), ids('region'));
+
+    const apply = () => {
+      for (const group of ['cat', 'region'] as const) {
+        for (const a of groups[group]) {
+          const on = (a.dataset.value || undefined) === filter[group];
+          a.classList.toggle('is-active', on);
+          if (on) a.setAttribute('aria-current', 'true');
+          else a.removeAttribute('aria-current');
+        }
+      }
+      let shown = 0;
+      for (const card of cards) {
+        const ok = matchesFilter({ cat: card.dataset.cat ?? '', regions: (card.dataset.regions ?? '').split(' ').filter(Boolean) }, filter);
+        card.hidden = !ok;
+        if (ok) shown++;
+      }
+      empty.hidden = shown > 0;
+      const activeCat = groups.cat.find((a) => a.dataset.value === filter.cat);
+      title.textContent = filter.cat && activeCat ? (activeCat.dataset.name ?? '') : (title.dataset.all ?? '');
+    };
+
+    for (const group of ['cat', 'region'] as const) {
+      for (const a of groups[group]) {
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          filter = { ...filter, [group]: a.dataset.value || undefined };
+          history.replaceState(null, '', location.pathname + filterQuery(filter));
+          apply();
+        });
+      }
+    }
+    apply();
+  }
+</script>

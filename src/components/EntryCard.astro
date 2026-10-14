@@ -1,0 +1,23 @@
+---
+import { entryPath, type Lang } from '../i18n/langs';
+import { t } from '../i18n/ui';
+import type { Entry } from '../lib/schema';
+
+interface Props {
+  lang: Lang;
+  dialectId: string;
+  entry: Entry;
+  badge?: string;
+}
+const { lang, dialectId, entry: e, badge } = Astro.props;
+---
+<li data-entry data-cat={e.category} data-regions={e.regions.join(' ')}>
+  <a class="entry-card" href={entryPath(lang, dialectId, e.id)}>
+    <span class="entry-card-text serif">{e.text}</span>
+    <span class="entry-card-body">
+      <span class="entry-card-line1"><span class="pron">{e.pron}</span> · {t(lang, 'homophoneShort')} {e.homophone}</span>
+      <span>{lang === 'en' ? `${e.en} · ${e.zh}` : `${e.zh} · ${e.en}`}</span>
+    </span>
+    {badge && <span class="badge-warn">{badge}</span>}
+  </a>
+</li>

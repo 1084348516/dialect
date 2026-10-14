@@ -1,0 +1,143 @@
+---
+import Base from '../layouts/Base.astro';
+import FeedbackForm from '../components/FeedbackForm.astro';
+import { LANGS, homePath, dialectPath, entryPath, pick, type Lang } from '../i18n/langs';
+import { t } from '../i18n/ui';
+import { relatedEntries, neighbors } from '../lib/entries';
+import type { Dialect } from '../lib/schema';
+
+interface Props {
+  lang: Lang;
+  dialects: Dialect[];
+  dialectId: string;
+  entryId: string;
+}
+const { lang, dialects, dialectId, entryId } = Astro.props;
+const d = dialects.find((x) => x.id === dialectId)!;
+const e = d.entries.find((x) => x.id === entryId)!;
+const cat = d.categories.find((c) => c.id === e.category)!;
+const romanization = d.romanization!;
+
+const alternates = Object.fromEntries(LANGS.map((l) => [l, entryPath(l, d.id, e.id)])) as Record<Lang, string>;
+const name = pick(lang, d.name, d.nameEn);
+const catName = pick(lang, cat.name, cat.nameEn);
+const meaningZh = e.meaning ?? e.zh;
+const meaningEn = e.meaningEn ?? e.en;
+const note = lang === 'en' ? (e.noteEn ?? e.note) : e.note;
+const related = relatedEntries(d, e);
+const { prev, next } = neighbors(d, e.id);
+const gloss = (zh: string, en: string) => (lang === 'en' ? `${en} · ${zh}` : `${zh} · ${en}`);
+
+const title = `${t(lang, 'metaEntryTitle', { text: e.text, pron: e.pron, gloss: pick(lang, e.zh, e.en), dialect: name })} | Familect`;
+const abs = (p: string) => new URL(p, Astro.site).href;
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'DefinedTerm',
+    name: e.text,
+    alternateName: [e.pron, ...e.alt],
+    description: pick(lang, meaningZh, meaningEn),
+    url: abs(entryPath(lang, d.id, e.id)),
+    inDefinedTermSet: { '@type': 'DefinedTermSet', name: t(lang, 'metaDialectTitle', { dialect: name }), url: abs(dialectPath(lang, d.id)) },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: t(lang, 'home'), item: abs(homePath(lang)) },
+      { '@type': 'ListItem', position: 2, name, item: abs(dialectPath(lang, d.id)) },
+      { '@type': 'ListItem', position: 3, name: e.text, item: abs(entryPath(lang, d.id, e.id)) },
+    ],
+  },
+];
+---
+<Base lang={lang} title={title} description={pick(lang, meaningZh, meaningEn)} alternates={alternates} jsonLd={jsonLd}>
+  <div class="wrap page">
+    <nav class="breadcrumb">
+      <a href={homePath(lang)}>{t(lang, 'home')}</a> /
+      <a href={dialectPath(lang, d.id)}>{name}</a> /
+      <a href={`${dialectPath(lang, d.id)}?cat=${cat.id}`}>{catName}</a> /
+      <span>{e.text}</span>
+    </nav>
+
+    <div class="entry-layout">
+      <article class="entry-main">
+        <section class="card headword">
+          <div class="headword-top">
+            <h1 class="headword-text">{e.text}</h1>
+            <span class="headword-meta">{name} · {catName}</span>
+          </div>
+          <div class="readings">
+            <div class="reading"><span class="reading-label">{pick(lang, romanization.name, romanization.nameEn)}</span><span class="reading-value pron">{e.pron}</span></div>
+            <div class="reading"><span class="reading-label">{t(lang, 'homophone')}</span><span class="reading-value">{e.homophone}</span></div>
+            <div class="reading"><span class="reading-label">{t(lang, 'enReading')}</span><span class="reading-value">{e.enReading}</span></div>
+          </div>
+          <div class="headword-foot">
+            <span class="audio-soon" aria-disabled="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z" /><path d="M15.5 8.5a5 5 0 0 1 0 7" /></svg>
+              {t(lang, 'audioSoon')}
+            </span>
+            {e.alt.length > 0 && <span>{t(lang, 'alsoWritten')}{e.alt.join('、')}</span>}
+          </div>
+        </section>
+
+        <section class="entry-section">
+          <h2>{t(lang, 'meaning')}</h2>
+          <p>{pick(lang, meaningZh, meaningEn)}</p>
+          <p class="meaning-secondary">{pick(lang, meaningEn, meaningZh)}</p>
+          {e.literal && <p class="literal">{t(lang, 'literal')}{e.literal}</p>}
+          {note && <p class="tip">{t(lang, 'usageTip')}{note}</p>}
+        </section>
+
+        {e.examples.length > 0 && (
+          <section class="entry-section">
+            <h2>{t(lang, 'examples')}</h2>
+            {e.examples.map((x) => (
+              <div class="card example">
+                <p class="serif example-text">{x.text}</p>
+                <p class="pron">{x.pron}</p>
+                <p class="example-gloss">{gloss(x.zh, x.en)}</p>
+              </div>
+            ))}
+          </section>
+        )}
+
+        {e.variants.length > 0 && (
+          <section class="entry-section">
+            <h2>{t(lang, 'variants')}</h2>
+            <div class="card table-wrap">
+              <table>
+                <thead><tr><th>{t(lang, 'variantRegion')}</th><th>{t(lang, 'variantForm')}</th><th>{t(lang, 'variantNote')}</th></tr></thead>
+                <tbody>
+                  {e.variants.map((v) => (
+                    <tr><td>{v.region}</td><td>{v.text ?? t(lang, 'toBeConfirmed')}</td><td>{v.note ?? ''}</td></tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        )}
+
+        <nav class="entry-pager">
+          {prev && <a rel="prev" href={entryPath(lang, d.id, prev.id)}>← {t(lang, 'prev')} · {prev.text}</a>}
+          {next && <a rel="next" href={entryPath(lang, d.id, next.id)}>{t(lang, 'next')} · {next.text} →</a>}
+        </nav>
+
+        <FeedbackForm lang={lang} dialectId={d.id} entryId={e.id} />
+        {!d.reviewed && <p class="sample-notice">{t(lang, 'sampleNotice')}</p>}
+      </article>
+
+      {related.length > 0 && (
+        <aside class="entry-aside">
+          <p class="aside-label">{t(lang, 'related')}</p>
+          {related.map((r) => (
+            <a class="card related" href={entryPath(lang, d.id, r.id)}>
+              <span class="serif">{r.text}</span>
+              <small>{pick(lang, r.zh, r.en)}</small>
+            </a>
+          ))}
+        </aside>
+      )}
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,24 @@
+import { describe, it, expect } from 'vitest';
+import { LANGS, HTML_LANG, prefix, homePath, dialectPath, entryPath, pick } from '../src/i18n/langs';
+
+describe('langs', () => {
+  it('lists three languages with html lang codes', () => {
+    expect(LANGS).toEqual(['zh-hans', 'zh-hant', 'en']);
+    expect(HTML_LANG).toEqual({ 'zh-hans': 'zh-Hans', 'zh-hant': 'zh-Hant', en: 'en' });
+  });
+
+  it('builds paths with prefixes only for non-default languages', () => {
+    expect(prefix('zh-hans')).toBe('');
+    expect(homePath('zh-hans')).toBe('/');
+    expect(homePath('zh-hant')).toBe('/zh-hant/');
+    expect(dialectPath('en', 'minnan')).toBe('/en/minnan/');
+    expect(entryPath('zh-hans', 'minnan', 'a-ma')).toBe('/minnan/a-ma/');
+    expect(entryPath('zh-hant', 'minnan', 'a-ma')).toBe('/zh-hant/minnan/a-ma/');
+  });
+
+  it('picks the English value only for en', () => {
+    expect(pick('zh-hans', '奶奶', 'grandma')).toBe('奶奶');
+    expect(pick('zh-hant', '奶奶', 'grandma')).toBe('奶奶');
+    expect(pick('en', '奶奶', 'grandma')).toBe('grandma');
+  });
+});

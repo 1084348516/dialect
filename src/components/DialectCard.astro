@@ -1,0 +1,22 @@
+---
+import { dialectPath, pick, type Lang } from '../i18n/langs';
+import { t } from '../i18n/ui';
+import type { Dialect } from '../lib/schema';
+
+interface Props {
+  lang: Lang;
+  dialect: Dialect;
+}
+const { lang, dialect: d } = Astro.props;
+const live = d.status === 'live';
+const Tag = live ? 'a' : 'div';
+---
+<Tag class:list={['dialect-card', { 'is-soon': !live }]} href={live ? dialectPath(lang, d.id) : undefined}>
+  <div class="dialect-card-head">
+    <h3>{pick(lang, d.name, d.nameEn)}</h3>
+    <span class:list={['status', live ? 'status-live' : 'status-soon']}>{t(lang, live ? 'statusLive' : 'statusSoon')}</span>
+  </div>
+  <p class="dialect-card-en">{pick(lang, d.nameEn, d.name)}</p>
+  <p class="dialect-card-areas">{pick(lang, d.areas, d.areasEn)}</p>
+  {live && <p class="dialect-card-count">{t(lang, 'entryCount', { n: d.entries.length })}</p>}
+</Tag>

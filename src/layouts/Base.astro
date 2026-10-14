@@ -1,0 +1,69 @@
+---
+import '../styles/global.css';
+import font from '../generated/font.json';
+import { LANGS, HTML_LANG, homePath, type Lang } from '../i18n/langs';
+import { t } from '../i18n/ui';
+import LangSwitch from '../components/LangSwitch.astro';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  alternates: Record<Lang, string>;
+  jsonLd?: object[];
+  preloadFont?: boolean;
+  noindex?: boolean;
+}
+const { lang, title, description, alternates, jsonLd = [], preloadFont = false, noindex = false } = Astro.props;
+const abs = (p: string) => new URL(p, Astro.site).href;
+const fontFace = `@font-face{font-family:"Familect Serif";src:url(${font.file}) format("woff2");font-weight:700;font-style:normal;font-display:swap}`;
+const ld = (o: object) => JSON.stringify(o).replace(/</g, '\\u003c');
+---
+<!doctype html>
+<html lang={HTML_LANG[lang]}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex ? <meta name="robots" content="noindex" /> : (
+      <>
+        <link rel="canonical" href={abs(alternates[lang])} />
+        {LANGS.map((l) => <link rel="alternate" hreflang={HTML_LANG[l]} href={abs(alternates[l])} />)}
+        <link rel="alternate" hreflang="x-default" href={abs(alternates['zh-hans'])} />
+      </>
+    )}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Familect" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={abs(alternates[lang])} />
+    <meta property="og:image" content={abs('/og.png')} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {preloadFont && <link rel="preload" href={font.file} as="font" type="font/woff2" crossorigin />}
+    <style is:inline set:html={fontFace}></style>
+    {jsonLd.map((o) => <script type="application/ld+json" is:inline set:html={ld(o)}></script>)}
+    <slot name="head" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="logo" href={homePath(lang)}>Familect <span>{t(lang, 'brandSub')}</span></a>
+        <div class="header-tools">
+          <slot name="header" />
+          <LangSwitch lang={lang} alternates={alternates} />
+        </div>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <span>Familect · {t(lang, 'footerTagline')}</span>
+        <span>{t(lang, 'footerFeedback')}</span>
+      </div>
+    </footer>
+  </body>
+</html>

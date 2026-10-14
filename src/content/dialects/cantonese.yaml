@@ -1,0 +1,80 @@
+name: 粤语
+nameEn: Cantonese
+status: live
+order: 2
+reviewed: false
+areas: 广州、香港、澳门，北美与英澳华人社区
+areasEn: Guangzhou, Hong Kong, Macau; Chinese communities in North America, the UK and Australia
+intro: 通行于广东、香港、澳门及广西部分地区，也是北美、英国、澳洲等地华人社区的常用语言。拼音采用粤拼。
+introEn: Spoken in Guangdong, Hong Kong, Macau and parts of Guangxi, and widely in Chinese communities in North America, the UK and Australia. Romanization follows Jyutping.
+romanization: { name: 粤拼, nameEn: Jyutping }
+
+categories:
+  - { id: kinship, name: 亲属称谓, nameEn: Family }
+  - { id: greeting, name: 日常问候, nameEn: Greetings }
+  - { id: newyear, name: 过年拜年, nameEn: Chinese New Year }
+
+entries:
+  - id: maa-maa
+    text: 嫲嫲
+    pron: maa4 maa4
+    homophone: 麻麻
+    enReading: MAH-mah
+    zh: 奶奶；祖母
+    en: grandma
+    meaning: 奶奶，父亲的母亲。
+    meaningEn: Grandma (father's mother).
+    category: kinship
+
+  - id: m-goi
+    text: 唔该
+    pron: m4 goi1
+    homophone: 嗯该
+    enReading: mm-GOY
+    zh: 谢谢；劳驾
+    en: thank you / excuse me
+    note: 别人为你做事（递东西、让路、服务）时说唔该；收到礼物或称赞时说多谢。
+    noteEn: Say "m goi" when someone does something for you (passing something, making way, serving you); say "do ze" for gifts and compliments.
+    category: greeting
+
+  - id: do-ze
+    text: 多谢
+    pron: do1 ze6
+    homophone: 多谢
+    enReading: doh-JEH
+    zh: 谢谢
+    en: thank you
+    category: greeting
+
+  - id: sik-zo-faan-mei
+    text: 食咗饭未
+    pron: sik6 zo2 faan6 mei6
+    homophone: 色左饭未
+    enReading: sik-joh-FAHN-may
+    zh: 吃饭了吗？
+    en: have you eaten yet?
+    literal: 吃了饭没有？
+    note: 熟人见面打招呼，不是真的问你吃没吃。
+    noteEn: A casual greeting between people who know each other — not really a question about food.
+    category: greeting
+    examples:
+      - text: 食咗饭未呀？
+        pron: sik6 zo2 faan6 mei6 aa3?
+        zh: 吃饭了吗？
+        en: Have you eaten yet?
+      - text: 食咗喇，你呢？
+        pron: sik6 zo2 laa3, nei5 ne1?
+        zh: 吃了，你呢？
+        en: I have, and you?
+
+  - id: gung-hei-faat-coi
+    text: 恭喜发财
+    pron: gung1 hei2 faat3 coi4
+    homophone: 工喜发菜
+    enReading: gung-HAY-faht-choy
+    zh: 恭喜发财（拜年用语）
+    en: wishing you prosperity
+    note: 过年见面的常用祝福语，小孩说完常接一句"利是逗来"（红包拿来）。
+    noteEn: The standard Chinese New Year greeting; kids often add "lai si dau loi" (hand over the red packet).
+    category: newyear
+    featured: true

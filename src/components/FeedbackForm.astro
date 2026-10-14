@@ -1,0 +1,74 @@
+---
+import type { Lang } from '../i18n/langs';
+import { t, type UiKey } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  dialectId: string;
+  entryId: string;
+}
+const { lang, dialectId, entryId } = Astro.props;
+const types: [string, UiKey][] = [
+  ['pron', 'fbTypePron'],
+  ['translation', 'fbTypeTranslation'],
+  ['chars', 'fbTypeChars'],
+  ['other', 'fbTypeOther'],
+];
+---
+<details class="feedback">
+  <summary>{t(lang, 'report')}</summary>
+  <form class="feedback-form" data-feedback data-sending={t(lang, 'fbSending')} data-error={t(lang, 'fbError')}>
+    <h3>{t(lang, 'fbTitle')}</h3>
+    <input type="hidden" name="dialect" value={dialectId} />
+    <input type="hidden" name="entry" value={entryId} />
+    <input type="hidden" name="lang" value={lang} />
+    <label>{t(lang, 'fbType')}
+      <select name="type" required>
+        {types.map(([value, key]) => <option value={value}>{t(lang, key)}</option>)}
+      </select>
+    </label>
+    <label>{t(lang, 'fbMessage')}
+      <textarea name="message" required maxlength="1000" rows="4"></textarea>
+    </label>
+    <label>{t(lang, 'fbBackground')}
+      <input name="background" maxlength="50" placeholder={t(lang, 'fbBackgroundPh')} />
+    </label>
+    <label>{t(lang, 'fbContact')}
+      <input name="contact" maxlength="100" />
+    </label>
+    <div class="hp" aria-hidden="true">
+      <label>Website <input name="website" tabindex="-1" autocomplete="off" /></label>
+    </div>
+    <p class="form-status" role="status" aria-live="polite"></p>
+    <button type="submit" class="btn-primary">{t(lang, 'fbSubmit')}</button>
+  </form>
+  <p class="feedback-thanks" hidden>{t(lang, 'fbThanks')}</p>
+</details>
+<script>
+  for (const form of document.querySelectorAll<HTMLFormElement>('[data-feedback]')) {
+    const button = form.querySelector('button')!;
+    const status = form.querySelector<HTMLElement>('.form-status')!;
+    const thanks = form.parentElement!.querySelector<HTMLElement>('.feedback-thanks')!;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      button.disabled = true;
+      status.classList.remove('is-error');
+      status.textContent = form.dataset.sending ?? '';
+      try {
+        const res = await fetch('/api/feedback', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(form))),
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        form.hidden = true;
+        thanks.hidden = false;
+      } catch {
+        status.classList.add('is-error');
+        status.textContent = form.dataset.error ?? '';
+        button.disabled = false;
+      }
+    });
+  }
+</script>
