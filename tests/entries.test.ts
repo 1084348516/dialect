@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { relatedEntries, neighbors, featuredEntries, sceneLinks, isCaution } from '../src/lib/entries';
+import { relatedEntries, neighbors, featuredEntries, isCaution } from '../src/lib/entries';
 import { makeDialect, rawMinnan } from './fixtures';
 
 const minnan = makeDialect();
@@ -27,12 +27,6 @@ describe('entries helpers', () => {
     expect(featuredEntries([minnan], 1)).toHaveLength(1);
   });
 
-  it('sceneLinks dedupes by category id, skips caution and empty categories', () => {
-    const withCrude = makeDialect({ entries: [...rawMinnan.entries, crudeEntry] });
-    const canto = makeDialect({ name: '粤语' }, 'cantonese');
-    const links = sceneLinks([withCrude, canto]);
-    expect(links.map((l) => `${l.category.id}@${l.dialectId}`)).toEqual(['kinship@minnan', 'greeting@minnan']);
-  });
 
   it('isCaution reads the category flag', () => {
     const withCrude = makeDialect({ entries: [...rawMinnan.entries, crudeEntry] });

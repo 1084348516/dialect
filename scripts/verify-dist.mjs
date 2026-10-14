@@ -22,6 +22,13 @@ for (const id of ['hakka', 'teochew', 'shanghainese']) {
 }
 
 if (failures.length === 0) {
+  const home = read('index.html');
+  check(!home.includes('按场景查'), 'home should not have the scene section');
+  check(!home.includes('听懂家里长辈说的话'), 'home should not have the eyebrow line');
+  check(!/<button[^>]*type="submit"/.test(home), 'home search should have no submit button');
+  check((home.match(/class="dialect-card( [^"]*)?"/g) ?? []).length === 2, 'home should render cards only for live dialects');
+  check(home.includes('潮汕话') && home.includes('上海话'), 'home should still list coming-soon dialects');
+
   const hantList = read('zh-hant/minnan/index.html');
   check(hantList.includes('親屬稱謂'), 'zh-hant dialect page should show converted category names');
   check(hantList.includes('lang="zh-Hant"'), 'zh-hant page should have lang="zh-Hant"');

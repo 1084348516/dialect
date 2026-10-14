@@ -14,7 +14,6 @@ const listId = `search-results-${variant}`;
 <form class:list={['search', `search-${variant}`]} role="search" action={homePath(lang)} data-search data-lang={lang} data-dialect={dialectId} data-empty={t(lang, 'searchNoResults')}>
   <input type="search" name="q" placeholder={placeholder} aria-label={placeholder} autocomplete="off"
     role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls={listId} />
-  {variant === 'hero' && <button type="submit" class="btn-primary">{t(lang, 'searchButton')}</button>}
   <ul class="search-results" id={listId} role="listbox" aria-label={placeholder} hidden></ul>
   <p class="search-empty search-status" role="status" aria-live="polite" hidden></p>
 </form>

@@ -39,14 +39,14 @@ h1, h2, h3, .serif { font-family: var(--serif); font-weight: 700; line-height: 1
 .footer-inner { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-block: 24px; font-size: 13px; color: var(--muted); }
 
 /* home */
-.hero { padding-block: 56px 32px; }
-.eyebrow { color: var(--accent); font-size: 13px; font-weight: 600; margin: 0 0 12px; }
-.hero-title { font-size: clamp(32px, 6vw, 52px); margin: 0 0 16px; max-width: 13em; }
+.hero { padding-block: 48px 8px; }
+.hero-title { font-size: clamp(26px, 4.5vw, 38px); margin: 0 0 20px; }
 .lead { color: #3d3b37; max-width: 36em; margin: 0 0 24px; }
 .hot { font-size: 13px; color: var(--muted); margin-top: 14px; }
 .hot a { margin-inline: 4px; }
 .section { padding-block: 24px 40px; }
 .section-title { font-size: 26px; margin: 0 0 20px; }
+.soon-line { font-size: 13px; color: var(--muted); margin: 16px 0 0; }
 .dialect-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
 
 /* search */

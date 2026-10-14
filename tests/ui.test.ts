@@ -17,7 +17,7 @@ describe('ui strings', () => {
   });
 
   it('converts zh-hant strings', () => {
-    expect(ui['zh-hant'].chooseDialect).toBe('選擇方言');
+    expect(ui['zh-hant'].comingSoonList).toBe('即將上線：');
   });
 
   it('interpolates variables and leaves unknown placeholders', () => {
