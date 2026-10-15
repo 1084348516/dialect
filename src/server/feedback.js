@@ -1,4 +1,4 @@
-// 反馈接口的业务逻辑。和 Cloudflare 运行时无关，邮件发送由调用方注入（见 functions/api/feedback.js）。
+// 反馈接口的业务逻辑。和 Cloudflare 运行时无关，邮件发送由调用方注入（见 worker/index.js）。
 export const FEEDBACK_TYPES = ['pron', 'translation', 'chars', 'other'];
 const LANGS = ['zh-hans', 'zh-hant', 'en'];
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;

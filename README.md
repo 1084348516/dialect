@@ -1,6 +1,6 @@
 # Familect 家乡话
 
-方言常用语词典：怎么写、怎么读、什么意思。Astro 静态站，部署在 Cloudflare Pages。
+方言常用语词典：怎么写、怎么读、什么意思。Astro 静态站，部署在 Cloudflare Workers（静态资源 + 反馈接口）。
 
 ## 本地开发
 
@@ -10,7 +10,7 @@ npm run dev        # http://localhost:4321（不含反馈接口）
 npm test           # 单元测试 + 内容格式检查
 npm run build && npm run verify
 npx wrangler d1 migrations apply familect --local   # 第一次需要执行
-npx wrangler pages dev                              # 整站 + 反馈接口，http://localhost:8788
+npx wrangler dev                                    # 整站 + 反馈接口，http://localhost:8787
 ```
 
 ## 加内容
@@ -26,7 +26,7 @@ npx wrangler pages dev                              # 整站 + 反馈接口，ht
 
 `npm run verify` 会按 YAML 的实际内容检查构建结果（每条词条三种语言的页面都生成了、搜索索引条数对得上、没写的栏目没有显示等），换内容不需要改这个脚本。
 
-## 部署到 Cloudflare Pages
+## 部署到 Cloudflare Workers
 
 1. 在 GitHub 新建仓库并推送代码
 2. 创建 D1 数据库：
@@ -38,12 +38,12 @@ npx wrangler pages dev                              # 整站 + 反馈接口，ht
    ```bash
    npx wrangler d1 migrations apply familect --remote
    ```
-3. Cloudflare 后台 → Workers & Pages → Create，点页面底部的 “Looking to deploy Pages? Get started”（不要走 Worker 的流程）→ Connect to Git，选择这个仓库：
-   - Project name: `familect`
+3. Cloudflare 后台 → Workers & Pages → Create → Import a repository，选择这个仓库：
+   - Project name: `dialect`（必须和 `wrangler.toml` 的 `name` 一致）
    - Build command: `npm run build`
-   - Build output directory: `dist`
-   - 环境变量: `NODE_VERSION` = `22`
-4. 以后推送到 `main` 分支就会自动部署。D1 绑定从 `wrangler.toml` 读取，不需要在后台另外设置。
+   - Deploy command: `npx wrangler deploy`
+   - 构建环境变量: `NODE_VERSION` = `22`
+4. 以后推送到 `main` 分支就会自动部署。静态资源目录、反馈接口入口（`worker/index.js`）和 D1 绑定都从 `wrangler.toml` 读取，不需要在后台另外设置。
 
 ## 查看反馈
 
@@ -58,16 +58,13 @@ npx wrangler d1 execute familect --remote --command "UPDATE feedback SET status=
 
 正式地址是 `https://familect.org`（不带 www），已写成 `astro.config.mjs` 中 `site` 的默认值，sitemap、canonical 和 robots.txt 都用它，不需要再设置 `SITE_URL`。预览部署的 canonical 也指向正式域名，所以不会被当成重复页面收录。
 
-1. Pages 项目 → Custom domains → 添加 `familect.org`，再添加 `www.familect.org`（域名在同一个 Cloudflare 账号里，DNS 记录会自动创建）
+1. Worker `dialect` → Settings → Domains & Routes → 添加 Custom domain `familect.org`，再添加 `www.familect.org`（域名在同一个 Cloudflare 账号里，DNS 记录会自动创建）
 2. 把 www 301 跳转到主域名：familect.org → Rules → Redirect Rules → 用模板 “Redirect from WWW to root”，状态码 301，勾选保留查询字符串
-3. 把 `familect.pages.dev` 301 跳转到主域名（`_redirects` 不能按域名匹配，必须用 Bulk Redirects）：
-   - 账号首页 → Bulk Redirects → 新建列表：Source `familect.pages.dev`，Target `https://familect.org`，状态码 301，勾选 Preserve query string、Subpath matching、Preserve path suffix、Include subdomains
-   - 再新建一条 Bulk Redirect Rule 启用这个列表
-   - 不要匹配 `*.familect.pages.dev`，否则预览部署也会被跳转
+3. 关掉重复的入口：Worker `dialect` → Settings → Domains & Routes，把 `workers.dev` 和 Preview URLs 都设为 Disabled，这样网站只能通过 familect.org 访问
 4. 邮件通知：
    - 为 familect.org 启用 Email Routing，并验证你的收件邮箱
    - 取消 `wrangler.toml` 中 `[[send_email]]` 部分的注释
-   - 在 Pages 设置中加入环境变量 `FEEDBACK_EMAIL_TO`（你的邮箱）和 `FEEDBACK_EMAIL_FROM`（例如 `feedback@familect.org`）
+   - 在 Worker 的 Settings → Variables and Secrets 中加入 `FEEDBACK_EMAIL_TO`（你的邮箱）和 `FEEDBACK_EMAIL_FROM`（例如 `feedback@familect.org`）
 5. 搜索引擎：
    - Google Search Console：添加“网域”资源 `familect.org`，用 DNS TXT 验证（在 Cloudflare DNS 中添加），提交 `https://familect.org/sitemap-index.xml`
    - Bing Webmaster Tools：选择从 Google Search Console 导入
