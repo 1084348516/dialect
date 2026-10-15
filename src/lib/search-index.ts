@@ -6,7 +6,7 @@ import { buildKeys, type SearchRecord } from './search';
 /** 构建时把繁简两种写法都放进匹配键，用户用哪种字形输入都能搜到（opencc 不进客户端包）。 */
 function crossScriptKeys(e: Entry): string[] {
   const variant = (conv: (s: string) => string) => ({
-    text: conv(e.text), alt: e.alt.map(conv), pron: e.pron, homophone: conv(e.homophone), zh: conv(e.zh), en: e.en,
+    text: conv(e.text), alt: e.alt.map(conv), pron: e.pron, homophone: e.homophone && conv(e.homophone), zh: conv(e.zh), en: e.en,
   });
   return [...new Set([...buildKeys(e), ...buildKeys(variant(toHant)), ...buildKeys(variant(toHans))])];
 }

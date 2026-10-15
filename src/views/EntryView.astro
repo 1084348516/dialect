@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import FeedbackForm from '../components/FeedbackForm.astro';
-import { LANGS, homePath, dialectPath, entryPath, pick, type Lang } from '../i18n/langs';
+import { LANGS, homePath, dialectPath, entryPath, pick, glossLine, type Lang } from '../i18n/langs';
 import { t } from '../i18n/ui';
 import { relatedEntries, neighbors } from '../lib/entries';
 import type { Dialect } from '../lib/schema';
@@ -23,12 +23,14 @@ const name = pick(lang, d.name, d.nameEn);
 const catName = pick(lang, cat.name, cat.nameEn);
 const meaningZh = e.meaning ?? e.zh;
 const meaningEn = e.meaningEn ?? e.en;
+// 没有英文释义时只显示中文，英文页面也退回中文
+const meaningMain = pick(lang, meaningZh, meaningEn ?? meaningZh);
+const meaningSecondary = meaningEn && pick(lang, meaningEn, meaningZh);
 const note = lang === 'en' ? (e.noteEn ?? e.note) : e.note;
 const related = relatedEntries(d, e);
 const { prev, next } = neighbors(d, e.id);
-const gloss = (zh: string, en: string) => (lang === 'en' ? `${en} · ${zh}` : `${zh} · ${en}`);
 
-const title = `${t(lang, 'metaEntryTitle', { text: e.text, pron: e.pron, gloss: pick(lang, e.zh, e.en), dialect: name })} | Familect`;
+const title = `${t(lang, 'metaEntryTitle', { text: e.text, pron: e.pron, gloss: pick(lang, e.zh, e.en ?? e.zh), dialect: name })} | Familect`;
 const abs = (p: string) => new URL(p, Astro.site).href;
 const jsonLd = [
   {
@@ -36,7 +38,7 @@ const jsonLd = [
     '@type': 'DefinedTerm',
     name: e.text,
     alternateName: [e.pron, ...e.alt],
-    description: pick(lang, meaningZh, meaningEn),
+    description: meaningMain,
     url: abs(entryPath(lang, d.id, e.id)),
     inDefinedTermSet: { '@type': 'DefinedTermSet', name: t(lang, 'metaDialectTitle', { dialect: name }), url: abs(dialectPath(lang, d.id)) },
   },
@@ -51,7 +53,7 @@ const jsonLd = [
   },
 ];
 ---
-<Base lang={lang} title={title} description={pick(lang, meaningZh, meaningEn)} alternates={alternates} jsonLd={jsonLd}>
+<Base lang={lang} title={title} description={meaningMain} alternates={alternates} jsonLd={jsonLd}>
   <div class="wrap page">
     <nav class="breadcrumb">
       <a href={homePath(lang)}>{t(lang, 'home')}</a> /
@@ -69,8 +71,8 @@ const jsonLd = [
           </div>
           <div class="readings">
             <div class="reading"><span class="reading-label">{pick(lang, romanization.name, romanization.nameEn)}</span><span class="reading-value pron">{e.pron}</span></div>
-            <div class="reading"><span class="reading-label">{t(lang, 'homophone')}</span><span class="reading-value">{e.homophone}</span></div>
-            <div class="reading"><span class="reading-label">{t(lang, 'enReading')}</span><span class="reading-value">{e.enReading}</span></div>
+            {e.homophone && <div class="reading"><span class="reading-label">{t(lang, 'homophone')}</span><span class="reading-value">{e.homophone}</span></div>}
+            {e.enReading && <div class="reading"><span class="reading-label">{t(lang, 'enReading')}</span><span class="reading-value">{e.enReading}</span></div>}
           </div>
           <div class="headword-foot">
             <span class="audio-soon" aria-disabled="true">
@@ -83,8 +85,8 @@ const jsonLd = [
 
         <section class="entry-section">
           <h2>{t(lang, 'meaning')}</h2>
-          <p>{pick(lang, meaningZh, meaningEn)}</p>
-          <p class="meaning-secondary">{pick(lang, meaningEn, meaningZh)}</p>
+          <p>{meaningMain}</p>
+          {meaningSecondary && <p class="meaning-secondary">{meaningSecondary}</p>}
           {e.literal && <p class="literal">{t(lang, 'literal')}{e.literal}</p>}
           {note && <p class="tip">{t(lang, 'usageTip')}{note}</p>}
         </section>
@@ -96,7 +98,7 @@ const jsonLd = [
               <div class="card example">
                 <p class="serif example-text">{x.text}</p>
                 <p class="pron">{x.pron}</p>
-                <p class="example-gloss">{gloss(x.zh, x.en)}</p>
+                <p class="example-gloss">{glossLine(lang, x.zh, x.en)}</p>
               </div>
             ))}
           </section>
@@ -133,7 +135,7 @@ const jsonLd = [
           {related.map((r) => (
             <a class="card related" href={entryPath(lang, d.id, r.id)}>
               <span class="serif">{r.text}</span>
-              <small>{pick(lang, r.zh, r.en)}</small>
+              <small>{pick(lang, r.zh, r.en ?? r.zh)}</small>
             </a>
           ))}
         </aside>

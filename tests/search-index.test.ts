@@ -22,6 +22,14 @@ describe('buildSearchRecords', () => {
     expect(en.dialectName).toBe('Hokkien');
     expect(en.keys).toContain('ama');
   });
+
+  it('handles entries without homophone or English gloss', () => {
+    const bare = { id: 'bare', text: '多谢', pron: 'to-siā', zh: '谢谢', category: 'greeting' };
+    const d = makeDialect({ entries: [bare] });
+    const [rec] = buildSearchRecords([d], 'en');
+    expect(rec.en).toBeUndefined();
+    expect(searchIndex([rec], '谢谢').map((r) => r.id)).toEqual(['bare']);
+  });
 });
 
 describe('cross-script search', () => {

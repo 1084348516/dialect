@@ -1,5 +1,5 @@
 ---
-import { entryPath, type Lang } from '../i18n/langs';
+import { entryPath, glossLine, type Lang } from '../i18n/langs';
 import { t } from '../i18n/ui';
 import type { Entry } from '../lib/schema';
 
@@ -15,8 +15,8 @@ const { lang, dialectId, entry: e, badge } = Astro.props;
   <a class="entry-card" href={entryPath(lang, dialectId, e.id)}>
     <span class="entry-card-text serif">{e.text}</span>
     <span class="entry-card-body">
-      <span class="entry-card-line1"><span class="pron">{e.pron}</span> · {t(lang, 'homophoneShort')} {e.homophone}</span>
-      <span>{lang === 'en' ? `${e.en} · ${e.zh}` : `${e.zh} · ${e.en}`}</span>
+      <span class="entry-card-line1"><span class="pron">{e.pron}</span>{e.homophone && ` · ${t(lang, 'homophoneShort')} ${e.homophone}`}</span>
+      <span>{glossLine(lang, e.zh, e.en)}</span>
     </span>
     {badge && <span class="badge-warn">{badge}</span>}
   </a>

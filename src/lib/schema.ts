@@ -7,7 +7,7 @@ const slug = z.string().regex(SLUG_RE, 'must be a slug: lowercase letters, digit
 const text = z.string().trim().min(1);
 const optText = z.string().trim().min(1).nullish().transform((v) => v ?? undefined);
 
-const exampleSchema = z.object({ text, pron: text, zh: text, en: text });
+const exampleSchema = z.object({ text, pron: text, zh: text, en: optText });
 const variantSchema = z.object({ region: text, text: optText, note: optText });
 const regionSchema = z.object({ id: slug, name: text, nameEn: text });
 const categorySchema = regionSchema.extend({ caution: z.boolean().default(false) });
@@ -17,10 +17,10 @@ export const entrySchema = z.object({
   text,
   alt: z.array(text).default([]),
   pron: text,
-  homophone: text,
-  enReading: text,
+  homophone: optText,
+  enReading: optText,
   zh: text,
-  en: text,
+  en: optText,
   meaning: optText,
   meaningEn: optText,
   literal: optText,

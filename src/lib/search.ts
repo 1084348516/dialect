@@ -6,7 +6,7 @@ export interface SearchRecord {
   text: string;
   pron: string;
   zh: string;
-  en: string;
+  en?: string;
   keys: string[];
 }
 
@@ -19,10 +19,10 @@ export function normalize(s: string): string {
     .replace(/[\s\p{P}\p{S}0-9]/gu, '');
 }
 
-const splitGloss = (s: string) => [s, ...s.split(/[；;，,、/]/)];
+const splitGloss = (s = '') => [s, ...s.split(/[；;，,、/]/)];
 
-export function buildKeys(e: { text: string; alt: string[]; pron: string; homophone: string; zh: string; en: string }): string[] {
-  const raw = [e.text, ...e.alt, e.pron, e.homophone, ...splitGloss(e.zh), ...splitGloss(e.en)];
+export function buildKeys(e: { text: string; alt: string[]; pron: string; homophone?: string; zh: string; en?: string }): string[] {
+  const raw = [e.text, ...e.alt, e.pron, e.homophone ?? '', ...splitGloss(e.zh), ...splitGloss(e.en)];
   return [...new Set(raw.map(normalize).filter(Boolean))];
 }
 

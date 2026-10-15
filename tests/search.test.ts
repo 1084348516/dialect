@@ -34,6 +34,10 @@ describe('buildKeys', () => {
     expect(keys).toContain('祖母');
     expect(keys).toContain('paiseh');
   });
+
+  it('skips missing homophone and English gloss', () => {
+    expect(buildKeys({ text: '多谢', alt: [], pron: 'to-siā', zh: '谢谢' })).toEqual(['多谢', 'tosia', '谢谢']);
+  });
 });
 
 describe('searchIndex', () => {

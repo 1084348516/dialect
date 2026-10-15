@@ -108,12 +108,12 @@ entries:
     text: 阿嬷                # 方言原文（正字），不做繁简转换
     alt: [阿妈, 阿嫲]          # 也写作（可选）
     pron: a-má               # 标准拼音（按该方言的 romanization）
-    homophone: 阿妈           # 谐音（近似）
-    enReading: ah-MAH        # English 读法
+    homophone: 阿妈           # 谐音（近似，可选，不写就不显示）
+    enReading: ah-MAH        # English 读法（可选，不写就不显示）
     zh: 奶奶；祖母             # 简短释义，用于列表
-    en: grandma
+    en: grandma              # 可选，不写时英文界面显示中文
     meaning: 奶奶，父亲的母亲。日常当面称呼和背后提起都可以用。   # 详细释义（可选，缺省时用 zh）
-    meaningEn: Grandma (father's mother). Used both to address ...  # 可选，缺省时用 en
+    meaningEn: Grandma (father's mother). Used both to address ...  # 可选，缺省时用 en；两者都没有时只显示中文
     literal: ~               # 字面直译（可选）
     note: 外婆（母亲的母亲）一般叫"外嬷"（guā-má），见家长时别叫错。   # 使用提示（可选）
     noteEn: ~                # 可选，英文界面缺省时显示中文 note
@@ -124,7 +124,7 @@ entries:
       - text: 阿嬷，我转来矣。
         pron: A-má, guá tńg--lâi--ah.
         zh: 奶奶，我回来了。
-        en: Grandma, I am home.
+        en: Grandma, I am home.   # 可选
     variants:                # 各地说法（可选）
       - { region: 台湾, text: 阿嬷 a-má, note: 最常见的写法 }
       - { region: 厦门, text: ~, note: ~ }      # text 为空时显示「待母语者确认」
@@ -134,7 +134,7 @@ entries:
 
 - `status: live` 的方言：`entries` 不能为空，`categories` 至少一个，`intro`、`introEn`、`romanization` 必填
 - `status: soon` 的方言：只需要基本信息，可以没有 `entries`
-- 必填字段：`id`、`text`、`pron`、`homophone`、`enReading`、`zh`、`en`、`category`
+- 必填字段：`id`、`text`、`pron`、`zh`、`category`。`homophone`、`enReading`、`en` 可以先不写，以后再补
 - `category` 必须是本方言 `categories` 中已定义的 id；`regions` 中的每一项必须是 `regions` 中已定义的 id
 - 同一方言内词条 id 不能重复
 - 任何一条不满足，构建失败，并报出方言文件名和词条 id
@@ -185,7 +185,8 @@ entries:
 - **界面文字**：放在 `src/i18n/ui.ts`，三语对照。缺少某个 key 时构建报错
 - **繁体内容**：中文字段（`name`、`intro`、`zh`、`meaning`、`note`、`literal`、例句的 `zh`、`variants` 的 `region` 和 `note`、分类和地区名称）在构建时用 OpenCC 转换（简体 → 台湾正体，`cn → tw`）。**不转换**的字段包括 `text`、`alt`、`homophone`、例句原文，以及所有拼音和英文字段，因为方言用字是固定写法
 - **英文版**：界面为英文。词条页的 meaning 区块先显示英文释义再显示中文；列表卡片的次行改为「英文 · 中文」。`noteEn`、`meaningEn` 缺省时退回中文版本
-- **切换**：语言切换按钮链接到当前页面的另一个语言版本。切换时把选择写入 `localStorage`。访问简体首页 `/` 时，如果存了偏好且不是简体，就跳转过去；其他页面不自动跳转
+- **切换**：语言切换按钮链接到当前页面的另一个语言版本。切换时把选择写入 `localStorage`
+- **自动选择语言**：打开任意简体页面（无前缀网址）时，`<head>` 里的脚本先看 `localStorage` 里有没有手动选过的语言，没有就看浏览器的第一语言：`zh-CN`/`zh-SG`/`zh-Hans` → 简体，`zh-TW`/`zh-HK`/`zh-MO`/`zh-Hant` → 繁体，其他语言 → 英文，然后跳到当前页面对应的语言版本。带 `/zh-hant/`、`/en/` 前缀的网址视为明确选择，不跳；搜索引擎爬虫不跳；404 页不跳。判断逻辑在 `src/i18n/detect.ts`。按 IP 地区判断暂不做
 - 每个页面输出 `hreflang` 标签，`<html lang>` 分别为 `zh-Hans`、`zh-Hant`、`en`
 
 ## 7. 搜索

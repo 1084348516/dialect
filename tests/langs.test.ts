@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { LANGS, HTML_LANG, prefix, homePath, dialectPath, entryPath, pick } from '../src/i18n/langs';
+import { LANGS, HTML_LANG, prefix, homePath, dialectPath, entryPath, pick, glossLine } from '../src/i18n/langs';
 
 describe('langs', () => {
   it('lists three languages with html lang codes', () => {
@@ -14,6 +14,13 @@ describe('langs', () => {
     expect(dialectPath('en', 'minnan')).toBe('/en/minnan/');
     expect(entryPath('zh-hans', 'minnan', 'a-ma')).toBe('/minnan/a-ma/');
     expect(entryPath('zh-hant', 'minnan', 'a-ma')).toBe('/zh-hant/minnan/a-ma/');
+  });
+
+  it('joins glosses with the page language first and drops a missing English gloss', () => {
+    expect(glossLine('zh-hans', '谢谢', 'thank you')).toBe('谢谢 · thank you');
+    expect(glossLine('en', '谢谢', 'thank you')).toBe('thank you · 谢谢');
+    expect(glossLine('zh-hant', '谢谢')).toBe('谢谢');
+    expect(glossLine('en', '谢谢', undefined)).toBe('谢谢');
   });
 
   it('picks the English value only for en', () => {

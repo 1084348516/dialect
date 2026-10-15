@@ -21,6 +21,16 @@ describe('dialectSchema', () => {
     expect(d.reviewed).toBe(false);
   });
 
+  it('treats homophone, enReading and English glosses as optional', () => {
+    const bare = { id: 'bare', text: '多谢', pron: 'to-siā', zh: '谢谢', category: 'greeting', examples: [{ text: '多谢。', pron: 'To-siā.', zh: '谢谢。' }] };
+    const d = dialectSchema.parse({ ...rawMinnan, entries: [...entries, bare] });
+    const e = d.entries[3];
+    expect(e.homophone).toBeUndefined();
+    expect(e.enReading).toBeUndefined();
+    expect(e.en).toBeUndefined();
+    expect(e.examples[0].en).toBeUndefined();
+  });
+
   it('accepts a soon dialect with only basic info', () => {
     const r = dialectSchema.safeParse({ name: '客家话', nameEn: 'Hakka', status: 'soon', order: 4, areas: '梅州', areasEn: 'Meizhou' });
     expect(r.success).toBe(true);
@@ -52,8 +62,8 @@ describe('dialectSchema', () => {
 
   it('rejects bad slugs and missing required fields', () => {
     expect(issues({ ...rawMinnan, entries: [{ ...entries[1], id: 'A_kong' }] }).length).toBeGreaterThan(0);
-    const { enReading: _omit, ...noReading } = entries[1];
-    expect(issues({ ...rawMinnan, entries: [noReading] }).length).toBeGreaterThan(0);
+    const { pron: _omit, ...noPron } = entries[1];
+    expect(issues({ ...rawMinnan, entries: [noPron] }).length).toBeGreaterThan(0);
   });
 });
 

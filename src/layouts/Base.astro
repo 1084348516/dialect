@@ -1,7 +1,8 @@
 ---
 import '../styles/global.css';
 import font from '../generated/font.json';
-import { LANGS, HTML_LANG, homePath, type Lang } from '../i18n/langs';
+import { LANGS, HTML_LANG, LANG_STORAGE_KEY, homePath, type Lang } from '../i18n/langs';
+import { chooseLang } from '../i18n/detect';
 import { t } from '../i18n/ui';
 import LangSwitch from '../components/LangSwitch.astro';
 
@@ -17,14 +18,19 @@ interface Props {
 const { lang, title, description, alternates, jsonLd = [], preloadFont = false, noindex = false } = Astro.props;
 const abs = (p: string) => new URL(p, Astro.site).href;
 const fontFace = `@font-face{font-family:"Familect Serif";src:url(${font.file}) format("woff2");font-weight:700;font-style:normal;font-display:swap}`;
-const ld = (o: object) => JSON.stringify(o).replace(/</g, '\\u003c');
+const ld = (o: unknown) => JSON.stringify(o).replace(/</g, '\\u003c');
+// 简体页面按访客选过的语言或浏览器语言跳到对应版本；带 /zh-hant/、/en/ 前缀的网址视为明确选择，不跳
+const redirect = lang === 'zh-hans' && !noindex
+  ? `try{var l=(${chooseLang})(localStorage.getItem(${ld(LANG_STORAGE_KEY)}),navigator.languages||[navigator.language],navigator.userAgent);if(l!=='zh-hans')location.replace(${ld(alternates)}[l]+location.search+location.hash)}catch(e){}`
+  : '';
 ---
 <!doctype html>
 <html lang={HTML_LANG[lang]}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
+    {redirect && <script is:inline set:html={redirect}></script>}
+    <title>{t(lang, 'metaHomeTitle')}</title>
     <meta name="description" content={description} />
     {noindex ? <meta name="robots" content="noindex" /> : (
       <>

@@ -22,7 +22,9 @@ npx wrangler pages dev                              # 整站 + 反馈接口，ht
 - 母语者校对完成后：把 `reviewed` 改成 `true`，页面上的「示例数据」提示会消失
 - 改完运行 `npm test`，格式有问题会直接指出是哪个文件、哪条词条
 
-`npm run verify` 是针对示例数据写的检查，换掉示例数据后需要相应修改 `scripts/verify-dist.mjs`，或者不再使用它。
+- 词条必填的只有 `id`、`text`、`pron`、`zh`、`category`；谐音、English 读法、英文释义可以先空着，页面上不会显示对应的栏目
+
+`npm run verify` 会按 YAML 的实际内容检查构建结果（每条词条三种语言的页面都生成了、搜索索引条数对得上、没写的栏目没有显示等），换内容不需要改这个脚本。
 
 ## 部署到 Cloudflare Pages
 

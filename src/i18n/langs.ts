@@ -25,3 +25,9 @@ export function entryPath(lang: Lang, dialectId: string, entryId: string): strin
 export function pick<T>(lang: Lang, zh: T, en: T): T {
   return lang === 'en' ? en : zh;
 }
+
+/** 中英释义合成一行，当前语言在前；没有英文释义时只显示中文。 */
+export function glossLine(lang: Lang, zh: string, en?: string): string {
+  if (!en) return zh;
+  return lang === 'en' ? `${en} · ${zh}` : `${zh} · ${en}`;
+}
