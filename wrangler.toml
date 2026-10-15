@@ -5,8 +5,7 @@ compatibility_date = "2025-09-01"
 [[d1_databases]]
 binding = "DB"
 database_name = "familect"
-# 本地开发可以用这个占位 id；部署前执行 `npx wrangler d1 create familect`，把返回的 database_id 填到这里（见 README）
-database_id = "00000000-0000-0000-0000-000000000000"
+database_id = "01cf7b40-05ae-4224-ac93-4b866292ad2d"
 migrations_dir = "migrations"
 
 # 有了自有域名并启用 Email Routing 后，取消下面的注释，并在 Cloudflare 后台设置 FEEDBACK_EMAIL_TO / FEEDBACK_EMAIL_FROM

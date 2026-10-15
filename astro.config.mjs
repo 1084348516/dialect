@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: process.env.SITE_URL ?? 'https://familect.pages.dev',
+  site: process.env.SITE_URL ?? 'https://familect.org',
   // 'always' 会让开发模式下 /search/*.json 必须带结尾斜杠，导致搜索索引 404；页面仍按目录输出，网址照样以 / 结尾
   trailingSlash: 'ignore',
   build: { format: 'directory' },
