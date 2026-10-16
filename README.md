@@ -63,7 +63,7 @@ npx wrangler d1 execute familect --remote --command "UPDATE feedback SET status=
 3. 关掉重复的入口：Worker `dialect` → Settings → Domains & Routes，把 `workers.dev` 和 Preview URLs 都设为 Disabled，这样网站只能通过 familect.org 访问
 4. 邮件通知：
    - 为 familect.org 启用 Email Routing，并验证你的收件邮箱
-   - 取消 `wrangler.toml` 中 `[[send_email]]` 部分的注释
+   - `wrangler.toml` 已启用 `[[send_email]]` 绑定，并用 `keep_vars = true` 保留后台设置的变量
    - 在 Worker 的 Settings → Variables and Secrets 中加入 `FEEDBACK_EMAIL_TO`（你的邮箱）和 `FEEDBACK_EMAIL_FROM`（例如 `feedback@familect.org`）
 5. 搜索引擎：
    - Google Search Console：添加“网域”资源 `familect.org`，用 DNS TXT 验证（在 Cloudflare DNS 中添加），提交 `https://familect.org/sitemap-index.xml`

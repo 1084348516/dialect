@@ -2,6 +2,8 @@
 name = "dialect"
 main = "worker/index.js"
 compatibility_date = "2025-09-01"
+# FEEDBACK_EMAIL_TO / FEEDBACK_EMAIL_FROM 只在 Cloudflare 后台设置（不把邮箱写进仓库），部署时保留后台的变量
+keep_vars = true
 
 [assets]
 directory = "./dist"
@@ -15,6 +17,6 @@ database_name = "familect"
 database_id = "01cf7b40-05ae-4224-ac93-4b866292ad2d"
 migrations_dir = "migrations"
 
-# 启用 Email Routing 后，取消下面的注释，并在 Worker 设置中加入 FEEDBACK_EMAIL_TO / FEEDBACK_EMAIL_FROM
-# [[send_email]]
-# name = "SEND_EMAIL"
+# 反馈邮件通知：依赖 familect.org 的 Email Routing，收件邮箱需在其中验证
+[[send_email]]
+name = "SEND_EMAIL"
