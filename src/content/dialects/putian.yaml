@@ -1,0 +1,79 @@
+name: 莆田话
+nameEn: Putian (Puxian Min)
+status: live
+order: 6
+reviewed: false
+areas: 莆田、仙游，东南亚莆仙籍华人
+areasEn: Putian and Xianyou; Puxian communities in Southeast Asia
+intro: 通行于福建莆田、仙游一带，属闽语莆仙片，和闽南语相近但读音差别很大。词条拼读为按普通话近似记音，尚未核对。
+introEn: Spoken around Putian and Xianyou in Fujian. It belongs to the Puxian branch of Min Chinese — related to Hokkien but quite different in pronunciation. Readings are rough Mandarin-based approximations and have not been checked yet.
+romanization: { name: 近似拼读, nameEn: Approximate reading }
+
+categories:
+  - { id: daily, name: 日常用语, nameEn: Everyday }
+  - { id: crude, name: 粗口, nameEn: Crude, caution: true }
+
+entries:
+  - id: ha-bo
+    text: 食饱
+    pron: ha bo
+    homophone: 虾波
+    enReading: hah-BOH
+    zh: 吃饱
+    en: to be full (after eating)
+    category: daily
+
+  - id: ha-man
+    text: 食饭
+    pron: ha man
+    homophone: 虾满
+    enReading: hah-MAHN
+    zh: 吃饭
+    en: to eat (a meal)
+    category: daily
+
+  - id: gia
+    text: 行
+    pron: gia
+    enReading: GYAH
+    zh: 走
+    en: to walk; to go
+    category: daily
+
+  - id: ha-lian-nai
+    text: 下联奶
+    alt: [下练奶]
+    pron: ha lian nai
+    homophone: 下联奶
+    enReading: hah-lyen-NYE
+    zh: 骂人的脏话
+    en: a curse word
+    meaning: 骂人的脏话，意思接近"要命""找死""混蛋"，属于比较恶毒的诅咒，常被当口头禅。
+    meaningEn: A curse, roughly "damn you" / "go to hell" / "bastard". Quite vicious, though often used as a verbal tic.
+    note: 日常生活中应避免使用。
+    noteEn: Avoid using it in everyday conversation.
+    category: crude
+
+  - id: di-iu-gua-sao
+    text: 猪油刮骚
+    alt: [猪锅刮骚]
+    pron: di iu gua sao
+    homophone: 地有挂扫
+    enReading: dee-yoo-gwah-SOW
+    zh: 气死了；真火大
+    en: so pissed off
+    meaning: 表达愤怒的情绪，可以理解为"气死了""真是火大"。
+    meaningEn: An angry outburst, roughly "I'm so mad" / "this is infuriating".
+    category: crude
+
+  - id: sa-du-lo-man
+    text: 撒嘟咯满
+    alt: [撒都满]
+    pron: sa du lo man
+    homophone: 撒嘟咯满
+    enReading: sah-doo-loh-MAHN
+    zh: 骂人、发火的粗话
+    en: a crude curse
+    meaning: 表达愤怒、咒骂或极不耐烦的粗俗用语。
+    meaningEn: A crude expression of anger, cursing or extreme impatience.
+    category: crude
