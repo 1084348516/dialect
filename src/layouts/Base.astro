@@ -5,6 +5,7 @@ import { LANGS, HTML_LANG, LANG_STORAGE_KEY, homePath, type Lang } from '../i18n
 import { chooseLang } from '../i18n/detect';
 import { t } from '../i18n/ui';
 import LangSwitch from '../components/LangSwitch.astro';
+import FeedbackForm from '../components/FeedbackForm.astro';
 
 interface Props {
   lang: Lang;
@@ -14,8 +15,10 @@ interface Props {
   jsonLd?: object[];
   preloadFont?: boolean;
   noindex?: boolean;
+  /** 页脚反馈附带的方言 id；词条页自带反馈表单，传 false 不在页脚重复显示 */
+  feedbackDialect?: string | false;
 }
-const { lang, title, description, alternates, jsonLd = [], preloadFont = false, noindex = false } = Astro.props;
+const { lang, title, description, alternates, jsonLd = [], preloadFont = false, noindex = false, feedbackDialect } = Astro.props;
 const abs = (p: string) => new URL(p, Astro.site).href;
 const fontFace = `@font-face{font-family:"Familect Serif";src:url(${font.file}) format("woff2");font-weight:700;font-style:normal;font-display:swap}`;
 const ld = (o: unknown) => JSON.stringify(o).replace(/</g, '\\u003c');
@@ -68,7 +71,7 @@ const redirect = lang === 'zh-hans' && !noindex
     <footer class="site-footer">
       <div class="wrap footer-inner">
         <span>Familect · {t(lang, 'footerTagline')}</span>
-        <span>{t(lang, 'footerFeedback')}</span>
+        {feedbackDialect !== false && <FeedbackForm lang={lang} dialectId={feedbackDialect} />}
       </div>
     </footer>
   </body>

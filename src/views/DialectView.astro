@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import SearchBox from '../components/SearchBox.astro';
 import EntryCard from '../components/EntryCard.astro';
 import { LANGS, homePath, dialectPath, exportPath, pick, type Lang } from '../i18n/langs';
 import { t } from '../i18n/ui';
@@ -32,9 +31,7 @@ const breadcrumb = {
   ],
 };
 ---
-<Base lang={lang} title={`${t(lang, 'metaDialectTitle', { dialect: name })} | Familect`} description={intro} alternates={alternates} jsonLd={[breadcrumb]}>
-  <SearchBox slot="header" lang={lang} placeholder={t(lang, 'searchPlaceholderDialect', { dialect: name })} dialectId={d.id} variant="compact" />
-
+<Base lang={lang} title={`${t(lang, 'metaDialectTitle', { dialect: name })} | Familect`} description={intro} alternates={alternates} jsonLd={[breadcrumb]} feedbackDialect={d.id}>
   <div class="wrap page" data-dialect-page>
     <nav class="breadcrumb"><a href={homePath(lang)}>{t(lang, 'home')}</a> / <span>{name}</span></nav>
 

@@ -20,3 +20,9 @@ migrations_dir = "migrations"
 # 反馈邮件通知：依赖 familect.org 的 Email Routing，收件邮箱需在其中验证
 [[send_email]]
 name = "SEND_EMAIL"
+
+# 反馈接口按 IP 限流：每个 IP 每分钟最多 3 条（period 只能是 10 或 60 秒）
+[[ratelimits]]
+name = "FEEDBACK_LIMITER"
+namespace_id = "1001"
+simple = { limit = 3, period = 60 }

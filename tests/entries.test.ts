@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { relatedEntries, neighbors, featuredEntries, isCaution } from '../src/lib/entries';
+import { relatedEntries, neighbors, isCaution } from '../src/lib/entries';
 import { makeDialect, rawMinnan } from './fixtures';
 
 const minnan = makeDialect();
@@ -20,13 +20,6 @@ describe('entries helpers', () => {
     expect(neighbors(minnan, 'a-kong')).toEqual({ prev: minnan.entries[0], next: minnan.entries[2] });
     expect(neighbors(minnan, 'to-sia').next).toBeUndefined();
   });
-
-  it('featuredEntries only uses live dialects, in order', () => {
-    const soon = makeDialect({ status: 'soon' }, 'hakka');
-    expect(featuredEntries([minnan, soon]).map((f) => `${f.dialect.id}/${f.entry.id}`)).toEqual(['minnan/a-ma', 'minnan/to-sia']);
-    expect(featuredEntries([minnan], 1)).toHaveLength(1);
-  });
-
 
   it('isCaution reads the category flag', () => {
     const withCrude = makeDialect({ entries: [...rawMinnan.entries, crudeEntry] });

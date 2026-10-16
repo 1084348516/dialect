@@ -2,23 +2,31 @@
 import type { Lang } from '../i18n/langs';
 import { t, type UiKey } from '../i18n/ui';
 
+// 不传 entryId 就是页脚的全站反馈（可带上当前方言），问题类型换成建议 / 网站问题
 interface Props {
   lang: Lang;
-  dialectId: string;
-  entryId: string;
+  dialectId?: string;
+  entryId?: string;
 }
-const { lang, dialectId, entryId } = Astro.props;
-const types: [string, UiKey][] = [
-  ['pron', 'fbTypePron'],
-  ['translation', 'fbTypeTranslation'],
-  ['chars', 'fbTypeChars'],
-  ['other', 'fbTypeOther'],
-];
+const { lang, dialectId = '', entryId = '' } = Astro.props;
+const general = !entryId;
+const types: [string, UiKey][] = general
+  ? [
+      ['request', 'fbTypeRequest'],
+      ['site', 'fbTypeSite'],
+      ['other', 'fbTypeOther'],
+    ]
+  : [
+      ['pron', 'fbTypePron'],
+      ['translation', 'fbTypeTranslation'],
+      ['chars', 'fbTypeChars'],
+      ['other', 'fbTypeOther'],
+    ];
 ---
-<details class="feedback">
-  <summary>{t(lang, 'report')}</summary>
-  <form class="feedback-form" data-feedback data-sending={t(lang, 'fbSending')} data-error={t(lang, 'fbError')}>
-    <h3>{t(lang, 'fbTitle')}</h3>
+<details class:list={['feedback', { 'footer-feedback': general }]}>
+  <summary>{t(lang, general ? 'footerFeedback' : 'report')}</summary>
+  <form class="feedback-form" data-feedback data-sending={t(lang, 'fbSending')} data-error={t(lang, 'fbError')} data-too-many={t(lang, 'fbTooMany')}>
+    <h3>{t(lang, general ? 'fbTitleGeneral' : 'fbTitle')}</h3>
     <input type="hidden" name="dialect" value={dialectId} />
     <input type="hidden" name="entry" value={entryId} />
     <input type="hidden" name="lang" value={lang} />
@@ -64,9 +72,9 @@ const types: [string, UiKey][] = [
         if (!res.ok) throw new Error(String(res.status));
         form.hidden = true;
         thanks.hidden = false;
-      } catch {
+      } catch (err) {
         status.classList.add('is-error');
-        status.textContent = form.dataset.error ?? '';
+        status.textContent = (err instanceof Error && err.message === '429' ? form.dataset.tooMany : form.dataset.error) ?? '';
         button.disabled = false;
       }
     });

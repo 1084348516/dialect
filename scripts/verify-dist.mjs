@@ -20,7 +20,7 @@ const prefixes = { 'zh-hans': '', 'zh-hant': 'zh-hant/', en: 'en/' };
 const htmlLang = { 'zh-hans': 'zh-Hans', 'zh-hant': 'zh-Hant', en: 'en' };
 
 const mustExist = [
-  'search/zh-hans.json', 'search/zh-hant.json', 'search/en.json',
+  'feedback-entries.json',
   'sitemap-index.xml', 'robots.txt', '404.html', '_headers', 'og.png', 'favicon.svg',
 ];
 for (const p of Object.values(prefixes)) {
@@ -42,7 +42,8 @@ if (failures.length === 0) {
   const home = read('index.html');
   check(!home.includes('按场景查'), 'home should not have the scene section');
   check(!home.includes('听懂家里长辈说的话'), 'home should not have the eyebrow line');
-  check(!/<button[^>]*type="submit"/.test(home), 'home search should have no submit button');
+  check(!home.includes('type="search"'), 'home should have no search box');
+  check(home.includes('data-feedback'), 'home footer should have the feedback form');
   const cards = (home.match(/class="dialect-card( [^"]*)?"/g) ?? []).length;
   check(cards === live.length, `home should render ${live.length} live dialect cards, got ${cards}`);
   for (const d of soon) check(home.includes(d.name), `home should still list coming-soon dialect ${d.name}`);
@@ -80,11 +81,9 @@ if (failures.length === 0) {
   }
 
   const liveIds = new Set(live.map((d) => d.id));
-  for (const lang of Object.keys(prefixes)) {
-    const index = JSON.parse(read(`search/${lang}.json`));
-    check(index.length === entryCount, `search/${lang}.json should have ${entryCount} entries, got ${index.length}`);
-    check(index.every((r) => liveIds.has(r.dialect)), `search/${lang}.json should only contain live dialects`);
-  }
+  const index = JSON.parse(read('feedback-entries.json'));
+  check(index.length === entryCount, `feedback-entries.json should have ${entryCount} entries, got ${index.length}`);
+  check(index.every((r) => liveIds.has(r.dialect)), 'feedback-entries.json should only contain live dialects');
 
   const sitemap = read('sitemap-0.xml');
   for (const d of live) {

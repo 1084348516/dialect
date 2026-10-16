@@ -1,10 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
-import SearchBox from '../components/SearchBox.astro';
 import DialectCard from '../components/DialectCard.astro';
-import { LANGS, homePath, entryPath, pick, type Lang } from '../i18n/langs';
+import { LANGS, homePath, pick, type Lang } from '../i18n/langs';
 import { t } from '../i18n/ui';
-import { featuredEntries } from '../lib/entries';
 import type { Dialect } from '../lib/schema';
 
 interface Props {
@@ -15,21 +13,11 @@ const { lang, dialects } = Astro.props;
 const alternates = Object.fromEntries(LANGS.map((l) => [l, homePath(l)])) as Record<Lang, string>;
 const live = dialects.filter((d) => d.status === 'live');
 const soon = dialects.filter((d) => d.status === 'soon');
-const featured = featuredEntries(dialects);
 const showSample = live.some((d) => !d.reviewed);
 ---
 <Base lang={lang} title={t(lang, 'metaHomeTitle')} description={t(lang, 'metaHomeDesc')} alternates={alternates} preloadFont>
   <section class="wrap hero">
     <h1 class="hero-title">{t(lang, 'heroTitle')}</h1>
-    <SearchBox lang={lang} placeholder={t(lang, 'searchPlaceholderAll')} />
-    {featured.length > 0 && (
-      <p class="hot">
-        {t(lang, 'hot')}
-        {featured.map((f, i) => (
-          <>{i > 0 && ' · '}<a href={entryPath(lang, f.dialect.id, f.entry.id)}>{f.entry.text}</a></>
-        ))}
-      </p>
-    )}
   </section>
 
   <section class="wrap section" id="dialects">

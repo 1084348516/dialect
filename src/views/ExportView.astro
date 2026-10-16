@@ -26,7 +26,7 @@ const data = {
 };
 const json = JSON.stringify(data).replace(/</g, '\\u003c');
 ---
-<Base lang={lang} title={`${t(lang, 'metaExportTitle', { dialect: name })} | Familect`} description={t(lang, 'metaExportTitle', { dialect: name })} alternates={alternates} noindex>
+<Base lang={lang} title={`${t(lang, 'metaExportTitle', { dialect: name })} | Familect`} description={t(lang, 'metaExportTitle', { dialect: name })} alternates={alternates} noindex feedbackDialect={d.id}>
   <div class="wrap page" data-export-page>
     <nav class="breadcrumb"><a href={homePath(lang)}>{t(lang, 'home')}</a> / <a href={dialectPath(lang, d.id)}>{name}</a> / <span>{t(lang, 'exportHeading')}</span></nav>
     <h1 class="export-heading">{t(lang, 'exportHeading')}</h1>

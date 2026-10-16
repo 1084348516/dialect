@@ -24,7 +24,7 @@ npx wrangler dev                                    # 整站 + 反馈接口，ht
 
 - 词条必填的只有 `id`、`text`、`pron`、`zh`、`category`；谐音、English 读法、英文释义可以先空着，页面上不会显示对应的栏目
 
-`npm run verify` 会按 YAML 的实际内容检查构建结果（每条词条三种语言的页面都生成了、搜索索引条数对得上、没写的栏目没有显示等），换内容不需要改这个脚本。
+`npm run verify` 会按 YAML 的实际内容检查构建结果（每条词条三种语言的页面都生成了、反馈用的词条清单条数对得上、没写的栏目没有显示等），换内容不需要改这个脚本。
 
 ## 部署到 Cloudflare Workers
 
@@ -53,6 +53,12 @@ npx wrangler d1 execute familect --remote --command "UPDATE feedback SET status=
 ```
 
 也可以在 Cloudflare 后台 → D1 → familect → Console 中直接查询。
+
+防止乱发：反馈接口只接受本站页面发来的请求，每个 IP 每分钟最多 3 条（`wrangler.toml` 的 `[[ratelimits]]`），每天（北京时间）最多发 30 封通知邮件（`src/server/feedback.js` 的 `MAX_EMAILS_PER_DAY`），超出的只入库不发信。被刷了的话可以按时间批量删掉：
+
+```bash
+npx wrangler d1 execute familect --remote --command "DELETE FROM feedback WHERE status='new' AND created_at >= '2026-10-16 00:00:00'"
+```
 
 ## 域名：familect.org
 

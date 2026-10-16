@@ -22,7 +22,7 @@ describe('ui strings', () => {
 
   it('interpolates variables and leaves unknown placeholders', () => {
     expect(t('zh-hans', 'entryCount', { n: 7 })).toBe('7 条词条');
-    expect(t('en', 'searchPlaceholderDialect', { dialect: 'Hokkien' })).toBe('Search Hokkien');
-    expect(t('en', 'searchPlaceholderDialect')).toBe('Search {dialect}');
+    expect(t('en', 'metaDialectTitle', { dialect: 'Hokkien' })).toContain('Hokkien');
+    expect(t('en', 'metaDialectTitle')).toContain('{dialect}');
   });
 });
