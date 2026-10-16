@@ -1,0 +1,139 @@
+---
+import Base from '../layouts/Base.astro';
+import { LANGS, homePath, dialectPath, exportPath, pick, type Lang } from '../i18n/langs';
+import { t } from '../i18n/ui';
+import { MAX_PER_CARD, toCardEntry } from '../lib/export';
+import type { Dialect } from '../lib/schema';
+
+interface Props {
+  lang: Lang;
+  dialects: Dialect[];
+  dialectId: string;
+}
+const { lang, dialects, dialectId } = Astro.props;
+const d = dialects.find((x) => x.id === dialectId)!;
+const alternates = Object.fromEntries(LANGS.map((l) => [l, exportPath(l, d.id)])) as Record<Lang, string>;
+const name = pick(lang, d.name, d.nameEn);
+const site = new URL(dialectPath(lang, d.id), Astro.site);
+const data = {
+  dialectId: d.id,
+  // {n} 留给客户端按选中数量替换
+  titleTemplate: t(lang, 'exportCardTitle', { dialect: name }),
+  subtitle: d.romanization ? `${name} · ${pick(lang, d.romanization.name, d.romanization.nameEn)}` : name,
+  footerLabel: t(lang, 'exportCardFooter'),
+  footerUrl: `${site.host}${site.pathname.replace(/\/$/, '')}`,
+  entries: d.entries.map((e) => toCardEntry(lang, e)),
+};
+const json = JSON.stringify(data).replace(/</g, '\\u003c');
+---
+<Base lang={lang} title={`${t(lang, 'metaExportTitle', { dialect: name })} | Familect`} description={t(lang, 'metaExportTitle', { dialect: name })} alternates={alternates} noindex>
+  <div class="wrap page" data-export-page>
+    <nav class="breadcrumb"><a href={homePath(lang)}>{t(lang, 'home')}</a> / <a href={dialectPath(lang, d.id)}>{name}</a> / <span>{t(lang, 'exportHeading')}</span></nav>
+    <h1 class="export-heading">{t(lang, 'exportHeading')}</h1>
+
+    <p class="export-empty" data-export-empty hidden>
+      {t(lang, 'exportEmpty')} <a href={dialectPath(lang, d.id)} data-export-back>{t(lang, 'exportBack')}</a>
+    </p>
+
+    <div class="export-tools" data-export-tools hidden>
+      <label class="export-title-field">
+        <span>{t(lang, 'exportTitleLabel')}</span>
+        <input type="text" maxlength="40" data-export-title />
+      </label>
+      <p class="export-hint">{t(lang, 'exportHint', { max: MAX_PER_CARD })}</p>
+      <div class="export-actions">
+        <button type="button" class="btn-primary" data-export-download>{t(lang, 'exportDownload')}</button>
+        <button type="button" class="btn-ghost" data-export-print>{t(lang, 'exportPrint')}</button>
+        <a href={dialectPath(lang, d.id)} data-export-back>{t(lang, 'exportBack')}</a>
+      </div>
+    </div>
+
+    <div class="export-previews" data-export-previews></div>
+  </div>
+  <script type="application/json" id="export-data" set:html={json}></script>
+</Base>
+
+<script>
+  import { parseIds, idsQuery, paginate, fileName, type CardEntry } from '../lib/export';
+  import { drawCard, loadFonts } from '../lib/export-canvas';
+
+  interface ExportData {
+    dialectId: string;
+    titleTemplate: string;
+    subtitle: string;
+    footerLabel: string;
+    footerUrl: string;
+    entries: CardEntry[];
+  }
+
+  const root = document.querySelector<HTMLElement>('[data-export-page]');
+  const dataEl = document.getElementById('export-data');
+  if (root && dataEl) {
+    const data = JSON.parse(dataEl.textContent ?? '{}') as ExportData;
+    const ids = parseIds(location.search, data.entries.map((e) => e.id));
+    const byId = new Map(data.entries.map((e) => [e.id, e]));
+    const pages = paginate(ids.map((id) => byId.get(id)!));
+    const q = <T extends Element>(sel: string) => root.querySelector<T>(sel)!;
+
+    // 返回方言页、切换语言时带上已选词条
+    for (const a of document.querySelectorAll<HTMLAnchorElement>('[data-export-back], .lang-switch a')) {
+      a.href = a.href.split('?')[0] + idsQuery(ids);
+    }
+
+    if (pages.length === 0) {
+      q<HTMLElement>('[data-export-empty]').hidden = false;
+    } else {
+      const tools = q<HTMLElement>('[data-export-tools]');
+      const titleInput = q<HTMLInputElement>('[data-export-title]');
+      const previews = q<HTMLElement>('[data-export-previews]');
+      const canvases = pages.map(() => document.createElement('canvas'));
+      const imgs = pages.map((_, i) => {
+        const img = document.createElement('img');
+        img.alt = `${i + 1} / ${pages.length}`;
+        img.width = 1080;
+        img.height = 1440;
+        previews.append(img);
+        return img;
+      });
+      titleInput.value = data.titleTemplate.replace('{n}', String(ids.length));
+      tools.hidden = false;
+
+      let urls: string[] = [];
+      const render = async () => {
+        const title = titleInput.value.trim() || titleInput.placeholder;
+        await loadFonts([title, data.subtitle, data.footerLabel, data.footerUrl, ...pages.flat().flatMap((e) => [e.text, e.pron, e.sub ?? '', e.gloss])]);
+        const blobs = await Promise.all(
+          pages.map((entries, i) => {
+            const canvas = canvases[i];
+            drawCard(canvas, { title, subtitle: data.subtitle, entries, footerLabel: data.footerLabel, footerUrl: data.footerUrl, page: i + 1, pages: pages.length });
+            return new Promise<Blob>((resolve) => canvas.toBlob((b) => resolve(b!), 'image/png'));
+          }),
+        );
+        urls.forEach((u) => URL.revokeObjectURL(u));
+        urls = blobs.map((b) => URL.createObjectURL(b));
+        imgs.forEach((img, i) => (img.src = urls[i]));
+      };
+
+      titleInput.placeholder = titleInput.value;
+      let timer: number | undefined;
+      titleInput.addEventListener('input', () => {
+        clearTimeout(timer);
+        timer = window.setTimeout(render, 250);
+      });
+
+      q('[data-export-download]').addEventListener('click', () => {
+        urls.forEach((url, i) => {
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = fileName(data.dialectId, i, urls.length);
+          document.body.append(a);
+          a.click();
+          a.remove();
+        });
+      });
+      q('[data-export-print]').addEventListener('click', () => window.print());
+
+      render();
+    }
+  }
+</script>

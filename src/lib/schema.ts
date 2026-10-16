@@ -2,6 +2,8 @@ import { z } from 'zod';
 
 export const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 export const RESERVED_IDS = ['zh-hans', 'zh-hant', 'en', 'search', 'fonts', 'api', '_astro'];
+/** 方言目录下的功能页，词条 id 不能与之重名 */
+export const RESERVED_ENTRY_IDS = ['export'];
 
 const slug = z.string().regex(SLUG_RE, 'must be a slug: lowercase letters, digits and single hyphens');
 const text = z.string().trim().min(1);
@@ -74,6 +76,7 @@ export const dialectSchema = z
     const catIds = new Set(d.categories.map((c) => c.id));
     const regionIds = new Set(d.regions.map((r) => r.id));
     d.entries.forEach((e, i) => {
+      if (RESERVED_ENTRY_IDS.includes(e.id)) issue(['entries', i, 'id'], `entry id "${e.id}" is reserved`);
       if (!catIds.has(e.category)) issue(['entries', i, 'category'], `entry "${e.id}": unknown category "${e.category}"`);
       e.regions.forEach((r, j) => {
         if (!regionIds.has(r)) issue(['entries', i, 'regions', j], `entry "${e.id}": unknown region "${r}"`);

@@ -22,6 +22,10 @@ export function entryPath(lang: Lang, dialectId: string, entryId: string): strin
   return `${prefix(lang)}/${dialectId}/${entryId}/`;
 }
 
+export function exportPath(lang: Lang, dialectId: string): string {
+  return `${prefix(lang)}/${dialectId}/export/`;
+}
+
 export function pick<T>(lang: Lang, zh: T, en: T): T {
   return lang === 'en' ? en : zh;
 }

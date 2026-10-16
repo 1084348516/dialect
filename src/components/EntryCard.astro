@@ -11,7 +11,8 @@ interface Props {
 }
 const { lang, dialectId, entry: e, badge } = Astro.props;
 ---
-<li data-entry data-cat={e.category} data-regions={e.regions.join(' ')}>
+<li data-entry data-id={e.id} data-cat={e.category} data-regions={e.regions.join(' ')}>
+  <input type="checkbox" class="entry-pick" value={e.id} aria-label={t(lang, 'exportPick', { text: e.text })} />
   <a class="entry-card" href={entryPath(lang, dialectId, e.id)}>
     <span class="entry-card-text serif">{e.text}</span>
     <span class="entry-card-body">

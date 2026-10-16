@@ -60,6 +60,11 @@ describe('dialectSchema', () => {
     expect(issues(bad).join()).toMatch(/duplicate entry id "a-kong"/);
   });
 
+  it('rejects entry ids that clash with dialect sub-pages', () => {
+    const bad = { ...rawMinnan, entries: [{ ...entries[1], id: 'export' }] };
+    expect(issues(bad).join()).toMatch(/entry id "export" is reserved/);
+  });
+
   it('rejects bad slugs and missing required fields', () => {
     expect(issues({ ...rawMinnan, entries: [{ ...entries[1], id: 'A_kong' }] }).length).toBeGreaterThan(0);
     const { pron: _omit, ...noPron } = entries[1];

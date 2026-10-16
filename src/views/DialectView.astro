@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import SearchBox from '../components/SearchBox.astro';
 import EntryCard from '../components/EntryCard.astro';
-import { LANGS, homePath, dialectPath, pick, type Lang } from '../i18n/langs';
+import { LANGS, homePath, dialectPath, exportPath, pick, type Lang } from '../i18n/langs';
 import { t } from '../i18n/ui';
 import { isCaution } from '../lib/entries';
 import type { Dialect } from '../lib/schema';
@@ -65,7 +65,10 @@ const breadcrumb = {
       </aside>
 
       <section>
-        <h2 class="list-title" data-list-title data-all={t(lang, 'allEntries')}>{t(lang, 'allEntries')}</h2>
+        <div class="list-head">
+          <h2 class="list-title" data-list-title data-all={t(lang, 'allEntries')}>{t(lang, 'allEntries')}</h2>
+          <button type="button" class="btn-ghost" data-export-start>{t(lang, 'exportStart')}</button>
+        </div>
         <ul class="entry-list">
           {d.entries.map((e) => (
             <EntryCard lang={lang} dialectId={d.id} entry={e} badge={isCaution(d, e) ? catName(e.category) : undefined} />
@@ -74,6 +77,15 @@ const breadcrumb = {
         <p class="filter-empty" hidden>{t(lang, 'filterEmpty')}</p>
         {!d.reviewed && <p class="sample-notice">{t(lang, 'sampleNotice')}</p>}
       </section>
+    </div>
+
+    <div class="export-bar" data-export-bar hidden>
+      <div class="export-bar-inner">
+        <span class="export-count" data-export-count data-template={t(lang, 'exportSelected')}></span>
+        <button type="button" class="btn-ghost" data-export-all>{t(lang, 'exportSelectShown')}</button>
+        <button type="button" class="btn-ghost" data-export-cancel>{t(lang, 'exportCancel')}</button>
+        <a class="btn-primary" href={exportPath(lang, d.id)} data-export-href={exportPath(lang, d.id)} data-export-go aria-disabled="true">{t(lang, 'exportGo')}</a>
+      </div>
     </div>
   </div>
 </Base>
@@ -122,5 +134,67 @@ const breadcrumb = {
       }
     }
     apply();
+  }
+</script>
+
+<script>
+  import { parseIds, idsQuery } from '../lib/export';
+
+  // 选词导出：勾选词条后跳到导出页，已选的 id 放在网址里，从导出页返回时会带回来
+  const root = document.querySelector<HTMLElement>('[data-dialect-page]');
+  if (root) {
+    const items = [...root.querySelectorAll<HTMLElement>('[data-entry]')];
+    const boxes = items.map((li) => li.querySelector<HTMLInputElement>('.entry-pick')!);
+    const bar = root.querySelector<HTMLElement>('[data-export-bar]')!;
+    const count = root.querySelector<HTMLElement>('[data-export-count]')!;
+    const go = root.querySelector<HTMLAnchorElement>('[data-export-go]')!;
+    const order: string[] = [];
+
+    const update = () => {
+      for (const b of boxes) {
+        const i = order.indexOf(b.value);
+        if (b.checked && i < 0) order.push(b.value);
+        if (!b.checked && i >= 0) order.splice(i, 1);
+      }
+      count.textContent = (count.dataset.template ?? '').replace('{n}', String(order.length));
+      go.href = (go.dataset.exportHref ?? '') + idsQuery(order);
+      go.setAttribute('aria-disabled', String(order.length === 0));
+    };
+    const setSelecting = (on: boolean) => {
+      root.classList.toggle('is-selecting', on);
+      bar.hidden = !on;
+      if (!on) boxes.forEach((b) => (b.checked = false));
+      update();
+    };
+
+    root.querySelector('[data-export-start]')!.addEventListener('click', () => setSelecting(true));
+    root.querySelector('[data-export-cancel]')!.addEventListener('click', () => setSelecting(false));
+    root.querySelector('[data-export-all]')!.addEventListener('click', () => {
+      items.forEach((li, i) => {
+        if (!li.hidden) boxes[i].checked = true;
+      });
+      update();
+    });
+    for (const b of boxes) b.addEventListener('change', update);
+    // 选词时点卡片等于勾选，不跳转
+    items.forEach((li, i) => {
+      li.querySelector('a')!.addEventListener('click', (e) => {
+        if (!root.classList.contains('is-selecting')) return;
+        e.preventDefault();
+        boxes[i].checked = !boxes[i].checked;
+        update();
+      });
+    });
+    go.addEventListener('click', (e) => {
+      if (order.length === 0) e.preventDefault();
+    });
+
+    const preset = parseIds(location.search, boxes.map((b) => b.value));
+    if (preset.length) {
+      for (const id of preset) boxes.find((b) => b.value === id)!.checked = true;
+      setSelecting(true);
+      order.splice(0, order.length, ...preset);
+      update();
+    }
   }
 </script>

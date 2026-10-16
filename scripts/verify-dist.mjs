@@ -26,7 +26,7 @@ const mustExist = [
 for (const p of Object.values(prefixes)) {
   mustExist.push(`${p}index.html`);
   for (const d of live) {
-    mustExist.push(`${p}${d.id}/index.html`);
+    mustExist.push(`${p}${d.id}/index.html`, `${p}${d.id}/export/index.html`);
     for (const e of d.entries) mustExist.push(`${p}${d.id}/${e.id}/index.html`);
   }
 }
@@ -73,6 +73,12 @@ if (failures.length === 0) {
     }
   }
 
+  for (const d of live) {
+    const html = read(`${d.id}/export/index.html`);
+    check(html.includes('name="robots" content="noindex"'), `${d.id}/export/index.html should be noindex`);
+    check(html.includes('id="export-data"'), `${d.id}/export/index.html should embed export data`);
+  }
+
   const liveIds = new Set(live.map((d) => d.id));
   for (const lang of Object.keys(prefixes)) {
     const index = JSON.parse(read(`search/${lang}.json`));
@@ -87,6 +93,7 @@ if (failures.length === 0) {
     }
   }
   check(!sitemap.includes('/404'), 'sitemap should not list 404');
+  check(!sitemap.includes('/export/'), 'sitemap should not list export pages');
   for (const d of soon) check(!sitemap.includes(`/${d.id}/`), `sitemap should not list soon dialect ${d.id}`);
 }
 

@@ -6,11 +6,13 @@ import type { Dialect } from '../lib/schema';
 import HomeView from '../views/HomeView.astro';
 import DialectView from '../views/DialectView.astro';
 import EntryView from '../views/EntryView.astro';
+import ExportView from '../views/ExportView.astro';
 
 type Props =
   | { kind: 'home'; lang: Lang; dialects: Dialect[] }
   | { kind: 'dialect'; lang: Lang; dialects: Dialect[]; dialectId: string }
-  | { kind: 'entry'; lang: Lang; dialects: Dialect[]; dialectId: string; entryId: string };
+  | { kind: 'entry'; lang: Lang; dialects: Dialect[]; dialectId: string; entryId: string }
+  | { kind: 'export'; lang: Lang; dialects: Dialect[]; dialectId: string };
 
 export const getStaticPaths = (async () => {
   const paths: { params: { path: string | undefined }; props: Props }[] = [];
@@ -22,6 +24,7 @@ export const getStaticPaths = (async () => {
     for (const d of dialects) {
       if (d.status !== 'live') continue;
       paths.push({ params: { path: join(d.id) }, props: { kind: 'dialect', lang, dialects, dialectId: d.id } });
+      paths.push({ params: { path: join(d.id, 'export') }, props: { kind: 'export', lang, dialects, dialectId: d.id } });
       for (const e of d.entries) {
         paths.push({ params: { path: join(d.id, e.id) }, props: { kind: 'entry', lang, dialects, dialectId: d.id, entryId: e.id } });
       }
@@ -34,4 +37,5 @@ const props = Astro.props as Props;
 ---
 {props.kind === 'home' && <HomeView lang={props.lang} dialects={props.dialects} />}
 {props.kind === 'dialect' && <DialectView lang={props.lang} dialects={props.dialects} dialectId={props.dialectId} />}
+{props.kind === 'export' && <ExportView lang={props.lang} dialects={props.dialects} dialectId={props.dialectId} />}
 {props.kind === 'entry' && <EntryView lang={props.lang} dialects={props.dialects} dialectId={props.dialectId} entryId={props.entryId} />}

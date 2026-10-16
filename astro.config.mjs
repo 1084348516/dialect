@@ -9,7 +9,7 @@ export default defineConfig({
   devToolbar: { enabled: false },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/404'),
+      filter: (page) => !page.includes('/404') && !page.endsWith('/export/'),
       i18n: {
         defaultLocale: 'zh-hans',
         locales: { 'zh-hans': 'zh-Hans', 'zh-hant': 'zh-Hant', en: 'en' },

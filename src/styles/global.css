@@ -65,7 +65,10 @@ h1, h2, h3, .serif { font-family: var(--serif); font-weight: 700; line-height: 1
 
 /* buttons, chips, cards */
 .btn-primary { font: inherit; font-weight: 600; background: var(--accent); color: #fff; border: 0; border-radius: 8px; padding: 10px 22px; cursor: pointer; }
-.btn-primary:disabled { opacity: .6; cursor: default; }
+.btn-primary:disabled, .btn-primary[aria-disabled="true"] { opacity: .6; cursor: default; }
+a.btn-primary { display: inline-block; text-decoration: none; }
+.btn-ghost { font: inherit; font-size: 14px; background: var(--surface); color: var(--ink); border: 1px solid var(--border); border-radius: 8px; padding: 6px 14px; cursor: pointer; }
+.btn-ghost:hover { border-color: var(--accent); }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip { display: inline-block; padding: 6px 16px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--ink); text-decoration: none; font-size: 14px; }
 .chip.is-active { background: var(--accent); border-color: var(--accent); color: #fff; }
@@ -103,6 +106,40 @@ a.dialect-card:hover, a.entry-card:hover, a.related:hover { border-color: var(--
 .pron { color: var(--accent); font-weight: 500; }
 .badge-warn { background: var(--warn); color: #fff; font-size: 12px; font-weight: 600; border-radius: 999px; padding: 2px 10px; white-space: nowrap; }
 .filter-empty { color: var(--muted); }
+
+/* 选词导出 */
+.list-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; }
+.list-head .list-title { margin: 0; }
+.entry-pick { display: none; }
+.is-selecting [data-entry] { display: flex; align-items: center; gap: 12px; }
+.is-selecting [data-entry][hidden] { display: none; }
+.is-selecting .entry-pick { display: block; flex: none; width: 20px; height: 20px; margin: 0; accent-color: var(--accent); cursor: pointer; }
+.is-selecting .entry-card { flex: 1; min-width: 0; cursor: pointer; }
+.is-selecting [data-entry]:has(.entry-pick:checked) .entry-card { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.is-selecting .entry-list { padding-bottom: 72px; }
+.export-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: var(--surface); border-top: 1px solid var(--border); box-shadow: 0 -4px 16px rgba(0, 0, 0, .06); }
+.export-bar-inner { max-width: 1040px; margin-inline: auto; padding: 12px 16px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.export-count { font-weight: 600; margin-right: auto; }
+.export-bar .btn-primary { padding: 8px 18px; }
+.export-heading { font-size: clamp(28px, 5vw, 40px); margin: 0 0 20px; }
+.export-tools { display: grid; gap: 12px; max-width: 640px; margin-bottom: 24px; }
+.export-title-field { display: grid; gap: 4px; font-size: 13px; color: var(--muted); }
+.export-title-field input { font: inherit; font-size: 16px; color: var(--ink); padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); }
+.export-hint { margin: 0; font-size: 13px; color: var(--muted); }
+.export-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 14px; }
+.export-previews { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.export-previews img { display: block; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 12px rgba(0, 0, 0, .08); }
+
+@media print {
+  @page { margin: 12mm; }
+  body { background: #fff; }
+  .site-header, .site-footer, .breadcrumb, .export-heading, .export-tools { display: none !important; }
+  .page { padding: 0; }
+  .export-previews { display: block; }
+  /* 按纸张高度限制，A4、Letter 都能一页放下一张，不会溢出出空白页 */
+  .export-previews img { width: auto; max-width: 100%; max-height: 245mm; margin: 0 auto; box-shadow: none; border-radius: 0; break-after: page; }
+  .export-previews img:last-child { break-after: auto; }
+}
 
 /* entry page */
 .entry-layout { display: grid; grid-template-columns: 1fr 200px; gap: 28px; align-items: start; }
@@ -165,6 +202,7 @@ tr:last-child td { border-bottom: 0; }
   .entry-card { flex-wrap: wrap; }
   .entry-card-text { flex: 1 0 auto; }
   .entry-card-body { flex-basis: 100%; order: 3; }
+  .export-previews { grid-template-columns: 1fr; }
   .header-tools:has(.search-compact) { width: 100%; }
   .search-compact { flex: 1 1 auto; width: auto; }
 }
