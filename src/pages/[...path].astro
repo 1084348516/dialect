@@ -7,9 +7,12 @@ import HomeView from '../views/HomeView.astro';
 import DialectView from '../views/DialectView.astro';
 import EntryView from '../views/EntryView.astro';
 import ExportView from '../views/ExportView.astro';
+import InfoView from '../views/InfoView.astro';
+import { INFO_PAGES, type InfoPage } from '../i18n/info';
 
 type Props =
   | { kind: 'home'; lang: Lang; dialects: Dialect[] }
+  | { kind: 'info'; lang: Lang; page: InfoPage }
   | { kind: 'dialect'; lang: Lang; dialects: Dialect[]; dialectId: string }
   | { kind: 'entry'; lang: Lang; dialects: Dialect[]; dialectId: string; entryId: string }
   | { kind: 'export'; lang: Lang; dialects: Dialect[]; dialectId: string };
@@ -21,6 +24,9 @@ export const getStaticPaths = (async () => {
     const join = (...parts: string[]) => [...base, ...parts].join('/') || undefined;
     const dialects = await getDialects(lang);
     paths.push({ params: { path: join() }, props: { kind: 'home', lang, dialects } });
+    for (const page of INFO_PAGES) {
+      paths.push({ params: { path: join(page) }, props: { kind: 'info', lang, page } });
+    }
     for (const d of dialects) {
       if (d.status !== 'live') continue;
       paths.push({ params: { path: join(d.id) }, props: { kind: 'dialect', lang, dialects, dialectId: d.id } });
@@ -36,6 +42,7 @@ export const getStaticPaths = (async () => {
 const props = Astro.props as Props;
 ---
 {props.kind === 'home' && <HomeView lang={props.lang} dialects={props.dialects} />}
+{props.kind === 'info' && <InfoView lang={props.lang} page={props.page} />}
 {props.kind === 'dialect' && <DialectView lang={props.lang} dialects={props.dialects} dialectId={props.dialectId} />}
 {props.kind === 'export' && <ExportView lang={props.lang} dialects={props.dialects} dialectId={props.dialectId} />}
 {props.kind === 'entry' && <EntryView lang={props.lang} dialects={props.dialects} dialectId={props.dialectId} entryId={props.entryId} />}

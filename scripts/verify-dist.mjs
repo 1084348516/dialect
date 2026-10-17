@@ -17,6 +17,7 @@ const soon = dialects.filter((d) => d.status !== 'live');
 const entryCount = live.reduce((n, d) => n + (d.entries ?? []).length, 0);
 
 const prefixes = { 'zh-hans': '', 'zh-hant': 'zh-hant/', en: 'en/' };
+const infoPages = ['about', 'privacy', 'contact'];
 const htmlLang = { 'zh-hans': 'zh-Hans', 'zh-hant': 'zh-Hant', en: 'en' };
 
 const mustExist = [
@@ -25,6 +26,7 @@ const mustExist = [
 ];
 for (const p of Object.values(prefixes)) {
   mustExist.push(`${p}index.html`);
+  for (const page of infoPages) mustExist.push(`${p}${page}/index.html`);
   for (const d of live) {
     mustExist.push(`${p}${d.id}/index.html`, `${p}${d.id}/export/index.html`);
     for (const e of d.entries) mustExist.push(`${p}${d.id}/${e.id}/index.html`);
@@ -44,6 +46,16 @@ if (failures.length === 0) {
   check(!home.includes('听懂家里长辈说的话'), 'home should not have the eyebrow line');
   check(!home.includes('type="search"'), 'home should have no search box');
   check(home.includes('data-feedback'), 'home footer should have the feedback form');
+  // AdSense 审核要求每页都能找到关于、隐私政策、联系方式
+  for (const [lang, p] of Object.entries(prefixes)) {
+    const pages = [`${p}index.html`, ...live.slice(0, 1).map((d) => `${p}${d.id}/${d.entries[0].id}/index.html`)];
+    for (const page of pages) {
+      const html = read(page);
+      for (const info of infoPages) check(html.includes(`href="/${p}${info}/"`), `${page} footer should link to /${p}${info}/ (${lang})`);
+    }
+  }
+  check(read('privacy/index.html').includes('Google AdSense'), 'privacy page should mention Google AdSense');
+  check(read('contact/index.html').includes('mailto:'), 'contact page should have an email link');
   const cards = (home.match(/class="dialect-card( [^"]*)?"/g) ?? []).length;
   check(cards === live.length, `home should render ${live.length} live dialect cards, got ${cards}`);
   for (const d of soon) check(home.includes(d.name), `home should still list coming-soon dialect ${d.name}`);
@@ -90,6 +102,9 @@ if (failures.length === 0) {
     for (const e of d.entries) {
       for (const p of Object.values(prefixes)) check(sitemap.includes(`/${p}${d.id}/${e.id}/`), `sitemap should list /${p}${d.id}/${e.id}/`);
     }
+  }
+  for (const p of Object.values(prefixes)) {
+    for (const page of infoPages) check(sitemap.includes(`/${p}${page}/<`), `sitemap should list /${p}${page}/`);
   }
   check(!sitemap.includes('/404'), 'sitemap should not list 404');
   check(!sitemap.includes('/export/'), 'sitemap should not list export pages');

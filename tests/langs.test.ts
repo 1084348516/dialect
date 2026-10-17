@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { LANGS, HTML_LANG, prefix, homePath, dialectPath, entryPath, exportPath, pick, glossLine } from '../src/i18n/langs';
+import { LANGS, HTML_LANG, prefix, homePath, dialectPath, entryPath, exportPath, infoPath, pick, glossLine } from '../src/i18n/langs';
 
 describe('langs', () => {
   it('lists three languages with html lang codes', () => {
@@ -16,6 +16,8 @@ describe('langs', () => {
     expect(entryPath('zh-hant', 'minnan', 'a-ma')).toBe('/zh-hant/minnan/a-ma/');
     expect(exportPath('zh-hans', 'minnan')).toBe('/minnan/export/');
     expect(exportPath('en', 'minnan')).toBe('/en/minnan/export/');
+    expect(infoPath('zh-hans', 'about')).toBe('/about/');
+    expect(infoPath('zh-hant', 'privacy')).toBe('/zh-hant/privacy/');
   });
 
   it('joins glosses with the page language first and drops a missing English gloss', () => {

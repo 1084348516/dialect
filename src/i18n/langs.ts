@@ -26,6 +26,10 @@ export function exportPath(lang: Lang, dialectId: string): string {
   return `${prefix(lang)}/${dialectId}/export/`;
 }
 
+export function infoPath(lang: Lang, page: string): string {
+  return `${prefix(lang)}/${page}/`;
+}
+
 export function pick<T>(lang: Lang, zh: T, en: T): T {
   return lang === 'en' ? en : zh;
 }

@@ -1,7 +1,8 @@
 ---
 import '../styles/global.css';
 import font from '../generated/font.json';
-import { LANGS, HTML_LANG, LANG_STORAGE_KEY, homePath, type Lang } from '../i18n/langs';
+import { LANGS, HTML_LANG, LANG_STORAGE_KEY, homePath, infoPath, type Lang } from '../i18n/langs';
+import { INFO_PAGES, info } from '../i18n/info';
 import { chooseLang } from '../i18n/detect';
 import { t } from '../i18n/ui';
 import LangSwitch from '../components/LangSwitch.astro';
@@ -70,7 +71,12 @@ const redirect = lang === 'zh-hans' && !noindex
     </main>
     <footer class="site-footer">
       <div class="wrap footer-inner">
-        <span>Familect · {t(lang, 'footerTagline')}</span>
+        <div class="footer-meta">
+          <span>Familect · {t(lang, 'footerTagline')}</span>
+          <nav class="footer-links">
+            {INFO_PAGES.map((p) => <a href={infoPath(lang, p)}>{info[lang][p].nav}</a>)}
+          </nav>
+        </div>
         {feedbackDialect !== false && <FeedbackForm lang={lang} dialectId={feedbackDialect} />}
       </div>
     </footer>

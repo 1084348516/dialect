@@ -37,6 +37,19 @@ h1, h2, h3, .serif { font-family: var(--serif); font-weight: 700; line-height: 1
 .lang-switch a.is-active { background: var(--ink); color: #fff; }
 .site-footer { border-top: 1px solid var(--border); margin-top: 48px; }
 .footer-inner { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-block: 24px; font-size: 13px; color: var(--muted); }
+.footer-meta { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.footer-links a { color: var(--muted); }
+.footer-links a:hover { color: var(--ink); }
+
+/* about / privacy / contact */
+.info-page { max-width: 760px; }
+.info-page h1 { font-size: clamp(30px, 5vw, 40px); margin: 0 0 20px; }
+.info-page h2 { font-size: 20px; margin: 32px 0 8px; }
+.info-page p, .info-page ul { margin: 0 0 12px; }
+.info-page ul { padding-inline-start: 1.4em; }
+.info-page li + li { margin-top: 6px; }
+.info-page a { overflow-wrap: anywhere; }
 
 /* home */
 .hero { padding-block: 48px 8px; }

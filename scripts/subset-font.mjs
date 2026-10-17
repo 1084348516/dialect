@@ -22,7 +22,7 @@ async function main() {
 
   const contentDir = path.join(root, 'src/content/dialects');
   const files = (await readdir(contentDir)).filter((f) => f.endsWith('.yaml')).map((f) => path.join(contentDir, f));
-  files.push(path.join(root, 'src/i18n/ui.ts'));
+  files.push(path.join(root, 'src/i18n/ui.ts'), path.join(root, 'src/i18n/info.ts'));
   const texts = await Promise.all(files.map((f) => readFile(f, 'utf8')));
   const chars = collectChars([...texts, ...texts.map(toHant)]);
 

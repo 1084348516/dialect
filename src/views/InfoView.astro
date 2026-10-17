@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import { LANGS, homePath, infoPath, type Lang } from '../i18n/langs';
+import { t } from '../i18n/ui';
+import { info, type InfoPage } from '../i18n/info';
+
+interface Props {
+  lang: Lang;
+  page: InfoPage;
+}
+const { lang, page } = Astro.props;
+const doc = info[lang][page];
+const alternates = Object.fromEntries(LANGS.map((l) => [l, infoPath(l, page)])) as Record<Lang, string>;
+---
+<Base lang={lang} title={`${doc.title} | Familect`} description={doc.description} alternates={alternates}>
+  <article class="wrap page info-page">
+    <nav class="breadcrumb"><a href={homePath(lang)}>{t(lang, 'home')}</a> / <span>{doc.title}</span></nav>
+    <h1>{doc.title}</h1>
+    {doc.sections.map((s) => (
+      <section>
+        {s.heading && <h2>{s.heading}</h2>}
+        {s.body.map((b) => (Array.isArray(b)
+          ? <ul>{b.map((li) => <li set:html={li} />)}</ul>
+          : <p set:html={b} />))}
+      </section>
+    ))}
+  </article>
+</Base>
