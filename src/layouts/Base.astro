@@ -33,7 +33,7 @@ const redirect = lang === 'zh-hans' && !noindex
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     {redirect && <script is:inline set:html={redirect}></script>}
-    <title>{t(lang, 'metaHomeTitle')}</title>
+    <title>{title}</title>
     <meta name="description" content={description} />
     {noindex ? <meta name="robots" content="noindex" /> : (
       <>
