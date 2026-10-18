@@ -23,6 +23,7 @@ const htmlLang = { 'zh-hans': 'zh-Hans', 'zh-hant': 'zh-Hant', en: 'en' };
 const mustExist = [
   'feedback-entries.json',
   'sitemap-index.xml', 'robots.txt', '404.html', '_headers', 'og.png', 'favicon.svg',
+  'favicon.ico', 'icon-192.png', 'apple-touch-icon.png',
 ];
 for (const p of Object.values(prefixes)) {
   mustExist.push(`${p}index.html`);
