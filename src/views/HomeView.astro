@@ -14,8 +14,16 @@ const alternates = Object.fromEntries(LANGS.map((l) => [l, homePath(l)])) as Rec
 const live = dialects.filter((d) => d.status === 'live');
 const soon = dialects.filter((d) => d.status === 'soon');
 const showSample = live.some((d) => !d.reviewed);
+// 让 Google 在搜索结果里显示网站名 “Familect”，而不是域名
+const website = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Familect',
+  alternateName: ['Familect 家乡话', '家乡话'],
+  url: new URL('/', Astro.site).href,
+};
 ---
-<Base lang={lang} title={t(lang, 'metaHomeTitle')} description={t(lang, 'metaHomeDesc')} alternates={alternates} preloadFont>
+<Base lang={lang} title={t(lang, 'metaHomeTitle')} description={t(lang, 'metaHomeDesc')} alternates={alternates} jsonLd={[website]} preloadFont>
   <section class="wrap hero">
     <h1 class="hero-title">{t(lang, 'heroTitle')}</h1>
   </section>

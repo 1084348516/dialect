@@ -47,6 +47,7 @@ if (failures.length === 0) {
   check(!home.includes('听懂家里长辈说的话'), 'home should not have the eyebrow line');
   check(!home.includes('type="search"'), 'home should have no search box');
   check(home.includes('data-feedback'), 'home footer should have the feedback form');
+  check(home.includes('"@type":"WebSite"') && home.includes('"name":"Familect"'), 'home should have WebSite JSON-LD for the site name');
   // AdSense 审核要求每页都能找到关于、隐私政策、联系方式
   for (const [lang, p] of Object.entries(prefixes)) {
     const pages = [`${p}index.html`, ...live.slice(0, 1).map((d) => `${p}${d.id}/${d.entries[0].id}/index.html`)];
