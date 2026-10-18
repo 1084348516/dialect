@@ -11,6 +11,7 @@ romanization: { name: 近似拼读, nameEn: Approximate reading }
 
 categories:
   - { id: daily, name: 日常用语, nameEn: Everyday }
+  - { id: people, name: 人称, nameEn: People & pronouns }
   - { id: crude, name: 粗口, nameEn: Crude, caution: true }
 
 entries:
@@ -39,6 +40,112 @@ entries:
     zh: 走
     en: to walk; to go
     category: daily
+
+  - id: zao
+    text: 走
+    pron: zao
+    homophone: 早
+    enReading: DZOW
+    zh: 跑
+    en: to run
+    meaning: 莆田话和其他闽语一样，“走”是跑的意思；平常说的走路要用“行”。
+    meaningEn: As in other Min dialects, 走 means "to run". Walking is 行.
+    category: daily
+
+  - id: bo
+    text: 无
+    pron: bo
+    homophone: 波
+    enReading: BOH
+    zh: 没有；不
+    en: not have; no
+    meaning: 表示没有、不是，用法和普通话的“没有”相近，也常放在句末表示提问。
+    meaningEn: Means "not have" or "no", much like Mandarin 没有. It is also often put at the end of a sentence to make a question.
+    category: daily
+
+  - id: u
+    text: 有
+    pron: u
+    homophone: 乌
+    enReading: OO
+    zh: 有
+    en: to have; there is
+    category: daily
+
+  - id: ho
+    text: 好
+    pron: ho
+    homophone: 齁
+    enReading: HOH
+    zh: 好
+    en: good; OK
+    category: daily
+
+  - id: da
+    text: 茶
+    pron: da
+    homophone: 搭
+    enReading: DAH
+    zh: 茶
+    en: tea
+    category: daily
+
+  - id: pa
+    text: 拍
+    pron: pa
+    homophone: 帕
+    enReading: PAH
+    zh: 打
+    en: to hit; to beat
+    meaning: 闽语里“打”多说“拍”，比如打人、打球都可以用。
+    meaningEn: Min dialects usually use 拍 for "to hit", whether hitting a person or playing a ball game.
+    category: daily
+
+  - id: kong
+    text: 睏
+    pron: kong
+    homophone: 空
+    enReading: KONG
+    zh: 睡觉
+    en: to sleep
+    category: daily
+
+  - id: gua
+    text: 我
+    pron: gua
+    homophone: 瓜
+    enReading: GWAH
+    zh: 我
+    en: I; me
+    category: people
+
+  - id: dy
+    text: 汝
+    pron: dy
+    enReading: DÜ (as in German "über")
+    zh: 你
+    en: you
+    meaning: 莆田话的“你”写作“汝”，韵母接近普通话的 ü。
+    meaningEn: The Putian word for "you" is written 汝; its vowel is close to the German ü.
+    category: people
+
+  - id: i
+    text: 伊
+    pron: i
+    homophone: 衣
+    enReading: EE
+    zh: 他；她
+    en: he; she
+    category: people
+
+  - id: nang
+    text: 侬
+    pron: nang
+    homophone: 囊
+    enReading: NAHNG
+    zh: 人
+    en: person; people
+    category: people
 
   - id: ha-lian-nai
     text: 下联奶
