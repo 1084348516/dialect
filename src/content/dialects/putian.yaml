@@ -29,8 +29,24 @@ entries:
     pron: ha man
     homophone: 虾满
     enReading: hah-MAHN
-    zh: 吃饭
-    en: to eat (a meal)
+    zh: 吃早饭
+    en: to eat breakfast
+    meaning: 莆田话里“食饭”专指吃早饭，不是泛指吃饭。莆田人用不同的说法区分三餐：早饭“食饭”，午饭“食昼”，晚饭“食糜”或“食暝”；平常说的吃饭一般用“食糜”。
+    meaningEn: In Putian, 食饭 means specifically "to eat breakfast", not eating in general. Each meal has its own word — breakfast 食饭, lunch 食昼, dinner 食糜 or 食暝 — and 食糜 is the usual word for "to eat".
+    category: daily
+
+  - id: ha-ma
+    text: 食糜
+    pron: ha ma
+    homophone: 虾麻
+    enReading: hah-MAH
+    zh: 吃饭；吃稀饭
+    en: to eat (a meal); to eat congee
+    literal: 吃粥
+    meaning: “糜”是粥、稀饭，“食糜”字面是吃粥，但平常用来泛指吃饭，也可以特指吃晚饭。莆田人见面最常用的问候就是“食糜未？”（吃饭了吗？）。
+    meaningEn: 糜 means congee, so 食糜 is literally "to eat congee", but it is the everyday word for having a meal, and can also mean dinner in particular. "食糜未?" (have you eaten?) is the most common greeting in Putian.
+    note: 和“食饭”不同：“食饭”专指吃早饭。
+    noteEn: Not the same as 食饭, which means breakfast only.
     category: daily
 
   - id: gia

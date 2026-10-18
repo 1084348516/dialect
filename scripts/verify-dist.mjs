@@ -76,6 +76,8 @@ if (failures.length === 0) {
       const page = `${d.id}/${e.id}/index.html`;
       const html = read(page);
       check(html.includes('DefinedTerm'), `${page} should have DefinedTerm JSON-LD`);
+      check(html.includes(`<meta name="description" content="${d.name}“${e.text}”读作 `), `${page} description should start with dialect, text and reading`);
+      check(/<span class="audio-soon"[^>]*data-nosnippet/.test(html) && html.includes('<div data-nosnippet>'), `${page} should keep UI text out of snippets`);
       check(html.includes('rel="canonical"'), `${page} should have canonical`);
       check(html.includes('hreflang="zh-Hant"'), `${page} should have hreflang alternates`);
       for (const [label, has] of optional) {

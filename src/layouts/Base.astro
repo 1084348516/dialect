@@ -63,7 +63,7 @@ const redirect = lang === 'zh-hans' && !noindex
   </head>
   <body>
     <header class="site-header">
-      <div class="wrap header-inner">
+      <div class="wrap header-inner" data-nosnippet>
         <a class="logo" href={homePath(lang)}>Familect <span>{t(lang, 'brandSub')}</span></a>
         <div class="header-tools">
           <slot name="header" />
@@ -75,7 +75,7 @@ const redirect = lang === 'zh-hans' && !noindex
       <slot />
     </main>
     <footer class="site-footer">
-      <div class="wrap footer-inner">
+      <div class="wrap footer-inner" data-nosnippet>
         <div class="footer-meta">
           <span>Familect · {t(lang, 'footerTagline')}</span>
           <nav class="footer-links">

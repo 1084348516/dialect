@@ -30,7 +30,12 @@ const note = lang === 'en' ? (e.noteEn ?? e.note) : e.note;
 const related = relatedEntries(d, e);
 const { prev, next } = neighbors(d, e.id);
 
-const title = `${t(lang, 'metaEntryTitle', { text: e.text, pron: e.pron, gloss: pick(lang, e.zh, e.en ?? e.zh), dialect: name })} | Familect`;
+const gloss = pick(lang, e.zh, e.en ?? e.zh);
+const title = `${t(lang, 'metaEntryTitle', { text: e.text, pron: e.pron, gloss, dialect: name })} | Familect`;
+// 搜索结果摘要：先给方言、读音和意思，有详细释义再接在后面
+const description = [t(lang, 'metaEntryDesc', { text: e.text, pron: e.pron, gloss, dialect: name }), meaningMain !== gloss ? meaningMain : '']
+  .filter(Boolean)
+  .join(lang === 'en' ? ' ' : '');
 const abs = (p: string) => new URL(p, Astro.site).href;
 const jsonLd = [
   {
@@ -53,7 +58,7 @@ const jsonLd = [
   },
 ];
 ---
-<Base lang={lang} title={title} description={meaningMain} alternates={alternates} jsonLd={jsonLd} feedbackDialect={false}>
+<Base lang={lang} title={title} description={description} alternates={alternates} jsonLd={jsonLd} feedbackDialect={false}>
   <div class="wrap page">
     <nav class="breadcrumb">
       <a href={homePath(lang)}>{t(lang, 'home')}</a> /
@@ -75,7 +80,7 @@ const jsonLd = [
             {e.enReading && <div class="reading"><span class="reading-label">{t(lang, 'enReading')}</span><span class="reading-value">{e.enReading}</span></div>}
           </div>
           <div class="headword-foot">
-            <span class="audio-soon" aria-disabled="true">
+            <span class="audio-soon" aria-disabled="true" data-nosnippet>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z" /><path d="M15.5 8.5a5 5 0 0 1 0 7" /></svg>
               {t(lang, 'audioSoon')}
             </span>
@@ -120,13 +125,16 @@ const jsonLd = [
           </section>
         )}
 
-        <nav class="entry-pager">
-          {prev && <a rel="prev" href={entryPath(lang, d.id, prev.id)}>← {t(lang, 'prev')} · {prev.text}</a>}
-          {next && <a rel="next" href={entryPath(lang, d.id, next.id)}>{t(lang, 'next')} · {next.text} →</a>}
-        </nav>
+        <!-- 翻页、反馈表单这类界面文字不要出现在搜索结果摘要里 -->
+        <div data-nosnippet>
+          <nav class="entry-pager">
+            {prev && <a rel="prev" href={entryPath(lang, d.id, prev.id)}>← {t(lang, 'prev')} · {prev.text}</a>}
+            {next && <a rel="next" href={entryPath(lang, d.id, next.id)}>{t(lang, 'next')} · {next.text} →</a>}
+          </nav>
 
-        <FeedbackForm lang={lang} dialectId={d.id} entryId={e.id} />
-        {!d.reviewed && <p class="sample-notice">{t(lang, 'sampleNotice')}</p>}
+          <FeedbackForm lang={lang} dialectId={d.id} entryId={e.id} />
+          {!d.reviewed && <p class="sample-notice">{t(lang, 'sampleNotice')}</p>}
+        </div>
       </article>
 
       {related.length > 0 && (

@@ -75,6 +75,8 @@ const zhHans = {
   metaHomeDesc: '粤语、闽南语等方言常用词句：怎么写、怎么读、什么意思。',
   metaDialectTitle: '{dialect}常用语 — 写法、读音、意思',
   metaEntryTitle: '{text} {pron} — {dialect}怎么说“{gloss}”',
+  metaDialectDesc: '收录 {n} 条{dialect}常用语：怎么写、怎么读、什么意思。',
+  metaEntryDesc: '{dialect}“{text}”读作 {pron}，意思是{gloss}。',
 };
 
 export type UiKey = keyof typeof zhHans;
@@ -153,6 +155,8 @@ const en: Record<UiKey, string> = {
   metaHomeDesc: 'How to write, say and understand everyday phrases in Cantonese, Hokkien and more.',
   metaDialectTitle: '{dialect} phrases — writing, pronunciation, meaning',
   metaEntryTitle: '{text} ({pron}) — how to say “{gloss}” in {dialect}',
+  metaDialectDesc: '{n} everyday {dialect} phrases: how to write, say and understand them.',
+  metaEntryDesc: '{text} ({pron}) in {dialect} means “{gloss}”.',
 };
 
 const zhHant = Object.fromEntries(Object.entries(zhHans).map(([k, v]) => [k, toHant(v)])) as Record<UiKey, string>;
