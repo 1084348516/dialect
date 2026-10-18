@@ -2,8 +2,8 @@
 // 新站每天额度很少，所以按重要程度排序，只推额度内的，推过的记在 .baidu-pushed.json，第二天再跑接着推。
 // 用法：BAIDU_TOKEN=xxx npm run baidu-push
 import { readFile, writeFile } from 'node:fs/promises';
+import { SITE, sitemapUrls } from './sitemap-urls.mjs';
 
-const SITE = 'https://familect.org';
 const STATE_FILE = '.baidu-pushed.json';
 const token = process.env.BAIDU_TOKEN;
 if (!token) {
@@ -12,17 +12,6 @@ if (!token) {
 }
 // site 参数要原样传，编码后百度会报 site init fail
 const endpoint = `http://data.zz.baidu.com/urls?site=${SITE}&token=${encodeURIComponent(token)}`;
-
-async function sitemapUrls() {
-  const index = await (await fetch(`${SITE}/sitemap-index.xml`)).text();
-  const maps = [...index.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-  const urls = [];
-  for (const map of maps) {
-    const xml = await (await fetch(map)).text();
-    urls.push(...[...xml.matchAll(/<url><loc>([^<]+)<\/loc>/g)].map((m) => m[1]));
-  }
-  return urls;
-}
 
 // 百度主要服务中文搜索：简体优先，其次繁体，英文最后；同一语言里首页、方言页优先于词条页和说明页
 export function priority(url) {

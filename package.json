@@ -14,7 +14,8 @@
     "check": "npm run font && astro check",
     "test": "vitest run",
     "verify": "node scripts/verify-dist.mjs",
-    "baidu-push": "node scripts/baidu-push.mjs"
+    "baidu-push": "node scripts/baidu-push.mjs",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
