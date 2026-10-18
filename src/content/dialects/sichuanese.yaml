@@ -1,0 +1,297 @@
+name: 四川话
+nameEn: Sichuanese
+status: live
+order: 7
+reviewed: false
+areas: 成都、重庆及四川各地，贵州、云南部分地区
+areasEn: Chengdu, Chongqing and across Sichuan; parts of Guizhou and Yunnan
+intro: 通行于四川、重庆一带，属西南官话，和普通话很接近，但声调和不少词汇不一样。拼读以成都话为准，按普通话拼音近似记音；成都话不分平翘舌，zh、ch、sh 一般读成 z、c、s。
+introEn: Spoken across Sichuan and Chongqing. It is a Southwestern Mandarin dialect — close to standard Mandarin, but with different tones and plenty of its own words. Readings follow Chengdu speech, written as approximate pinyin; Chengdu speakers usually say z, c, s where Mandarin has zh, ch, sh.
+romanization: { name: 近似拼音, nameEn: Approximate pinyin }
+
+categories:
+  - { id: daily, name: 日常用语, nameEn: Everyday }
+  - { id: kinship, name: 亲属称谓, nameEn: Family }
+  - { id: slang, name: 俚语, nameEn: Slang }
+  - { id: crude, name: 粗口, nameEn: Crude, caution: true }
+
+entries:
+  - id: ba-si
+    text: 巴适
+    pron: ba si
+    homophone: 巴斯
+    enReading: bah-SUH
+    zh: 舒服；好；地道
+    en: comfortable; great; just right
+    meaning: 四川话里用得最多的夸奖词之一，吃得好、住得舒服、事情办得漂亮，都可以说“巴适”。
+    meaningEn: One of the most common words of praise in Sichuanese — good food, a comfortable place or a job well done are all "ba si".
+    category: daily
+    featured: true
+    examples:
+      - text: 这碗面好巴适哦！
+        pron: ze wan mian hao ba si o!
+        zh: 这碗面真好吃！
+        en: This bowl of noodles is so good!
+      - text: 周末在屋头睡懒觉，巴适得板。
+        pron: zou mo zai wu tou sui lan jiao, ba si de ban.
+        zh: 周末在家睡懒觉，舒服极了。
+        en: Sleeping in at home on the weekend — absolutely perfect.
+
+  - id: an-yi
+    text: 安逸
+    pron: an yi
+    enReading: ahn-YEE
+    zh: 舒服；爽；好
+    en: comfortable; awesome
+    meaning: 和“巴适”意思相近，形容舒服、痛快、好得很。
+    meaningEn: Close to "ba si" — comfortable, satisfying, really good.
+    category: daily
+    examples:
+      - text: 今天耍得好安逸！
+        pron: jin tian sua de hao an yi!
+        zh: 今天玩得真开心！
+        en: We had such a great time today!
+
+  - id: yao-de
+    text: 要得
+    pron: yao de
+    enReading: yow-DEH
+    zh: 好的；行
+    en: OK; sure
+    meaning: 答应别人、表示同意时说，相当于普通话的“好的”“行”。
+    meaningEn: Used to agree to something, like "OK" or "sounds good".
+    category: daily
+    examples:
+      - text: 明天一起去吃火锅嘛？——要得！
+        pron: min tian yi qi qu ci huo guo ma? —— yao de!
+        zh: 明天一起去吃火锅吧？——好啊！
+        en: Hotpot together tomorrow? — Sure!
+
+  - id: sa-zi
+    text: 啥子
+    pron: sa zi
+    homophone: 撒子
+    enReading: SAH-dzuh
+    zh: 什么
+    en: what
+    category: daily
+    examples:
+      - text: 你在说啥子？
+        pron: ni zai suo sa zi?
+        zh: 你在说什么？
+        en: What are you saying?
+
+  - id: za-ge
+    text: 咋个
+    pron: za ge
+    homophone: 砸个
+    enReading: DZAH-guh
+    zh: 怎么
+    en: how; why
+    category: daily
+    examples:
+      - text: 咋个办嘛？
+        pron: za ge ban ma?
+        zh: 怎么办呢？
+        en: What do we do now?
+
+  - id: mo-de
+    text: 莫得
+    pron: mo de
+    homophone: 么得
+    enReading: moh-DEH
+    zh: 没有
+    en: there isn't; don't have
+    category: daily
+    examples:
+      - text: 莫得问题！
+        pron: mo de wen ti!
+        zh: 没问题！
+        en: No problem!
+
+  - id: xiao-de
+    text: 晓得
+    pron: xiao de
+    enReading: shyow-DEH
+    zh: 知道
+    en: to know
+    category: daily
+
+  - id: xiao-bu-de
+    text: 晓不得
+    pron: xiao bu de
+    enReading: shyow-boo-DEH
+    zh: 不知道
+    en: don't know
+    literal: 晓得的否定，“不晓得”。
+    category: daily
+
+  - id: gao-kuai-dian
+    text: 搞快点
+    pron: gao kuai dian
+    enReading: gow-kwhy-DYEN
+    zh: 快点
+    en: hurry up
+    category: daily
+
+  - id: zao-bu-zu
+    text: 遭不住
+    pron: zao bu zu
+    homophone: 遭不足
+    enReading: dzow-boo-DZOO
+    zh: 受不了
+    en: can't take it
+    meaning: 形容承受不了，可以是太累、太辣，也可以是被逗得笑得受不了。
+    meaningEn: Can't handle it — too tired, too spicy, or laughing too hard.
+    category: daily
+
+  - id: hai-zi
+    text: 鞋子
+    pron: hai zi
+    homophone: 孩子
+    enReading: HIGH-dzuh
+    zh: 鞋
+    en: shoes
+    note: 四川话“鞋”读作 hai，和普通话的“孩”同音，外地人常听岔。
+    noteEn: In Sichuanese, 鞋 (shoe) sounds like "hai", the same as Mandarin 孩 (child), which often confuses outsiders.
+    category: daily
+
+  - id: sua
+    text: 耍
+    pron: sua
+    enReading: SWAH
+    zh: 玩
+    en: to play; to hang out
+    category: daily
+    examples:
+      - text: 周末出去耍嘛。
+        pron: zou mo cu qu sua ma.
+        zh: 周末出去玩吧。
+        en: Let's go out this weekend.
+
+  - id: lao-har
+    text: 老汉儿
+    pron: lao har
+    homophone: 老哈儿
+    enReading: low-HAR
+    zh: 爸爸
+    en: dad
+    meaning: 父亲，口语里很常用，带点亲昵；“老汉儿”的“汉儿”要儿化。
+    meaningEn: Dad — very common in everyday speech, and a little affectionate.
+    category: kinship
+
+  - id: niang-niang
+    text: 嬢嬢
+    pron: niang niang
+    enReading: nyahng-nyahng
+    zh: 阿姨；姑姑
+    en: auntie
+    meaning: 对阿姨、姑姑一类女性长辈的称呼，也用来客气地称呼年纪稍长的陌生女性。
+    meaningEn: Used for aunts and other older women in the family, and politely for an older woman you don't know.
+    category: kinship
+
+  - id: yao-er
+    text: 幺儿
+    pron: yao er
+    enReading: YOW-er
+    zh: 最小的孩子；宝贝
+    en: youngest child; sweetie
+    meaning: 原指家里最小的孩子，现在长辈常用来亲昵地叫孩子。
+    meaningEn: Originally the youngest child in a family; now a common pet name parents and grandparents use for children.
+    category: kinship
+
+  - id: bai-long-men-zen
+    text: 摆龙门阵
+    pron: bai long men zen
+    enReading: bye-long-men-DZEN
+    zh: 聊天；闲谈
+    en: to chat; to shoot the breeze
+    meaning: 四川人说的聊天、讲故事，泡茶馆摆龙门阵是很有代表性的四川生活场景。
+    meaningEn: To chat or tell stories. Chatting over tea in a teahouse is a classic Sichuan pastime.
+    category: slang
+    examples:
+      - text: 走，去茶馆摆龙门阵。
+        pron: zou, qu ca guan bai long men zen.
+        zh: 走，去茶馆聊天。
+        en: Come on, let's go chat at the teahouse.
+
+  - id: sua-peng-you
+    text: 耍朋友
+    pron: sua peng you
+    enReading: swah-pung-YOH
+    zh: 谈恋爱
+    en: to date
+    literal: 玩朋友
+    category: slang
+    examples:
+      - text: 你耍朋友没得？
+        pron: ni sua peng you mo de?
+        zh: 你谈恋爱了吗？
+        en: Are you seeing anyone?
+
+  - id: xiong-qi
+    text: 雄起
+    pron: xiong qi
+    enReading: shyong-CHEE
+    zh: 加油
+    en: come on!; go for it!
+    meaning: 给人鼓劲、加油打气，看球赛时最常听到。
+    meaningEn: A cheer of encouragement, heard most often at football matches.
+    category: slang
+
+  - id: da-wang
+    text: 打望
+    pron: da wang
+    enReading: dah-WAHNG
+    zh: 看帅哥美女
+    en: to people-watch (for good-looking people)
+    category: slang
+
+  - id: cong-ko-zi
+    text: 冲壳子
+    pron: cong ko zi
+    homophone: 冲阔子
+    enReading: tsong-KOH-dzuh
+    zh: 吹牛；闲聊
+    en: to brag; to chat idly
+    category: slang
+
+  - id: wai
+    text: 歪
+    pron: wai
+    enReading: WHY
+    zh: 凶；厉害
+    en: fierce; harsh
+    meaning: 形容人凶，也可以指人厉害。
+    meaningEn: Describes someone fierce or harsh; can also mean impressive.
+    category: slang
+    examples:
+      - text: 你莫那么歪嘛。
+        pron: ni mo na me wai ma.
+        zh: 你别那么凶嘛。
+        en: Don't be so harsh.
+
+  - id: gua-wa-zi
+    text: 瓜娃子
+    pron: gua wa zi
+    enReading: gwah-WAH-dzuh
+    zh: 傻瓜
+    en: idiot; dummy
+    meaning: 骂人傻，熟人之间也常用来开玩笑。
+    meaningEn: Calls someone stupid; between friends it is often used jokingly.
+    note: 对不熟的人说会显得很不礼貌。
+    noteEn: Rude if said to someone you don't know well.
+    category: crude
+
+  - id: cui-zi
+    text: 锤子
+    pron: cui zi
+    homophone: 催子
+    enReading: TSWAY-dzuh
+    zh: 表示不屑、否定的粗话
+    en: a crude word of dismissal
+    meaning: 粗话，常用来表示不屑或否定，相当于“什么呀”“才怪”。
+    meaningEn: A crude word used to dismiss or deny something, roughly "yeah right" or "no way".
+    note: 带有粗俗意味，正式场合和长辈面前避免使用。
+    noteEn: Vulgar — avoid it in formal settings and around elders.
+    category: crude
