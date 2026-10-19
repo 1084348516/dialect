@@ -12,7 +12,10 @@ romanization: { name: 粤拼, nameEn: Jyutping }
 categories:
   - { id: kinship, name: 亲属称谓, nameEn: Family }
   - { id: greeting, name: 日常问候, nameEn: Greetings }
+  - { id: daily, name: 日常用语, nameEn: Everyday }
+  - { id: food, name: 饮食, nameEn: Food }
   - { id: newyear, name: 过年拜年, nameEn: Chinese New Year }
+  - { id: slang, name: 俚语, nameEn: Slang }
 
 entries:
   - id: maa-maa
@@ -24,6 +27,113 @@ entries:
     en: grandma
     meaning: 奶奶，父亲的母亲。
     meaningEn: Grandma (father's mother).
+    category: kinship
+
+  - id: je-je
+    text: 爷爷
+    pron: je4 je2
+    homophone: 耶耶
+    enReading: yeh-YEH
+    zh: 爷爷；祖父
+    en: grandpa
+    meaning: 爷爷，父亲的父亲。
+    meaningEn: Grandpa (father's father).
+    category: kinship
+
+  - id: po-po
+    text: 婆婆
+    alt: [外婆]
+    pron: po4 po2
+    enReading: poh-POH
+    zh: 外婆
+    en: grandma (mother's side)
+    meaning: 外婆，母亲的母亲。
+    meaningEn: Grandma on your mother's side.
+    note: 粤语的"婆婆"一般指外婆，不是丈夫的母亲；丈夫的母亲叫"奶奶"（naai4 naai2）。
+    noteEn: In Cantonese "po po" usually means your mother's mother, not your mother-in-law; a husband's mother is called "naai4 naai2" (奶奶).
+    category: kinship
+
+  - id: gung-gung
+    text: 公公
+    alt: [外公]
+    pron: gung4 gung1
+    enReading: gung-GUNG
+    zh: 外公
+    en: grandpa (mother's side)
+    meaning: 外公，母亲的父亲。
+    meaningEn: Grandpa on your mother's side.
+    category: kinship
+
+  - id: lou-dau
+    text: 老豆
+    pron: lou5 dau6
+    homophone: 佬斗
+    enReading: loh-DOW
+    zh: 老爸（口语）
+    en: dad (casual)
+    note: 跟朋友提起自己爸爸时常用；当面叫爸爸一般说"爸爸"或"阿爸"。
+    noteEn: Used when talking about your father to friends; to his face people usually say "baa4 baa1" or "aa3 baa4".
+    category: kinship
+
+  - id: lou-mou
+    text: 老母
+    pron: lou5 mou5
+    enReading: loh-MOH
+    zh: 老妈（口语）
+    en: mum (casual)
+    note: 和"老豆"一样是背后提起时的说法，当面叫妈妈一般说"妈咪"或"阿妈"。
+    noteEn: Like "lou dau", it is how you refer to your mother; to her face people usually say "maa1 mi4" or "aa3 maa1".
+    category: kinship
+
+  - id: daai-lou
+    text: 大佬
+    pron: daai6 lou2
+    homophone: 歹佬
+    enReading: dai-LOH
+    zh: 哥哥
+    en: older brother
+    note: 也可以用来称呼老大、带头的人。
+    noteEn: Also used for a boss or gang leader — "big brother".
+    category: kinship
+
+  - id: gaa-ze
+    text: 家姐
+    pron: gaa1 ze1
+    enReading: gah-JEH
+    zh: 姐姐
+    en: older sister
+    category: kinship
+
+  - id: sai-lou
+    text: 细佬
+    pron: sai3 lou2
+    enReading: sai-LOH
+    zh: 弟弟
+    en: younger brother
+    category: kinship
+
+  - id: sai-mui
+    text: 细妹
+    pron: sai3 mui2
+    enReading: sai-MOOY
+    zh: 妹妹
+    en: younger sister
+    category: kinship
+
+  - id: lou-gung
+    text: 老公
+    pron: lou5 gung1
+    enReading: loh-GUNG
+    zh: 丈夫
+    en: husband
+    category: kinship
+
+  - id: lou-po
+    text: 老婆
+    pron: lou5 po4
+    enReading: loh-POH
+    zh: 妻子
+    en: wife
     category: kinship
 
   - id: m-goi
@@ -67,6 +177,254 @@ entries:
         zh: 吃了，你呢？
         en: I have, and you?
 
+  - id: zou-san
+    text: 早晨
+    pron: zou2 san4
+    homophone: 走神
+    enReading: joh-SUN
+    zh: 早上好
+    en: good morning
+    note: 粤语里"早晨"是早上见面的问候语，不是指时间段。
+    noteEn: In Cantonese this is the everyday "good morning" greeting, not just the word for "morning".
+    category: greeting
+
+  - id: nei-hou
+    text: 你好
+    pron: nei5 hou2
+    homophone: 内好
+    enReading: nay-HOH
+    zh: 你好
+    en: hello
+    category: greeting
+
+  - id: m-hou-ji-si
+    text: 唔好意思
+    pron: m4 hou2 ji3 si1
+    enReading: mm-hoh-yee-SEE
+    zh: 不好意思；对不起
+    en: sorry; excuse me
+    category: greeting
+
+  - id: m-sai-haak-hei
+    text: 唔使客气
+    pron: m4 sai2 haak3 hei3
+    enReading: mm-sai-hahk-HAY
+    zh: 不用客气
+    en: you're welcome
+    category: greeting
+
+  - id: hou-noi-mou-gin
+    text: 好耐冇见
+    pron: hou2 noi6 mou5 gin3
+    enReading: hoh-noy-moh-GIN
+    zh: 好久不见
+    en: long time no see
+    category: greeting
+
+  - id: baai-baai
+    text: 拜拜
+    pron: baai1 baai3
+    enReading: bye-BYE
+    zh: 再见
+    en: bye-bye
+    category: greeting
+
+  - id: hai
+    text: 系
+    pron: hai6
+    enReading: hai
+    zh: 是
+    en: to be; yes
+    category: daily
+    examples:
+      - text: 系唔系呀？
+        pron: hai6 m4 hai6 aa3?
+        zh: 是不是啊？
+        en: Is that right?
+
+  - id: mou
+    text: 冇
+    pron: mou5
+    homophone: 冒
+    enReading: moh
+    zh: 没有
+    en: don't have; there isn't
+    category: daily
+    examples:
+      - text: 冇问题！
+        pron: mou5 man6 tai4!
+        zh: 没问题！
+        en: No problem!
+
+  - id: mat-je
+    text: 乜嘢
+    pron: mat1 je5
+    homophone: 乜野
+    enReading: mut-YEH
+    zh: 什么
+    en: what
+    category: daily
+    examples:
+      - text: 你讲乜嘢？
+        pron: nei5 gong2 mat1 je5?
+        zh: 你说什么？
+        en: What did you say?
+
+  - id: dim-gaai
+    text: 点解
+    pron: dim2 gaai2
+    homophone: 点改
+    enReading: deem-GAI
+    zh: 为什么
+    en: why
+    category: daily
+    examples:
+      - text: 点解你咁迟嘅？
+        pron: dim2 gaai2 nei5 gam3 ci4 ge2?
+        zh: 你为什么这么晚？
+        en: Why are you so late?
+
+  - id: bin-dou
+    text: 边度
+    pron: bin1 dou6
+    homophone: 边度
+    enReading: been-DOH
+    zh: 哪里
+    en: where
+    category: daily
+    examples:
+      - text: 你去边度？
+        pron: nei5 heoi3 bin1 dou6?
+        zh: 你去哪里？
+        en: Where are you going?
+
+  - id: gei-do-cin
+    text: 几多钱
+    pron: gei2 do1 cin2
+    enReading: gay-doh-CHEEN
+    zh: 多少钱
+    en: how much (money)?
+    category: daily
+    examples:
+      - text: 呢个几多钱？
+        pron: ni1 go3 gei2 do1 cin2?
+        zh: 这个多少钱？
+        en: How much is this?
+
+  - id: m-zi
+    text: 唔知
+    pron: m4 zi1
+    enReading: mm-JEE
+    zh: 不知道
+    en: I don't know
+    category: daily
+
+  - id: zung-ji
+    text: 钟意
+    alt: [中意]
+    pron: zung1 ji3
+    enReading: jung-YEE
+    zh: 喜欢
+    en: to like
+    category: daily
+    examples:
+      - text: 我好钟意你。
+        pron: ngo5 hou2 zung1 ji3 nei5.
+        zh: 我很喜欢你。
+        en: I really like you.
+
+  - id: leng
+    text: 靓
+    pron: leng3
+    enReading: leng
+    zh: 漂亮；好看
+    en: pretty; good-looking
+    category: daily
+
+  - id: tai
+    text: 睇
+    pron: tai2
+    enReading: tai
+    zh: 看
+    en: to look; to watch
+    category: daily
+    examples:
+      - text: 睇戏
+        pron: tai2 hei3
+        zh: 看电影
+        en: to watch a film
+
+  - id: faan-uk-kei
+    text: 返屋企
+    pron: faan1 uk1 kei2
+    enReading: fahn-ook-KAY
+    zh: 回家
+    en: to go home
+    category: daily
+
+  - id: jam-caa
+    text: 饮茶
+    pron: jam2 caa4
+    homophone: 任茶
+    enReading: yum-CHAH
+    zh: 喝早茶
+    en: yum cha; dim sum
+    meaning: 去茶楼喝茶吃点心，是广东、香港人的日常习惯，不只是喝茶。
+    meaningEn: Going to a Cantonese teahouse for tea and dim sum — a social ritual, not just drinking tea.
+    category: food
+    featured: true
+    examples:
+      - text: 听日一齐去饮茶啊？
+        pron: ting1 jat6 jat1 cai4 heoi3 jam2 caa4 aa3?
+        zh: 明天一起去喝早茶吧？
+        en: Shall we go for yum cha tomorrow?
+
+  - id: hou-sik
+    text: 好食
+    pron: hou2 sik6
+    enReading: hoh-SIK
+    zh: 好吃
+    en: tasty
+    category: food
+
+  - id: maai-daan
+    text: 埋单
+    alt: [买单]
+    pron: maai4 daan1
+    enReading: mai-DAHN
+    zh: 结账
+    en: the bill, please
+    category: food
+    examples:
+      - text: 唔该，埋单！
+        pron: m4 goi1, maai4 daan1!
+        zh: 服务员，结账！
+        en: Excuse me, the bill please!
+
+  - id: haa-gaau
+    text: 虾饺
+    pron: haa1 gaau2
+    enReading: hah-GOW
+    zh: 虾饺
+    en: shrimp dumpling (har gow)
+    category: food
+
+  - id: siu-maai
+    text: 烧卖
+    pron: siu1 maai2
+    enReading: syoo-MAI
+    zh: 烧卖
+    en: siu mai
+    category: food
+
+  - id: caa-siu
+    text: 叉烧
+    pron: caa1 siu1
+    enReading: chah-SYOO
+    zh: 叉烧
+    en: barbecued pork (char siu)
+    category: food
+
   - id: gung-hei-faat-coi
     text: 恭喜发财
     pron: gung1 hei2 faat3 coi4
@@ -78,3 +436,106 @@ entries:
     noteEn: The standard Chinese New Year greeting; kids often add "lai si dau loi" (hand over the red packet).
     category: newyear
     featured: true
+
+  - id: lai-si
+    text: 利是
+    alt: [利市]
+    pron: lai6 si6
+    enReading: lai-SEE
+    zh: 红包
+    en: red packet (lai see)
+    note: 已婚的人要给未婚的晚辈派利是。
+    noteEn: Married people give red packets to unmarried younger relatives and friends.
+    category: newyear
+
+  - id: san-nin-faai-lok
+    text: 新年快乐
+    pron: san1 nin4 faai3 lok6
+    enReading: sun-neen-fai-LOK
+    zh: 新年快乐
+    en: happy new year
+    category: newyear
+
+  - id: san-tai-gin-hong
+    text: 身体健康
+    pron: san1 tai2 gin6 hong1
+    enReading: sun-tai-geen-HONG
+    zh: 身体健康
+    en: good health
+    note: 给长辈拜年时最常用的祝福。
+    noteEn: The go-to wish for elders at New Year.
+    category: newyear
+
+  - id: maan-si-jyu-ji
+    text: 万事如意
+    pron: maan6 si6 jyu4 ji3
+    enReading: mahn-see-yoo-YEE
+    zh: 万事如意
+    en: may all go as you wish
+    category: newyear
+
+  - id: sai-lei
+    text: 犀利
+    pron: sai1 lei6
+    homophone: 晒利
+    enReading: sai-LAY
+    zh: 厉害
+    en: awesome; impressive
+    category: slang
+
+  - id: hou-zeng
+    text: 好正
+    pron: hou2 zeng3
+    enReading: hoh-JENG
+    zh: 很好；很棒
+    en: great; excellent
+    note: 可以形容东西好吃、好看，也可以形容人长得好看。
+    noteEn: Can describe great food or things, or a good-looking person.
+    category: slang
+
+  - id: gaau-dim
+    text: 搞掂
+    alt: [搞定]
+    pron: gaau2 dim6
+    enReading: gow-DEEM
+    zh: 搞定；办好
+    en: done; sorted
+    category: slang
+    examples:
+      - text: 搞掂晒！
+        pron: gaau2 dim6 saai3!
+        zh: 全部搞定了！
+        en: All done!
+
+  - id: baat-gwaa
+    text: 八卦
+    pron: baat3 gwaa3
+    enReading: baht-GWAH
+    zh: 爱打听；八卦
+    en: gossipy; nosy
+    category: slang
+
+  - id: ceoi-seoi
+    text: 吹水
+    pron: ceoi1 seoi2
+    enReading: chui-SUI
+    zh: 闲聊；吹牛
+    en: to chat idly; to talk big
+    category: slang
+
+  - id: mou-so-wai
+    text: 冇所谓
+    pron: mou5 so2 wai6
+    enReading: moh-soh-WAI
+    zh: 无所谓
+    en: doesn't matter; whatever
+    category: slang
+
+  - id: ci-sin
+    text: 黐线
+    pron: ci1 sin3
+    enReading: chee-SEEN
+    zh: 神经病；发疯
+    en: crazy; nuts
+    literal: 线路搭错
+    category: slang

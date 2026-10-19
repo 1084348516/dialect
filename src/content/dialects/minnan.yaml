@@ -19,6 +19,7 @@ regions:
 categories:
   - { id: kinship, name: 亲属称谓, nameEn: Family }
   - { id: greeting, name: 日常问候, nameEn: Greetings }
+  - { id: daily, name: 日常用语, nameEn: Everyday }
   - { id: food, name: 饮食, nameEn: Food }
   - { id: newyear, name: 过年拜年, nameEn: Chinese New Year }
   - { id: slang, name: 俚语, nameEn: Slang }
@@ -76,6 +77,76 @@ entries:
     meaningEn: Grandma on your mother's side.
     category: kinship
 
+  - id: gua-kong
+    text: 外公
+    pron: guā-kong
+    homophone: 瓜公
+    enReading: gwah-KONG
+    zh: 外公
+    en: grandpa (mother's side)
+    meaning: 外公，母亲的父亲。
+    meaningEn: Grandpa on your mother's side.
+    category: kinship
+
+  - id: a-pah
+    text: 阿爸
+    pron: a-pah
+    homophone: 阿爸
+    enReading: ah-PAH
+    zh: 爸爸
+    en: dad
+    category: kinship
+
+  - id: a-bu
+    text: 阿母
+    pron: a-bú
+    homophone: 阿某
+    enReading: ah-BOO
+    zh: 妈妈
+    en: mum
+    category: kinship
+
+  - id: a-hiann
+    text: 阿兄
+    pron: a-hiann
+    enReading: ah-HYAH
+    zh: 哥哥
+    en: older brother
+    note: hiann 的 nn 表示鼻化音，不单独发音。
+    noteEn: The "nn" in hiann marks a nasal vowel; it is not pronounced as a separate n.
+    category: kinship
+
+  - id: a-tsi
+    text: 阿姊
+    pron: a-tsí
+    homophone: 阿济
+    enReading: ah-JEE
+    zh: 姐姐
+    en: older sister
+    category: kinship
+
+  - id: sio-ti
+    text: 小弟
+    pron: sió-tī
+    enReading: syoh-DEE
+    zh: 弟弟
+    en: younger brother
+    category: kinship
+
+  - id: gin-a
+    text: 囝仔
+    pron: gín-á
+    homophone: 紧阿
+    enReading: GIN-ah
+    zh: 小孩
+    en: child; kid
+    category: kinship
+    examples:
+      - text: 囝仔人有耳无喙。
+        pron: Gín-á-lâng ū hīnn bô tshuì.
+        zh: 小孩子有耳朵没嘴巴（大人说话小孩别插嘴）。
+        en: Children have ears but no mouth (kids should listen, not interrupt).
+
   - id: to-sia
     text: 多谢
     pron: to-siā
@@ -109,6 +180,317 @@ entries:
     category: greeting
     regions: [tw, sgmy]
     featured: true
+
+  - id: li-ho
+    text: 你好
+    pron: lí hó
+    homophone: 里火
+    enReading: lee-HOH
+    zh: 你好
+    en: hello
+    category: greeting
+
+  - id: tsai-hue
+    text: 再会
+    pron: tsài-huē
+    enReading: jai-HWEH
+    zh: 再见
+    en: goodbye
+    category: greeting
+
+  - id: bo-iau-kin
+    text: 无要紧
+    pron: bô-iàu-kín
+    homophone: 莫要紧
+    enReading: boh-yow-KIN
+    zh: 没关系；不要紧
+    en: never mind; it's fine
+    note: 别人跟你说"歹势"的时候，可以回一句"无要紧"。
+    noteEn: A natural reply when someone says "pháinn-sè" (sorry) to you.
+    category: greeting
+
+  - id: bian-kheh-khi
+    text: 免客气
+    pron: bián kheh-khì
+    enReading: byen keh-KEE
+    zh: 不用客气
+    en: you're welcome
+    category: greeting
+
+  - id: loo-lat
+    text: 劳力
+    pron: lóo-la̍t
+    homophone: 劳辣
+    enReading: loh-LAHT
+    zh: 谢谢（麻烦你了）
+    en: thanks for your trouble
+    note: 台湾常用，别人帮你做事时说，意思接近"辛苦你了"。
+    noteEn: Common in Taiwan when someone has done something for you, a bit like "thanks for the trouble".
+    category: greeting
+    regions: [tw]
+
+  - id: an-tsuann
+    text: 按怎
+    pron: án-tsuánn
+    homophone: 安怎
+    enReading: ahn-TSWAH
+    zh: 怎么；怎么了
+    en: how; what's wrong
+    category: daily
+    examples:
+      - text: 你是按怎？
+        pron: Lí sī án-tsuánn?
+        zh: 你怎么了？
+        en: What's the matter with you?
+
+  - id: siann-mih
+    text: 啥物
+    pron: siánn-mih
+    homophone: 啥米
+    enReading: SYAH-mee
+    zh: 什么
+    en: what
+    category: daily
+    examples:
+      - text: 这是啥物？
+        pron: Tse sī siánn-mih?
+        zh: 这是什么？
+        en: What is this?
+
+  - id: m-tsai
+    text: 毋知
+    pron: m̄-tsai
+    homophone: 嗯栽
+    enReading: mm-JAI
+    zh: 不知道
+    en: I don't know
+    category: daily
+    examples:
+      - text: 我毋知。
+        pron: Guá m̄-tsai.
+        zh: 我不知道。
+        en: I don't know.
+
+  - id: u-iann
+    text: 有影
+    pron: ū-iánn
+    homophone: 有影
+    enReading: oo-YAH
+    zh: 真的；确实
+    en: really; true
+    category: daily
+    examples:
+      - text: 有影无？
+        pron: Ū-iánn--bô?
+        zh: 真的假的？
+        en: Really?
+
+  - id: tsiok
+    text: 足
+    pron: tsiok
+    enReading: jyok
+    zh: 很；非常
+    en: very
+    category: daily
+    examples:
+      - text: 今仔日足热。
+        pron: Kin-á-ji̍t tsiok jua̍h.
+        zh: 今天很热。
+        en: It's really hot today.
+
+  - id: sui
+    text: 媠
+    pron: suí
+    homophone: 水
+    enReading: swee
+    zh: 漂亮；好看
+    en: pretty; beautiful
+    category: daily
+
+  - id: ho-se
+    text: 好势
+    pron: hó-sè
+    enReading: hoh-SEH
+    zh: 妥当；弄好了
+    en: all set; sorted
+    category: daily
+
+  - id: tshu
+    text: 厝
+    pron: tshù
+    homophone: 粗
+    enReading: choo
+    zh: 房子；家
+    en: house; home
+    category: daily
+    examples:
+      - text: 我欲转去厝。
+        pron: Guá beh tńg-khì tshù.
+        zh: 我要回家。
+        en: I'm going home.
+
+  - id: ho-tsiah
+    text: 好食
+    pron: hó-tsia̍h
+    homophone: 好呷
+    enReading: hoh-JAH
+    zh: 好吃
+    en: tasty
+    category: food
+    examples:
+      - text: 这足好食！
+        pron: Tse tsiok hó-tsia̍h!
+        zh: 这个很好吃！
+        en: This is really tasty!
+
+  - id: lim
+    text: 啉
+    pron: lim
+    homophone: 林
+    enReading: lim
+    zh: 喝
+    en: to drink
+    category: food
+    examples:
+      - text: 来啉茶。
+        pron: Lâi lim tê.
+        zh: 来喝茶。
+        en: Come have some tea.
+
+  - id: mue
+    text: 糜
+    pron: muê
+    enReading: mweh
+    zh: 稀饭；粥
+    en: rice porridge; congee
+    note: 台湾和漳州一带也常读 bê。
+    noteEn: Often pronounced "bê" in Taiwan and around Zhangzhou.
+    category: food
+
+  - id: o-a-tsian
+    text: 蚵仔煎
+    pron: ô-á-tsian
+    homophone: 蚵阿煎
+    enReading: oh-ah-JEN
+    zh: 海蛎煎
+    en: oyster omelette
+    category: food
+    regions: [xm, tw, sgmy]
+
+  - id: loo-bah-png
+    text: 卤肉饭
+    pron: lóo-bah-pn̄g
+    enReading: loh-bah-PNG
+    zh: 卤肉饭
+    en: braised pork rice
+    category: food
+    regions: [tw]
+
+  - id: sin-ni-khuai-lok
+    text: 新年快乐
+    pron: sin-nî khuài-lo̍k
+    enReading: sin-NEE kwai-LOK
+    zh: 新年快乐
+    en: happy new year
+    category: newyear
+
+  - id: kiong-hi-huat-tsai
+    text: 恭喜发财
+    pron: kiong-hí huat-tsâi
+    enReading: kyong-HEE hwat-CHAI
+    zh: 恭喜发财（拜年用语）
+    en: wishing you prosperity
+    category: newyear
+
+  - id: ang-pau
+    text: 红包
+    pron: âng-pau
+    homophone: 昂包
+    enReading: ahng-POW
+    zh: 红包
+    en: red packet
+    note: 新马英语里常写作 "ang pow" 或 "ang bao"。
+    noteEn: In Singaporean and Malaysian English it is often written "ang pow" or "ang bao".
+    category: newyear
+
+  - id: ui-loo
+    text: 围炉
+    pron: uî-lôo
+    enReading: wee-LOH
+    zh: 吃年夜饭
+    en: New Year's Eve family dinner
+    literal: 围着炉子
+    note: 除夕全家围着一起吃团圆饭。
+    noteEn: The whole family gathers around the table for the reunion dinner on New Year's Eve.
+    category: newyear
+    regions: [tw]
+
+  - id: koo-tsui
+    text: 古锥
+    pron: kóo-tsui
+    homophone: 古追
+    enReading: koh-JWEE
+    zh: 可爱
+    en: cute
+    category: slang
+
+  - id: ke-po
+    text: 鸡婆
+    pron: ke-pô
+    enReading: keh-POH
+    zh: 多管闲事
+    en: nosy; busybody
+    note: 新马英语里的 "kaypoh" 就是这个词。
+    noteEn: This is where Singaporean and Malaysian English "kaypoh" comes from.
+    category: slang
+    regions: [tw, sgmy]
+
+  - id: khi-siau
+    text: 起痟
+    pron: khí-siáu
+    homophone: 起肖
+    enReading: kee-SYOW
+    zh: 发疯；疯了
+    en: to go crazy
+    category: slang
+
+  - id: kong-peh-tshat
+    text: 讲白贼
+    pron: kóng pe̍h-tsha̍t
+    enReading: kong peh-CHAHT
+    zh: 说谎
+    en: to tell lies
+    category: slang
+
+  - id: phong-hong
+    text: 膨风
+    pron: phòng-hong
+    enReading: pong-HONG
+    zh: 吹牛；夸大
+    en: to brag
+    literal: 鼓起风
+    category: slang
+
+  - id: lau-khui
+    text: 漏气
+    pron: lāu-khuì
+    enReading: lau-KWEE
+    zh: 丢脸；出糗
+    en: embarrassing; to lose face
+    category: slang
+    regions: [tw]
+
+  - id: tshin-tshai
+    text: 凊彩
+    alt: [青菜]
+    pron: tshìn-tshái
+    enReading: chin-CHAI
+    zh: 随便；都可以
+    en: whatever; anything goes
+    note: 台湾口语常用，网上常写成谐音的"青菜"。
+    noteEn: Common in Taiwanese speech; online it is often written 青菜 ("vegetables"), which sounds similar.
+    category: slang
+    regions: [tw]
 
   - id: tsiah-sai
     text: 食屎
