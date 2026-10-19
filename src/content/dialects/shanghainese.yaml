@@ -1,6 +1,332 @@
 name: 上海话
 nameEn: Shanghainese
-status: soon
+status: live
 order: 5
+reviewed: false
 areas: 上海及周边吴语地区
 areasEn: Shanghai and the surrounding Wu-speaking region
+intro: 通行于上海市区及周边，属吴语，和普通话差别很大，保留了浊音和入声。拼音采用吴语协会拼音，暂不标声调；q 结尾表示短促的入声。
+introEn: Spoken in Shanghai and the surrounding area. It is a Wu dialect, very different from Mandarin, and keeps voiced consonants and clipped "entering" tones. Romanization follows Wugniu, without tone marks; a final q marks a short, clipped syllable.
+romanization: { name: 吴语拼音, nameEn: Wugniu }
+
+categories:
+  - { id: kinship, name: 亲属称谓, nameEn: Family }
+  - { id: greeting, name: 日常问候, nameEn: Greetings }
+  - { id: daily, name: 日常用语, nameEn: Everyday }
+  - { id: slang, name: 俚语, nameEn: Slang }
+  - { id: crude, name: 粗口, nameEn: Crude, caution: true }
+
+entries:
+  - id: aq-gnian
+    text: 阿娘
+    pron: aq gnian
+    enReading: ah-NYAHNG
+    zh: 奶奶；祖母
+    en: grandma
+    meaning: 上海话里“阿娘”指奶奶（父亲的母亲），不是妈妈。
+    meaningEn: In Shanghainese "aq gnian" means grandma (father's mother), not mum.
+    category: kinship
+
+  - id: aq-ya
+    text: 阿爷
+    pron: aq ya
+    enReading: ah-YAH
+    zh: 爷爷；祖父
+    en: grandpa
+    category: kinship
+
+  - id: nga-bu
+    text: 外婆
+    pron: nga bu
+    enReading: ngah-BOO
+    zh: 外婆
+    en: grandma (mother's side)
+    category: kinship
+
+  - id: nga-kon
+    text: 外公
+    pron: nga kon
+    enReading: ngah-KONG
+    zh: 外公
+    en: grandpa (mother's side)
+    category: kinship
+
+  - id: m-ma
+    text: 姆妈
+    pron: m ma
+    homophone: 嗯妈
+    enReading: mm-MAH
+    zh: 妈妈
+    en: mum
+    category: kinship
+    featured: true
+
+  - id: aq-pa
+    text: 阿爸
+    pron: aq pa
+    enReading: ah-PAH
+    zh: 爸爸
+    en: dad
+    category: kinship
+
+  - id: ya-soq
+    text: 爷叔
+    pron: ya soq
+    enReading: yah-SOH
+    zh: 叔叔（对年长男性的称呼）
+    en: uncle (for an older man)
+    meaning: 对比自己年长的男性的尊称，不一定是亲戚。
+    meaningEn: A respectful way to address an older man, related or not.
+    category: kinship
+
+  - id: shiau-noe
+    text: 小囡
+    pron: shiau noe
+    enReading: shyaw-NUH
+    zh: 小孩
+    en: child; kid
+    category: kinship
+
+  - id: non-hau
+    text: 侬好
+    pron: non hau
+    homophone: 侬好
+    enReading: nong-HAW
+    zh: 你好
+    en: hello
+    category: greeting
+    featured: true
+
+  - id: zhia-zhia-non
+    text: 谢谢侬
+    pron: zhia zhia non
+    homophone: 霞霞侬
+    enReading: zhyah-zhyah-NONG
+    zh: 谢谢你
+    en: thank you
+    category: greeting
+
+  - id: tse-we
+    text: 再会
+    pron: tse we
+    homophone: 再威
+    enReading: tseh-WAY
+    zh: 再见
+    en: goodbye
+    category: greeting
+
+  - id: chiq-ku-leq-va
+    text: 侬吃过了伐
+    pron: non chiq ku leq va
+    enReading: nong-chih-koo-luh-VAH
+    zh: 你吃过了吗？
+    en: have you eaten?
+    note: 熟人见面的客套问候。“伐”放在句尾表示疑问。
+    noteEn: A friendly greeting. The final "va" turns a sentence into a yes/no question.
+    category: greeting
+
+  - id: aq-la
+    text: 阿拉
+    pron: aq la
+    homophone: 阿拉
+    enReading: ah-LAH
+    zh: 我们；我
+    en: we; I
+    meaning: 原意是“我们”，上海人也常用来说“我”，比如“阿拉上海人”。
+    meaningEn: Literally "we", but often used for "I" too, as in "aq la Zaon-he nin" (we Shanghainese).
+    category: daily
+
+  - id: non
+    text: 侬
+    pron: non
+    enReading: nong
+    zh: 你
+    en: you
+    category: daily
+
+  - id: yi
+    text: 伊
+    pron: yi
+    enReading: yee
+    zh: 他；她
+    en: he; she
+    category: daily
+
+  - id: tsu-sa
+    text: 做啥
+    pron: tsu sa
+    homophone: 足啥
+    enReading: tsoo-SAH
+    zh: 干什么；为什么
+    en: what for; why
+    category: daily
+    examples:
+      - text: 侬做啥？
+        pron: non tsu sa?
+        zh: 你干什么？
+        en: What are you doing?
+
+  - id: ci-di
+    text: 几钿
+    pron: ci di
+    enReading: jee-DEE
+    zh: 多少钱
+    en: how much (money)?
+    category: daily
+    examples:
+      - text: 迭个几钿？
+        pron: diq geq ci di?
+        zh: 这个多少钱？
+        en: How much is this?
+
+  - id: veq
+    text: 勿
+    pron: veq
+    enReading: vuh
+    zh: 不
+    en: not
+    category: daily
+    examples:
+      - text: 我勿晓得。
+        pron: ngu veq shiau teq.
+        zh: 我不知道。
+        en: I don't know.
+
+  - id: ciau-kue
+    text: 交关
+    pron: ciau kue
+    enReading: jyaw-KWEH
+    zh: 很；非常
+    en: very; extremely
+    category: daily
+
+  - id: iq-nge-nge
+    text: 一眼眼
+    pron: iq nge nge
+    enReading: ih-ngeh-ngeh
+    zh: 一点点
+    en: a tiny bit
+    category: daily
+
+  - id: cin-tsau
+    text: 今朝
+    pron: cin tsau
+    enReading: jin-TSAW
+    zh: 今天
+    en: today
+    note: 明天叫“明朝”（min tsau），昨天叫“昨日”（zoq gniq）。
+    noteEn: Tomorrow is "min tsau" (明朝) and yesterday is "zoq gniq" (昨日).
+    category: daily
+
+  - id: oq-li-shian
+    text: 屋里厢
+    pron: oq li shian
+    enReading: oh-lee-SHYAHNG
+    zh: 家里
+    en: at home
+    category: daily
+
+  - id: loq-yu
+    text: 落雨
+    pron: loq yu
+    enReading: loh-YOO
+    zh: 下雨
+    en: to rain
+    category: daily
+
+  - id: da-yoq
+    text: 汏浴
+    pron: da yoq
+    enReading: dah-YOH
+    zh: 洗澡
+    en: to take a bath
+    category: daily
+
+  - id: lau-lin-gheq
+    text: 老灵个
+    pron: lau lin gheq
+    enReading: law-LIN-guh
+    zh: 很好；很棒
+    en: really good
+    category: slang
+    examples:
+      - text: 迭家店老灵个。
+        pron: diq ka ti lau lin gheq.
+        zh: 这家店很好。
+        en: This shop is really good.
+
+  - id: tia
+    text: 嗲
+    pron: tia
+    enReading: dyah
+    zh: 好；漂亮；撒娇
+    en: great; lovely; coy
+    meaning: 可以夸东西好、人漂亮，也可以形容说话撒娇。
+    meaningEn: Praises something as great or someone as lovely; can also describe a coy, sweet way of talking.
+    category: slang
+
+  - id: tsoq
+    text: 作
+    pron: tsoq
+    enReading: tsoh
+    zh: 无理取闹；难伺候
+    en: high-maintenance; to make a fuss
+    meaning: 形容人（多指女性）爱折腾、无理取闹、难伺候。
+    meaningEn: Describes someone (often a woman) who makes a fuss over nothing and is hard to please.
+    category: slang
+
+  - id: lin-teq-chin
+    text: 拎得清
+    pron: lin teq chin
+    enReading: lin-tuh-CHIN
+    zh: 明事理；懂分寸
+    en: sensible; knows what's what
+    note: 反过来说就是“拎勿清”（lin veq chin），指人糊涂、不懂分寸。
+    noteEn: The opposite is "lin veq chin" (拎勿清) — clueless, doesn't read the room.
+    category: slang
+
+  - id: ciq-kuen
+    text: 结棍
+    pron: ciq kuen
+    enReading: jih-KWUN
+    zh: 厉害；猛烈
+    en: intense; formidable
+    category: slang
+
+  - id: chian-diau
+    text: 腔调
+    pron: chian diau
+    enReading: chyahng-DYAW
+    zh: 派头；样子
+    en: style; flair
+    meaning: 原指说话的调子，上海话里常指一个人的气质派头，“有腔调”就是有范儿。
+    meaningEn: Originally "tone of voice"; in Shanghainese it means style — "having chian diau" is having class.
+    category: slang
+
+  - id: ka-se-wu
+    text: 嘎讪胡
+    pron: ka se wu
+    enReading: kah-seh-WOO
+    zh: 闲聊
+    en: to chat
+    category: slang
+
+  - id: gaon-du
+    text: 戆大
+    pron: gaon du
+    enReading: gahng-DOO
+    zh: 傻瓜
+    en: fool; idiot
+    note: 熟人之间开玩笑可以说，对不熟的人说不礼貌。
+    noteEn: Fine as a joke between friends, rude to someone you don't know.
+    category: crude
+
+  - id: tsheq-na
+    text: 册那
+    pron: tsheq na
+    enReading: tsuh-NAH
+    zh: 骂人或表示不满（粗口）
+    en: crude curse
+    note: 很粗俗的口头禅，不要对人说。
+    noteEn: A very vulgar exclamation — don't say it to anyone.
+    category: crude

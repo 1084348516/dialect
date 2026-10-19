@@ -1,6 +1,265 @@
 name: 客家话
 nameEn: Hakka
-status: soon
+status: live
 order: 4
+reviewed: false
 areas: 梅州、赣南、闽西、台湾、马来西亚
 areasEn: Meizhou, southern Jiangxi, western Fujian, Taiwan, Malaysia
+intro: 通行于广东东部、江西南部、福建西部和台湾，也是马来西亚、印尼等地很多华人的家乡话。各地口音差别大，词条以梅县话为准，拼读为按普通话近似记音，尚未核对。
+introEn: Spoken in eastern Guangdong, southern Jiangxi, western Fujian and Taiwan, and the heritage language of many Chinese families in Malaysia and Indonesia. Accents vary a lot; entries follow the Meixian accent, and readings are rough Mandarin-based approximations that have not been checked yet.
+romanization: { name: 近似拼读, nameEn: Approximate reading }
+
+categories:
+  - { id: kinship, name: 亲属称谓, nameEn: Family }
+  - { id: greeting, name: 日常问候, nameEn: Greetings }
+  - { id: daily, name: 日常用语, nameEn: Everyday }
+  - { id: food, name: 饮食, nameEn: Food }
+
+entries:
+  - id: a-gung
+    text: 阿公
+    pron: a gung
+    enReading: ah-GUNG
+    zh: 爷爷；祖父
+    en: grandpa
+    category: kinship
+
+  - id: a-po
+    text: 阿婆
+    pron: a po
+    enReading: ah-POH
+    zh: 奶奶；祖母
+    en: grandma
+    meaning: 客家话的“阿婆”指奶奶（父亲的母亲）。
+    meaningEn: In Hakka "a po" is grandma (father's mother).
+    category: kinship
+    featured: true
+
+  - id: a-ba
+    text: 阿爸
+    pron: a ba
+    enReading: ah-BAH
+    zh: 爸爸
+    en: dad
+    category: kinship
+
+  - id: a-me
+    text: 阿姆
+    pron: a me
+    enReading: ah-MEH
+    zh: 妈妈
+    en: mum
+    category: kinship
+
+  - id: a-go
+    text: 阿哥
+    pron: a go
+    enReading: ah-GOH
+    zh: 哥哥
+    en: older brother
+    category: kinship
+
+  - id: lo-moi
+    text: 老妹
+    pron: lo moi
+    enReading: loh-MOY
+    zh: 妹妹
+    en: younger sister
+    category: kinship
+
+  - id: lo-tai
+    text: 老弟
+    pron: lo tai
+    enReading: loh-TIE
+    zh: 弟弟
+    en: younger brother
+    category: kinship
+
+  - id: se-ngin
+    text: 细人
+    alt: [细人仔]
+    pron: se ngin
+    enReading: seh-NGIN
+    zh: 小孩
+    en: child; kid
+    literal: 小人
+    category: kinship
+
+  - id: shin-mung-n
+    text: 承蒙你
+    pron: shin mung n
+    enReading: shin-MUNG-n
+    zh: 谢谢你
+    en: thank you
+    meaning: 客家话里很有代表性的道谢说法，意思是“承蒙你关照”。
+    meaningEn: A distinctively Hakka way to say thanks — "I am indebted to your kindness".
+    category: greeting
+
+  - id: an-zi-se
+    text: 恁仔细
+    pron: an zi se
+    enReading: ahn-dzuh-SEH
+    zh: 谢谢
+    en: thank you
+    note: 台湾客家人常用。
+    noteEn: Common among Hakka speakers in Taiwan.
+    category: greeting
+
+  - id: m-si-hak-hi
+    text: 唔使客气
+    pron: m si hak hi
+    enReading: mm-see-hahk-HEE
+    zh: 不用客气
+    en: you're welcome
+    category: greeting
+
+  - id: giung-hi-fat-coi
+    text: 恭喜发财
+    pron: giung hi fat coi
+    enReading: gyung-hee-faht-CHOY
+    zh: 恭喜发财（拜年用语）
+    en: wishing you prosperity
+    category: greeting
+
+  - id: ngai
+    text: 涯
+    alt: [捱]
+    pron: ngai
+    enReading: ngai
+    zh: 我
+    en: I; me
+    meaning: 客家话的“我”，是最有辨识度的客家词之一。
+    meaningEn: The Hakka word for "I" — one of the most recognisable Hakka words.
+    note: 本字是“亻”旁加“厓”，很多字体显示不出来，所以平时多写作“涯”或“捱”。
+    noteEn: The proper character is 亻 plus 厓, which many fonts can't display, so people usually write 涯 or 捱 instead.
+    category: daily
+    examples:
+      - text: 涯系客家人。
+        pron: ngai he hak ga ngin.
+        zh: 我是客家人。
+        en: I am Hakka.
+
+  - id: n
+    text: 你
+    pron: n
+    enReading: n
+    zh: 你
+    en: you
+    note: 梅县话的“你”只有一个鼻音 n，不带元音。
+    noteEn: In Meixian Hakka "you" is just a nasal "n", with no vowel.
+    category: daily
+
+  - id: gi
+    text: 佢
+    pron: gi
+    enReading: ghee
+    zh: 他；她
+    en: he; she
+    category: daily
+
+  - id: he
+    text: 系
+    pron: he
+    enReading: heh
+    zh: 是
+    en: to be; yes
+    note: 否定是“唔系”（m he）。
+    noteEn: The negative is "m he" (唔系).
+    category: daily
+
+  - id: mo
+    text: 冇
+    pron: mo
+    enReading: moh
+    zh: 没有
+    en: don't have; there isn't
+    category: daily
+
+  - id: mak-ge
+    text: 么个
+    pron: mak ge
+    enReading: mahk-GEH
+    zh: 什么
+    en: what
+    category: daily
+    examples:
+      - text: 你讲么个？
+        pron: n gong mak ge?
+        zh: 你说什么？
+        en: What did you say?
+
+  - id: an-ho
+    text: 恁好
+    pron: an ho
+    enReading: ahn-HOH
+    zh: 很好
+    en: very good
+    meaning: “恁”是“很、这么”的意思，可以放在形容词前面。
+    meaningEn: The word "an" means "very" or "so", and goes before an adjective.
+    category: daily
+
+  - id: vuk-ka
+    text: 屋家
+    pron: vuk ka
+    enReading: vook-KAH
+    zh: 家
+    en: home
+    category: daily
+    examples:
+      - text: 转屋家
+        pron: zon vuk ka
+        zh: 回家
+        en: to go home
+
+  - id: gin-bu-ngit
+    text: 今晡日
+    pron: gin bu ngit
+    enReading: gin-boo-NGIT
+    zh: 今天
+    en: today
+    category: daily
+
+  - id: tien-gong-ngit
+    text: 天光日
+    pron: tien gong ngit
+    enReading: tyen-gong-NGIT
+    zh: 明天
+    en: tomorrow
+    literal: 天亮那一天
+    category: daily
+
+  - id: gong-hak-fa
+    text: 讲客话
+    pron: gong hak fa
+    enReading: gong-hahk-FAH
+    zh: 说客家话
+    en: to speak Hakka
+    note: 客家人有句老话：“宁卖祖宗田，唔忘祖宗言”，意思是宁可卖掉祖产，也不能忘了祖宗的话。
+    noteEn: An old Hakka saying goes, "Sell the ancestors' fields if you must, but never forget the ancestors' tongue."
+    category: daily
+
+  - id: yam-guk-gai
+    text: 盐焗鸡
+    pron: yam guk gai
+    enReading: yahm-gook-GAI
+    zh: 盐焗鸡
+    en: salt-baked chicken
+    category: food
+
+  - id: ngiong-teu-fu
+    text: 酿豆腐
+    pron: ngiong teu fu
+    enReading: ngyong-teh-FOO
+    zh: 酿豆腐
+    en: stuffed tofu
+    category: food
+
+  - id: lui-ca
+    text: 擂茶
+    pron: lui ca
+    enReading: looy-CHAH
+    zh: 擂茶
+    en: pounded tea (lei cha)
+    meaning: 把茶叶、芝麻、花生等擂碎冲泡的茶，是客家特色饮食。
+    meaningEn: Tea leaves, sesame and peanuts ground into a paste and mixed with hot water — a signature Hakka dish.
+    category: food

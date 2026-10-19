@@ -1,0 +1,317 @@
+name: 东北话
+nameEn: Northeastern Mandarin
+status: live
+order: 8
+reviewed: false
+areas: 黑龙江、吉林、辽宁，内蒙古东部
+areasEn: Heilongjiang, Jilin, Liaoning and eastern Inner Mongolia
+intro: 通行于东北三省一带，属官话，和普通话非常接近，大多数人都能听懂，但有不少独特的词和说法，语气也更直爽。拼读按普通话拼音近似记音。
+introEn: Spoken across China's three northeastern provinces. It is a Mandarin dialect and very close to standard Mandarin, so most people can follow it, but it has plenty of its own words and a famously blunt, humorous tone. Readings are written as approximate pinyin.
+romanization: { name: 近似拼音, nameEn: Approximate pinyin }
+
+categories:
+  - { id: daily, name: 日常用语, nameEn: Everyday }
+  - { id: kinship, name: 亲属称谓, nameEn: Family }
+  - { id: slang, name: 俚语, nameEn: Slang }
+
+entries:
+  - id: za-zheng
+    text: 咋整
+    pron: za zheng
+    homophone: 砸整
+    enReading: dzah-JUNG
+    zh: 怎么办
+    en: what do we do?
+    category: daily
+    featured: true
+    examples:
+      - text: 这可咋整啊？
+        pron: zhe ke za zheng a?
+        zh: 这可怎么办啊？
+        en: What on earth do we do now?
+
+  - id: ga-ha
+    text: 嘎哈
+    alt: [干哈]
+    pron: ga ha
+    homophone: 嘎哈
+    enReading: gah-HAH
+    zh: 干什么
+    en: what are you doing?
+    meaning: “干啥”的东北读法，问对方在做什么，也可以带点质问的语气。
+    meaningEn: The Northeastern way of saying "what are you doing" — can be neutral or a bit confrontational.
+    category: daily
+    examples:
+      - text: 你嘎哈呢？
+        pron: ni ga ha ne?
+        zh: 你在干什么呢？
+        en: What are you up to?
+
+  - id: zheng
+    text: 整
+    pron: zheng
+    enReading: jung
+    zh: 做；弄；搞
+    en: to do; to make; to get
+    meaning: 东北话里的万能动词，做饭、喝酒、修东西都可以说“整”。
+    meaningEn: An all-purpose verb — cooking, drinking or fixing something can all be "zheng".
+    category: daily
+    examples:
+      - text: 整点儿吃的。
+        pron: zheng dianr chi de.
+        zh: 弄点吃的。
+        en: Let's get something to eat.
+
+  - id: lao-ke
+    text: 唠嗑
+    pron: lao ke
+    homophone: 捞客
+    enReading: low-KUH
+    zh: 聊天
+    en: to chat
+    category: daily
+    examples:
+      - text: 来，坐下唠会儿嗑。
+        pron: lai, zuo xia lao huir ke.
+        zh: 来，坐下聊一会儿。
+        en: Come sit down and chat for a bit.
+
+  - id: zei
+    text: 贼
+    pron: zei
+    enReading: dzay
+    zh: 很；非常
+    en: very; super
+    category: daily
+    examples:
+      - text: 这菜贼好吃！
+        pron: zhe cai zei hao chi!
+        zh: 这菜特别好吃！
+        en: This dish is super tasty!
+
+  - id: mai-tai
+    text: 埋汰
+    pron: mai tai
+    homophone: 买太
+    enReading: MY-tie
+    zh: 脏
+    en: dirty
+    note: 也可以指挖苦、损人，比如“别埋汰我了”。
+    noteEn: Can also mean to tease or put someone down, as in "stop making fun of me".
+    category: daily
+
+  - id: mo-ji
+    text: 磨叽
+    alt: [墨迹]
+    pron: mo ji
+    enReading: moh-jee
+    zh: 磨蹭；啰嗦
+    en: to dawdle; to go on and on
+    category: daily
+    examples:
+      - text: 别磨叽了，赶紧走！
+        pron: bie mo ji le, gan jin zou!
+        zh: 别磨蹭了，快走！
+        en: Stop dawdling, let's go!
+
+  - id: de-jin
+    text: 得劲
+    pron: de jin
+    enReading: duh-JIN
+    zh: 舒服；带劲
+    en: comfortable; satisfying
+    category: daily
+
+  - id: xi-han
+    text: 稀罕
+    pron: xi han
+    enReading: shee-han
+    zh: 喜欢；疼爱
+    en: to like; to adore
+    category: daily
+    examples:
+      - text: 我可稀罕你了。
+        pron: wo ke xi han ni le.
+        zh: 我可喜欢你了。
+        en: I really adore you.
+
+  - id: ge-ying
+    text: 膈应
+    pron: ge ying
+    enReading: guh-ying
+    zh: 恶心；讨厌
+    en: gross; to put someone off
+    category: daily
+
+  - id: lao-bi-zi-le
+    text: 老鼻子了
+    pron: lao bi zi le
+    enReading: low-BEE-dzuh-luh
+    zh: 很多
+    en: loads; a ton
+    category: daily
+    examples:
+      - text: 人老鼻子了。
+        pron: ren lao bi zi le.
+        zh: 人特别多。
+        en: There were loads of people.
+
+  - id: en-na
+    text: 嗯呐
+    pron: en na
+    enReading: un-NAH
+    zh: 是的；嗯
+    en: yeah; uh-huh
+    category: daily
+
+  - id: na-ga-la
+    text: 那旮旯
+    pron: na ga la
+    enReading: nah-GAH-lah
+    zh: 那个角落；那地方
+    en: over in that corner; that place
+    category: daily
+
+  - id: bo-leng-gai
+    text: 波棱盖
+    alt: [波罗盖]
+    pron: bo leng gai
+    enReading: boh-lung-GUY
+    zh: 膝盖
+    en: knee
+    category: daily
+
+  - id: ai-ya-ma-ya
+    text: 哎呀妈呀
+    pron: ai ya ma ya
+    enReading: eye-yah-MAH-yah
+    zh: 哎呀（感叹）
+    en: oh my god!
+    note: 吃惊、感慨、觉得好笑时都会脱口而出，不是在叫妈。
+    noteEn: Blurted out in surprise, delight or exasperation — nobody is actually calling for their mother.
+    category: daily
+
+  - id: lao-lao
+    text: 姥姥
+    pron: lao lao
+    enReading: LOW-low
+    zh: 外婆
+    en: grandma (mother's side)
+    note: 北方普遍这么叫外婆；奶奶（父亲的母亲）还是叫“奶奶”。
+    noteEn: The usual northern word for your mother's mother; your father's mother is still "nai nai".
+    category: kinship
+
+  - id: lao-ye
+    text: 姥爷
+    pron: lao ye
+    enReading: LOW-yeh
+    zh: 外公
+    en: grandpa (mother's side)
+    category: kinship
+
+  - id: lao-meir
+    text: 老妹儿
+    pron: lao meir
+    enReading: low-MAYR
+    zh: 妹妹；小姑娘
+    en: little sis; young lady
+    meaning: 可以叫自己的妹妹，也常用来亲切地称呼年轻女性。
+    meaningEn: Can mean your own younger sister, and is a friendly way to address a young woman.
+    category: kinship
+
+  - id: da-xiong-di
+    text: 大兄弟
+    pron: da xiong di
+    enReading: dah-shyong-DEE
+    zh: 兄弟；小伙子
+    en: bro; young man
+    meaning: 对年轻男性的亲切称呼，不一定真是亲戚。
+    meaningEn: A friendly way to address a younger man — not necessarily a relative.
+    category: kinship
+
+  - id: lao-tie
+    text: 老铁
+    pron: lao tie
+    enReading: low-TYEH
+    zh: 铁哥们；好朋友
+    en: close buddy
+    meaning: 关系很铁的朋友，后来在直播和网络上流行开来。
+    meaningEn: A really close friend; the word spread nationwide through livestreams and the internet.
+    category: slang
+    examples:
+      - text: 老铁，没毛病！
+        pron: lao tie, mei mao bing!
+        zh: 兄弟，没问题！
+        en: No problem, buddy!
+
+  - id: gang-gang-de
+    text: 杠杠的
+    pron: gang gang de
+    enReading: gahng-gahng-duh
+    zh: 非常好；没得说
+    en: top-notch; awesome
+    category: slang
+
+  - id: de-se
+    text: 嘚瑟
+    pron: de se
+    enReading: DUH-suh
+    zh: 显摆；得意忘形
+    en: to show off
+    category: slang
+    examples:
+      - text: 看把你嘚瑟的。
+        pron: kan ba ni de se de.
+        zh: 看你得意的。
+        en: Look at you showing off.
+
+  - id: hu-you
+    text: 忽悠
+    pron: hu you
+    enReading: hoo-yo
+    zh: 哄骗；忽悠
+    en: to con; to sweet-talk
+    category: slang
+    examples:
+      - text: 你别忽悠我。
+        pron: ni bie hu you wo.
+        zh: 你别骗我。
+        en: Don't try to con me.
+
+  - id: ni-chou-sha
+    text: 你瞅啥
+    pron: ni chou sha
+    enReading: nee-CHOH-shah
+    zh: 你看什么
+    en: what are you looking at?
+    note: 网上著名的段子——“你瞅啥？”“瞅你咋地！”，说明两人马上要起冲突了，现在多用来开玩笑。
+    noteEn: Half of a famous exchange — "What are you looking at?" "You, so what!" — the cue for a fight. Today it is mostly used as a joke.
+    category: slang
+    examples:
+      - text: 你瞅啥？——瞅你咋地！
+        pron: ni chou sha? —— chou ni za di!
+        zh: 你看什么？——看你怎么了！
+        en: What are you looking at? — You. Got a problem?
+
+  - id: hu
+    text: 虎
+    pron: hu
+    enReading: hoo
+    zh: 鲁莽；愣
+    en: reckless; hot-headed
+    meaning: 形容人做事不过脑子、愣头愣脑，有时也带点夸人胆大的意思。
+    meaningEn: Describes someone who acts without thinking; sometimes half-admiring, as in "fearless".
+    category: slang
+
+  - id: bai-hua
+    text: 白话
+    pron: bai hua
+    enReading: bye-hwah
+    zh: 胡侃；吹牛
+    en: to talk big; to spin yarns
+    category: slang
+    examples:
+      - text: 他可能白话了。
+        pron: ta ke neng bai hua le.
+        zh: 他可真能侃。
+        en: He really can talk.
