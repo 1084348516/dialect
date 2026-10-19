@@ -13,7 +13,6 @@ const { lang, dialects } = Astro.props;
 const alternates = Object.fromEntries(LANGS.map((l) => [l, homePath(l)])) as Record<Lang, string>;
 const live = dialects.filter((d) => d.status === 'live');
 const soon = dialects.filter((d) => d.status === 'soon');
-const showSample = live.some((d) => !d.reviewed);
 // 让 Google 在搜索结果里显示网站名 “Familect”，而不是域名
 const website = {
   '@context': 'https://schema.org',
@@ -35,6 +34,5 @@ const website = {
     {soon.length > 0 && (
       <p class="soon-line">{t(lang, 'comingSoonList')}{soon.map((d) => pick(lang, d.name, d.nameEn)).join(' · ')}</p>
     )}
-    {showSample && <p class="sample-notice">{t(lang, 'sampleNotice')}</p>}
   </section>
 </Base>

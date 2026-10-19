@@ -5,13 +5,16 @@ order: 6
 reviewed: false
 areas: 莆田、仙游，东南亚莆仙籍华人
 areasEn: Putian and Xianyou; Puxian communities in Southeast Asia
-intro: 通行于福建莆田、仙游一带，属闽语莆仙片，和闽南语相近但读音差别很大。词条拼读为按普通话近似记音，尚未核对。
-introEn: Spoken around Putian and Xianyou in Fujian. It belongs to the Puxian branch of Min Chinese — related to Hokkien but quite different in pronunciation. Readings are rough Mandarin-based approximations and have not been checked yet.
+intro: 通行于福建莆田、仙游一带，属闽语莆仙片，和闽南语相近但读音差别很大。词条拼读为按普通话近似记音。
+introEn: Spoken around Putian and Xianyou in Fujian. It belongs to the Puxian branch of Min Chinese — related to Hokkien but quite different in pronunciation. Readings are rough Mandarin-based approximations.
 romanization: { name: 近似拼读, nameEn: Approximate reading }
 
 categories:
   - { id: daily, name: 日常用语, nameEn: Everyday }
   - { id: people, name: 人称, nameEn: People & pronouns }
+  - { id: kinship, name: 亲属称谓, nameEn: Family }
+  - { id: food, name: 饮食, nameEn: Food }
+  - { id: slang, name: 俚语, nameEn: Slang }
   - { id: crude, name: 粗口, nameEn: Crude, caution: true }
 
 entries:
@@ -200,3 +203,184 @@ entries:
     meaning: 表达愤怒、咒骂或极不耐烦的粗俗用语。
     meaningEn: A crude expression of anger, cursing or extreme impatience.
     category: crude
+
+  - id: tah-zy
+    text: 读书
+    alt: [踏鞠, 蹋鞠]
+    pron: tah zy
+    homophone: 踏鞠
+    enReading: tah-ZOO
+    zh: 读书
+    en: to study; to go to school
+    category: daily
+
+  - id: chiao-si-nang
+    text: 笑死侬
+    alt: [跷席难]
+    pron: chiao si nang
+    homophone: 跷席难
+    enReading: chyow-see-NAHNG
+    zh: 笑死人
+    en: hilarious; I'm dying of laughter
+    meaning: 笑死人了，形容事情非常好笑。"侬"就是人。
+    meaningEn: Said when something is really funny, like "I'm dying of laughter". 侬 means "person".
+    category: daily
+
+  - id: i-a
+    text: 椅仔
+    alt: [姨哑]
+    pron: i a
+    homophone: 姨哑
+    enReading: EE-ah
+    zh: 椅子
+    en: chair
+    category: daily
+
+  - id: kua-deng-si
+    text: 看电视
+    alt: [跨垫系]
+    pron: kua deng si
+    homophone: 跨垫系
+    enReading: kwah-deng-SEE
+    zh: 看电视
+    en: to watch TV
+    meaning: 莆田话"看"读 kua，和普通话差别很大。
+    meaningEn: 看 ("to look/watch") is read "kua" in Putian, very different from Mandarin.
+    category: daily
+
+  - id: si-zai-bo-ha-dou
+    text: 实在无法度
+    alt: [真真无法度, 十在不哈抖, 静静不哈抖, 系载不哈抖]
+    pron: si zai bo ha dou
+    homophone: 十在不哈抖
+    enReading: see-zai-boh-hah-DOW
+    zh: 实在没办法
+    en: there's really nothing I can do
+    meaning: 实在没办法、毫无办法。"无法度"就是没办法，前面也常说"真真"（真的）。
+    meaningEn: There is really no way, nothing can be done. 无法度 means "no way"; 真真 ("truly") is also often put in front.
+    category: daily
+
+  - id: cia
+    text: 册
+    alt: [查]
+    pron: cia
+    homophone: 查
+    enReading: CHYAH
+    zh: 书
+    en: book
+    meaning: 书本。莆田话和闽南语一样，把书叫"册"。
+    meaningEn: A book. Like Hokkien, Putian calls a book 册.
+    category: daily
+
+  - id: deng-ua
+    text: 电话
+    alt: [垫瓦]
+    pron: deng ua
+    homophone: 垫瓦
+    enReading: deng-WAH
+    zh: 电话
+    en: telephone; phone call
+    category: daily
+
+  - id: sao-cu
+    text: 扫厝
+    alt: [骚凑]
+    pron: sao cu
+    homophone: 骚凑
+    enReading: sow-CHOO
+    zh: 扫地
+    en: to sweep the floor
+    literal: 扫屋子（"厝"是房子）
+    category: daily
+
+  - id: gua-ai-dy
+    text: 我爱汝
+    alt: [果爱敌]
+    pron: gua ai dy
+    homophone: 果爱敌
+    enReading: gwah-ai-DEE
+    zh: 我爱你
+    en: I love you
+    category: daily
+
+  - id: a-ba
+    text: 阿爸
+    pron: a ba
+    homophone: 阿爸
+    enReading: ah-BAH
+    zh: 爸爸
+    en: dad
+    category: kinship
+
+  - id: a-ma
+    text: 阿妈
+    alt: [阿码, 阿嬷]
+    pron: a ma
+    homophone: 阿码
+    enReading: ah-MAH
+    zh: 奶奶；祖母
+    en: grandma
+    meaning: 奶奶，父亲的母亲。注意不是妈妈。
+    meaningEn: Grandma (father's mother) — not "mom".
+    category: kinship
+
+  - id: a-gong
+    text: 阿公
+    pron: a gong
+    homophone: 阿公
+    enReading: ah-GONG
+    zh: 爷爷；祖父
+    en: grandpa
+    category: kinship
+
+  - id: a-hia
+    text: 阿兄
+    alt: [阿丫]
+    pron: a hia
+    homophone: 阿丫
+    enReading: ah-HYAH
+    zh: 哥哥
+    en: older brother
+    category: kinship
+
+  - id: a-di
+    text: 阿弟
+    alt: [阿哩]
+    pron: a di
+    homophone: 阿哩
+    enReading: ah-DEE
+    zh: 弟弟
+    en: younger brother
+    category: kinship
+
+  - id: bing-go
+    text: 苹果
+    alt: [病过]
+    pron: bing go
+    homophone: 病过
+    enReading: bing-GOH
+    zh: 苹果
+    en: apple
+    category: food
+
+  - id: bo-liang-sing
+    text: 无良心
+    alt: [薄良心]
+    pron: bo liang sing
+    homophone: 薄良NIN
+    enReading: boh-lyahng-SING
+    zh: 没良心
+    en: heartless
+    category: slang
+
+  - id: bo-lian-ci
+    text: 无廉耻
+    alt: [没连成]
+    pron: bo lian ci
+    homophone: 没连成
+    enReading: boh-lyen-CHEE
+    zh: 无耻；不要脸
+    en: shameless
+    note: 骂人的话，语气较重。
+    noteEn: An insult with a fairly strong tone.
+    category: slang

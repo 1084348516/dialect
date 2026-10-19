@@ -501,3 +501,63 @@ entries:
     zh: 骂人或表示不满（粗口）
     en: crude insult
     category: crude
+
+  - id: kan
+    text: 干
+    alt: [姦, 幹]
+    pron: kàn
+    homophone: 干
+    enReading: KAHN
+    zh: 骂人、发泄情绪的粗口
+    en: "f***"
+    meaning: 最常见的闽南语粗口，单说一个字用来发泄惊讶、生气或不爽，相当于普通话的"靠""操"。
+    meaningEn: The most common Hokkien swear word. Said on its own to vent surprise, anger or annoyance, like "f***!" in English.
+    note: 本字写作"姦"，网上多写成"干"或"幹"。很多人当口头禅，但在长辈和正式场合千万别说。
+    noteEn: The original character is 姦; online it is usually written 干 or 幹. Many people use it as a verbal tic, but never say it in front of elders or in formal settings.
+    category: crude
+
+  - id: kan-lin-nia
+    text: 干恁娘
+    alt: [姦恁娘, 干林娘, 干你娘]
+    pron: kàn lín-niâ
+    homophone: 干林娘
+    enReading: KAHN lin-NYAH
+    zh: 骂人的脏话，问候对方母亲
+    en: "f*** your mother"
+    meaning: 闽南语里最典型的骂人脏话，字面是问候对方的母亲，相当于普通话的"操你妈"。生气时骂人，也有人当口头禅发泄。
+    meaningEn: The classic Hokkien curse, literally insulting the other person's mother, like "f*** your mother". Used to curse someone in anger, or by some as a verbal tic.
+    literal: 干你的娘（"恁"是你、你们，"娘"指母亲）
+    note: 非常冒犯，冲着人说很容易引发冲突，了解即可。
+    noteEn: Highly offensive — saying it at someone can easily start a fight. Good to recognize, not to use.
+    category: crude
+
+  - id: kan-lin-lau-su
+    text: 干恁老师
+    alt: [姦恁老師, 干林老师]
+    pron: kàn lín lāu-su
+    homophone: 干林老师
+    enReading: KAHN lin low-SOO
+    zh: 骂人的脏话，干恁娘的变体
+    en: a variant of "f*** your mother"
+    meaning: 是"干恁娘"的变体，把"娘"换成"老师"，听起来稍微没那么直接，常用来发泄不满，有时带点戏谑。
+    meaningEn: A variant of 干恁娘 that swaps "mother" for "teacher". It sounds a bit less direct and is often used to vent frustration, sometimes jokingly.
+    literal: 干你的老师
+    note: 台湾比较常听到。虽然听起来像玩笑，本质上还是粗口。
+    noteEn: Mostly heard in Taiwan. It may sound jokey, but it is still a swear.
+    category: crude
+    regions: [tw]
+
+  - id: sai-li-bu
+    text: 驶你母
+    alt: [赛里木, 塞你母, 驶恁娘, 赛恁娘]
+    pron: sái lí bú
+    homophone: 赛里木
+    enReading: SAI lee-BOO
+    zh: 骂人的脏话，问候对方母亲
+    en: "f*** your mother"
+    meaning: 和"干恁娘"意思相近的骂人脏话，同样是问候对方的母亲，语气很重。网上常写成谐音的"赛里木"。
+    meaningEn: A curse close in meaning to 干恁娘, also insulting the other person's mother, and very harsh. Online it is often written 赛里木, which sounds similar.
+    literal: 驶你的母亲（"母"指母亲）
+    note: 各地说法略有不同，也说"驶恁娘"（sái lín-niâ）。非常冒犯，了解即可。
+    noteEn: Wording varies by place; some say 驶恁娘 (sái lín-niâ). Highly offensive — good to recognize, not to use.
+    category: crude

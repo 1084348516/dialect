@@ -295,3 +295,18 @@ entries:
     note: 带有粗俗意味，正式场合和长辈面前避免使用。
     noteEn: Vulgar — avoid it in formal settings and around elders.
     category: crude
+
+  - id: mo-fa-pi-feng
+    text: 莫发批疯
+    alt: [魔法披风, 莫发皮疯]
+    pron: mo fa pi fong
+    homophone: 魔法披风
+    enReading: moh-fah-pee-FONG
+    zh: 别耍酒疯；别发疯
+    en: stop acting like a drunk lunatic
+    meaning: 骂对方别耍酒疯、别撒野，带着不耐烦，常冲着喝多了闹事的人说。网上常写成谐音的"魔法披风"，经常和"劳资蜀道山"（老子数到三）一起用。
+    meaningEn: Tells someone off for acting like a drunk lunatic or making a scene, in an impatient tone — typically said to someone who has had too much and is acting up. Online it is often written 魔法披风 ("magic cape"), which sounds the same, and is often paired with 劳资蜀道山 ("I'm counting to three").
+    literal: 不要发疯（"莫"是不要，"批"是加重语气的粗字）
+    note: 川渝话里"批"本是粗口字，这句话语气不客气，熟人之间开玩笑可以，对长辈和陌生人别说。
+    noteEn: 批 is originally a vulgar intensifier in Sichuan and Chongqing speech, so this is not polite. Fine as a joke among friends, but not with elders or strangers.
+    category: slang

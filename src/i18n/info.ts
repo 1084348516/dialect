@@ -44,7 +44,7 @@ const zhHans: Record<InfoPage, InfoDoc> = {
       {
         heading: '我们是谁',
         body: [
-          'Familect 由一个热爱方言的小团队维护。词条由团队整理，并在陆续请母语者逐条校对；标注“示例数据”的方言还没有完成校对。',
+          'Familect 由一个热爱方言的小团队维护。词条由团队整理，并在陆续请母语者逐条校对。',
         ],
       },
       {
@@ -158,7 +158,7 @@ const en: Record<InfoPage, InfoDoc> = {
       {
         heading: 'Who we are',
         body: [
-          'Familect is run by a small team of dialect enthusiasts. Entries are compiled by the team and are being checked one by one by native speakers; dialects marked as sample data have not been checked yet.',
+          'Familect is run by a small team of dialect enthusiasts. Entries are compiled by the team and are being checked one by one by native speakers.',
         ],
       },
       {
