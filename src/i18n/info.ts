@@ -85,7 +85,7 @@ const zhHans: Record<InfoPage, InfoDoc> = {
       {
         heading: '服务提供商',
         body: [
-          `本站托管在 Cloudflare 上，反馈内容存储在 Cloudflare 的数据库中，反馈通知通过 Cloudflare 的邮件服务转发到我们的邮箱。Cloudflare 为了安全和正常运行，可能会处理访问日志等技术信息，详见 ${link('https://www.cloudflare.com/privacypolicy/', 'Cloudflare 隐私政策')}。`,
+          '本站的网站托管、反馈存储和邮件通知使用第三方云服务。服务商为了安全和正常运行，可能会处理访问日志等技术信息，并受其自身隐私政策约束。',
         ],
       },
       {
@@ -199,7 +199,7 @@ const en: Record<InfoPage, InfoDoc> = {
       {
         heading: 'Service providers',
         body: [
-          `The site is hosted on Cloudflare. Feedback is stored in a Cloudflare database, and feedback notifications are forwarded to our inbox through Cloudflare’s email service. Cloudflare may process technical information such as access logs for security and operations; see the ${link('https://www.cloudflare.com/privacypolicy/', 'Cloudflare Privacy Policy')}.`,
+          'We use third-party cloud services for hosting, storing feedback and sending notification emails. These providers may process technical information such as access logs for security and operations, under their own privacy policies.',
         ],
       },
       {
