@@ -56,6 +56,7 @@ const redirect = lang === 'zh-hans' && !noindex
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <!-- 百度站长平台的网站验证，验证通过后也要保留 -->
     <meta name="baidu-site-verification" content="codeva-1xIaIo8b3h" />
+    <meta name="sogou_site_verification" content="VlH24Iz1uB" />
     {preloadFont && <link rel="preload" href={font.file} as="font" type="font/woff2" crossorigin />}
     <style is:inline set:html={fontFace}></style>
     {jsonLd.map((o) => <script type="application/ld+json" is:inline set:html={ld(o)}></script>)}
