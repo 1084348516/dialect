@@ -33,6 +33,8 @@ entries:
     enReading: ah-YAH
     zh: 爷爷；祖父
     en: grandpa
+    meaning: 爷爷，父亲的父亲。上海话叫奶奶是“阿娘”，叫爷爷就是“阿爷”。
+    meaningEn: Grandpa (father's father). Grandma on the same side is "aq gnian" (阿娘).
     category: kinship
 
   - id: nga-bu
@@ -41,6 +43,8 @@ entries:
     enReading: ngah-BOO
     zh: 外婆
     en: grandma (mother's side)
+    meaning: 外婆，母亲的母亲。上海话“外”读 nga，和普通话的读音差别很大。
+    meaningEn: Grandma on your mother's side. 外 is read "nga" in Shanghainese, very different from Mandarin "wai".
     category: kinship
 
   - id: nga-kon
@@ -49,6 +53,8 @@ entries:
     enReading: ngah-KONG
     zh: 外公
     en: grandpa (mother's side)
+    meaning: 外公，母亲的父亲。和“外婆”（nga bu）一样，“外”读 nga。
+    meaningEn: Grandpa on your mother's side. As in "nga bu" (grandma), 外 is read "nga".
     category: kinship
 
   - id: m-ma
@@ -58,6 +64,8 @@ entries:
     enReading: mm-MAH
     zh: 妈妈
     en: mum
+    meaning: 妈妈。上海话传统的叫法，“姆”读成一个闭口的 m 音；现在年轻人也常直接叫“妈妈”。
+    meaningEn: Mum — the traditional Shanghainese word. 姆 is just a closed-lip "m" sound. Younger people also simply say "ma ma".
     category: kinship
     featured: true
 
@@ -67,6 +75,8 @@ entries:
     enReading: ah-PAH
     zh: 爸爸
     en: dad
+    meaning: 爸爸。当面叫、背后提起都可以用，也有人直接叫“爸爸”。
+    meaningEn: Dad — used both to address him and to talk about him. Some people simply say "pa pa".
     category: kinship
 
   - id: ya-soq
@@ -85,6 +95,8 @@ entries:
     enReading: shyaw-NUH
     zh: 小孩
     en: child; kid
+    meaning: 小孩子。“囡”在上海话里指孩子，男孩女孩都可以叫“小囡”。
+    meaningEn: A child. 囡 means child in Shanghainese, and "shiau noe" covers both boys and girls.
     category: kinship
 
   - id: non-hau
@@ -94,6 +106,8 @@ entries:
     enReading: nong-HAW
     zh: 你好
     en: hello
+    meaning: 你好。“侬”就是你。熟人见面其实更常直接打招呼，或者问一句“吃过了伐”；“侬好”多用在初次见面或比较客气的场合。
+    meaningEn: Hello. "Non" means you. Friends usually just greet each other or ask "have you eaten?"; "non hau" is more for first meetings and polite settings.
     category: greeting
     featured: true
 
@@ -104,6 +118,8 @@ entries:
     enReading: zhyah-zhyah-NONG
     zh: 谢谢你
     en: thank you
+    meaning: 谢谢你。“侬”就是你，也可以只说“谢谢”。上海话的“谢”是浊音，读起来像 zhia，和普通话的 xie 不一样。
+    meaningEn: Thank you. "Non" means you; you can also just say "zhia zhia". 谢 is a voiced sound in Shanghainese, closer to "zhia" than Mandarin "xie".
     category: greeting
 
   - id: tse-we
@@ -113,6 +129,8 @@ entries:
     enReading: tseh-WAY
     zh: 再见
     en: goodbye
+    meaning: 再见。“再会”是上海话传统的道别说法，现在日常也常说“拜拜”。
+    meaningEn: Goodbye — the traditional Shanghainese farewell. In everyday speech people also say "bye-bye".
     category: greeting
 
   - id: chiq-ku-leq-va
@@ -142,6 +160,8 @@ entries:
     enReading: nong
     zh: 你
     en: you
+    meaning: 你。上海话最有代表性的字之一，“侬好”就是你好。“你们”说“那”（na）。
+    meaningEn: You — one of the most recognisable Shanghainese words, as in "non hau" (hello). Plural "you" is "na" (那).
     category: daily
 
   - id: yi
@@ -150,6 +170,8 @@ entries:
     enReading: yee
     zh: 他；她
     en: he; she
+    meaning: 他、她都说“伊”，不分男女。“他们”说“伊拉”（yi la）。
+    meaningEn: He or she — Shanghainese uses the same word for both. "They" is "yi la" (伊拉).
     category: daily
 
   - id: tsu-sa
@@ -172,6 +194,8 @@ entries:
     enReading: jee-DEE
     zh: 多少钱
     en: how much (money)?
+    meaning: 多少钱。“钿”就是钱，“几钿”是买东西时最常用的问价说法。
+    meaningEn: How much? 钿 means money, and "ci di" is the standard way to ask a price.
     category: daily
     examples:
       - text: 迭个几钿？
@@ -185,6 +209,8 @@ entries:
     enReading: vuh
     zh: 不
     en: not
+    meaning: 不。上海话的否定词用“勿”，比如“勿晓得”（不知道）、“勿要”（不要，口语里常连读成“覅” fiau）。
+    meaningEn: Not. Shanghainese negates with 勿, as in "veq shiau teq" (don't know) and "veq iau" (don't want), often merged into "fiau" (覅).
     category: daily
     examples:
       - text: 我勿晓得。
@@ -198,7 +224,14 @@ entries:
     enReading: jyaw-KWEH
     zh: 很；非常
     en: very; extremely
+    meaning: 很、非常，放在形容词前面，比如“交关好”（非常好）；也可以表示数量多，比如“交关人”（很多人）。
+    meaningEn: Very — goes before an adjective, as in "ciau kue hau" (really good). It can also mean "a lot", as in "ciau kue nin" (lots of people).
     category: daily
+    examples:
+      - text: 今朝交关热。
+        pron: cin tsau ciau kue gniq.
+        zh: 今天很热。
+        en: It's really hot today.
 
   - id: iq-nge-nge
     text: 一眼眼
@@ -206,6 +239,8 @@ entries:
     enReading: ih-ngeh-ngeh
     zh: 一点点
     en: a tiny bit
+    meaning: 一点点，形容数量很少或者东西很小。
+    meaningEn: A tiny bit — a very small amount or a very small thing.
     category: daily
 
   - id: cin-tsau
@@ -224,6 +259,8 @@ entries:
     enReading: oh-lee-SHYAHNG
     zh: 家里
     en: at home
+    meaning: 家里。“屋里”就是家，后面的“厢”表示里面、那一边，“屋里厢”就是家里头。
+    meaningEn: At home. "Oq li" means home and "shian" means "inside", so together it is "in the house".
     category: daily
 
   - id: loq-yu
@@ -232,6 +269,8 @@ entries:
     enReading: loh-YOO
     zh: 下雨
     en: to rain
+    meaning: 下雨。吴语、粤语、闽语都把下雨叫“落雨”，下雪也说“落雪”。
+    meaningEn: To rain. Wu, Cantonese and Min dialects all say "fall rain" for raining, and "fall snow" for snowing.
     category: daily
 
   - id: da-yoq
@@ -240,6 +279,8 @@ entries:
     enReading: dah-YOH
     zh: 洗澡
     en: to take a bath
+    meaning: 洗澡。上海话的“汏”就是洗，洗衣服说“汏衣裳”，洗手说“汏手”。
+    meaningEn: To take a bath or shower. 汏 means "to wash" — you also 汏 your clothes or your hands.
     category: daily
 
   - id: lau-lin-gheq
@@ -248,6 +289,8 @@ entries:
     enReading: law-LIN-guh
     zh: 很好；很棒
     en: really good
+    meaning: 很好、很棒。“老”在这里表示很，“灵”就是好、灵光，用来夸东西或事情。
+    meaningEn: Really good. 老 here means "very" and 灵 means good or clever; used to praise things and situations.
     category: slang
     examples:
       - text: 迭家店老灵个。
@@ -291,6 +334,8 @@ entries:
     enReading: jih-KWUN
     zh: 厉害；猛烈
     en: intense; formidable
+    meaning: 厉害、猛，形容程度很高。天热得厉害、酒很冲、人很能干，都可以说“结棍”。
+    meaningEn: Intense or formidable. Scorching weather, strong liquor or a very capable person can all be "ciq kuen".
     category: slang
 
   - id: chian-diau
@@ -309,6 +354,8 @@ entries:
     enReading: kah-seh-WOO
     zh: 闲聊
     en: to chat
+    meaning: 闲聊、聊天，也写作“嘎三胡”。
+    meaningEn: To chat or shoot the breeze; also written 嘎三胡.
     category: slang
 
   - id: gaon-du
@@ -323,10 +370,19 @@ entries:
 
   - id: tsheq-na
     text: 册那
+    alt: [冊那, 赤那, 策那]
     pron: tsheq na
     enReading: tsuh-NAH
     zh: 骂人或表示不满（粗口）
     en: crude curse
+    meaning: 上海话里最常见的粗口口头禅，相当于普通话的“他妈的”。可以用来骂人，但更多是自言自语地抱怨，或者表示惊讶、不耐烦。
+    meaningEn: The most common Shanghainese swear word, roughly "damn it". More often muttered to vent annoyance or surprise than aimed at someone.
+    literal: 一般认为是“操那（娘）”的谐音写法，“那”在上海话里是“你们”的意思。
     note: 很粗俗的口头禅，不要对人说。
     noteEn: A very vulgar exclamation — don't say it to anyone.
     category: crude
+    examples:
+      - text: 册那，又落雨了！
+        pron: tsheq na, yi loq yu leq!
+        zh: 他妈的，又下雨了！
+        en: Damn, it's raining again!

@@ -95,6 +95,8 @@ entries:
     enReading: ah-PAH
     zh: 爸爸
     en: dad
+    meaning: 爸爸。当面叫、背后提起都可以用。
+    meaningEn: Dad — used both to address him and to talk about him.
     category: kinship
 
   - id: a-bu
@@ -104,6 +106,8 @@ entries:
     enReading: ah-BOO
     zh: 妈妈
     en: mum
+    meaning: 妈妈，母亲。“母”读 bú，网上常写成谐音的“阿某”。
+    meaningEn: Mum. 母 is read "bú"; online it is often written 阿某, which sounds the same.
     category: kinship
 
   - id: a-hiann
@@ -112,6 +116,8 @@ entries:
     enReading: ah-HYAH
     zh: 哥哥
     en: older brother
+    meaning: 哥哥。“兄”读 hiann，前面可以加排行，比如“大兄”（tuā-hiann，大哥）。
+    meaningEn: Older brother. 兄 is read "hiann", and birth order can go in front, as in "tuā-hiann" (eldest brother).
     note: hiann 的 nn 表示鼻化音，不单独发音。
     noteEn: The "nn" in hiann marks a nasal vowel; it is not pronounced as a separate n.
     category: kinship
@@ -123,6 +129,8 @@ entries:
     enReading: ah-JEE
     zh: 姐姐
     en: older sister
+    meaning: 姐姐。大姐叫“大姊”（tuā-tsí）。
+    meaningEn: Older sister. The eldest sister is "tuā-tsí" (大姊).
     category: kinship
 
   - id: sio-ti
@@ -131,6 +139,8 @@ entries:
     enReading: syoh-DEE
     zh: 弟弟
     en: younger brother
+    meaning: 弟弟。“小”在这里读 sió，妹妹叫“小妹”（sió-muē）。
+    meaningEn: Younger brother. 小 is read "sió" here; a younger sister is "sió-muē" (小妹).
     category: kinship
 
   - id: gin-a
@@ -154,19 +164,34 @@ entries:
     enReading: doh-SIAH
     zh: 谢谢
     en: thank you
+    meaning: 谢谢。闽南语最通用的道谢说法，台湾也常说“感谢”（kám-siā）；别人帮你做事时还可以说“劳力”。
+    meaningEn: Thank you — the standard Hokkien thanks. In Taiwan people also say "kám-siā" (感谢), and "lóo-la̍t" when someone has done something for you.
     category: greeting
     featured: true
+    examples:
+      - text: 多谢你的帮忙。
+        pron: To-siā lí ê pang-tsān.
+        zh: 谢谢你的帮忙。
+        en: Thanks for your help.
 
   - id: tsiah-pa-bue
     text: 食饱未
+    alt: [呷饱未, 吃饱没]
     pron: tsia̍h-pá--buē
     homophone: 甲饱没
     enReading: jah-PAH-bweh
     zh: 吃饱了吗（打招呼）
     en: have you eaten?
+    meaning: 字面是“吃饱了没有”，是闽南人熟人见面最常用的问候。网上常写成谐音的“呷饱未”“甲饱没”。回答一般说“食饱矣”（吃饱了）。
+    meaningEn: Literally "have you eaten your fill yet?" — the most common greeting between people who know each other. Online it is often written 呷饱未. The usual reply is "tsia̍h-pá--ah" (I have).
     note: 熟人见面的问候，不一定真的在问你吃没吃。
     noteEn: A greeting between people who know each other — not necessarily a question about food.
     category: greeting
+    examples:
+      - text: 你食饱未？——食饱矣。
+        pron: Lí tsia̍h-pá--buē? —— Tsia̍h-pá--ah.
+        zh: 你吃饱了吗？——吃饱了。
+        en: Have you eaten? — Yes, I have.
 
   - id: phainn-se
     text: 歹势
@@ -175,11 +200,18 @@ entries:
     enReading: PIE-seh
     zh: 不好意思；抱歉
     en: sorry / paiseh
+    meaning: 不好意思、抱歉，也可以表示害羞、难为情。麻烦别人、道歉、婉拒时都常用。
+    meaningEn: Sorry, excuse me — and also "embarrassed" or "shy". Used when troubling someone, apologising or turning something down.
     note: 新加坡、马来西亚的英语里也常说 "paiseh"。
     noteEn: Singaporean and Malaysian English also use "paiseh".
     category: greeting
     regions: [tw, sgmy]
     featured: true
+    examples:
+      - text: 歹势，我来晏矣。
+        pron: Pháinn-sè, guá lâi uànn--ah.
+        zh: 不好意思，我来晚了。
+        en: Sorry, I'm late.
 
   - id: li-ho
     text: 你好
@@ -188,6 +220,8 @@ entries:
     enReading: lee-HOH
     zh: 你好
     en: hello
+    meaning: 你好。闽南人日常见面其实更常问“食饱未？”，“你好”多用在比较客气或初次见面的场合。
+    meaningEn: Hello. In daily life people more often greet with "tsia̍h-pá--buē?" (have you eaten?); "lí hó" is for polite settings and first meetings.
     category: greeting
 
   - id: tsai-hue
@@ -196,6 +230,8 @@ entries:
     enReading: jai-HWEH
     zh: 再见
     en: goodbye
+    meaning: 再见，比较正式的道别说法；日常口语里也常说“拜拜”。
+    meaningEn: Goodbye — the more formal farewell. In casual speech people also just say "bye-bye".
     category: greeting
 
   - id: bo-iau-kin
@@ -215,7 +251,14 @@ entries:
     enReading: byen keh-KEE
     zh: 不用客气
     en: you're welcome
+    meaning: 不用客气。“免”就是不用，这是回应别人道谢最常用的话。
+    meaningEn: You're welcome. 免 means "no need", so it is literally "no need to be polite" — the usual reply to thanks.
     category: greeting
+    examples:
+      - text: 多谢！——免客气。
+        pron: To-siā! —— Bián kheh-khì.
+        zh: 谢谢！——不用客气。
+        en: Thanks! — You're welcome.
 
   - id: loo-lat
     text: 劳力
@@ -305,7 +348,14 @@ entries:
     enReading: swee
     zh: 漂亮；好看
     en: pretty; beautiful
+    meaning: 漂亮、好看，可以夸人，也可以夸东西、风景。
+    meaningEn: Pretty or beautiful — for people, things or scenery.
     category: daily
+    examples:
+      - text: 你今仔日足媠。
+        pron: Lí kin-á-ji̍t tsiok suí.
+        zh: 你今天很漂亮。
+        en: You look really pretty today.
 
   - id: ho-se
     text: 好势
@@ -313,6 +363,8 @@ entries:
     enReading: hoh-SEH
     zh: 妥当；弄好了
     en: all set; sorted
+    meaning: 妥当、顺利，事情办好了就说“好势矣”。台湾也用来表示舒服、方便。
+    meaningEn: All set, sorted — when something is done you say "hó-sè--ah". In Taiwan it can also mean comfortable or convenient.
     category: daily
 
   - id: tshu
@@ -374,6 +426,8 @@ entries:
     enReading: oh-ah-JEN
     zh: 海蛎煎
     en: oyster omelette
+    meaning: 用蚵仔（小牡蛎）、鸡蛋和番薯粉一起煎成的小吃，是闽南、台湾夜市的代表美食。
+    meaningEn: A pan-fried dish of small oysters, egg and sweet-potato starch — a night-market classic in southern Fujian and Taiwan.
     category: food
     regions: [xm, tw, sgmy]
 
@@ -383,6 +437,8 @@ entries:
     enReading: loh-bah-PNG
     zh: 卤肉饭
     en: braised pork rice
+    meaning: 把肥瘦相间的猪肉丁卤透后浇在白饭上，是台湾最有代表性的家常小吃。
+    meaningEn: Finely diced pork belly braised in soy sauce and spooned over rice — Taiwan's signature comfort food.
     category: food
     regions: [tw]
 
@@ -392,6 +448,8 @@ entries:
     enReading: sin-NEE kwai-LOK
     zh: 新年快乐
     en: happy new year
+    meaning: 过年见面说的祝福语，和普通话“新年快乐”意思一样。
+    meaningEn: The New Year greeting, the same as Mandarin "xin nian kuai le".
     category: newyear
 
   - id: kiong-hi-huat-tsai
@@ -400,6 +458,8 @@ entries:
     enReading: kyong-HEE hwat-CHAI
     zh: 恭喜发财（拜年用语）
     en: wishing you prosperity
+    meaning: 过年见面最常用的祝福语，祝对方新的一年发财。
+    meaningEn: The most common Chinese New Year greeting, wishing someone wealth in the year ahead.
     category: newyear
 
   - id: ang-pau
@@ -432,7 +492,14 @@ entries:
     enReading: koh-JWEE
     zh: 可爱
     en: cute
+    meaning: 可爱，多用来形容小孩、小动物或者小巧的东西。
+    meaningEn: Cute — usually said of children, small animals or dainty things.
     category: slang
+    examples:
+      - text: 这个囝仔足古锥。
+        pron: Tsit ê gín-á tsiok kóo-tsui.
+        zh: 这个小孩很可爱。
+        en: This kid is so cute.
 
   - id: ke-po
     text: 鸡婆
@@ -440,6 +507,8 @@ entries:
     enReading: keh-POH
     zh: 多管闲事
     en: nosy; busybody
+    meaning: 爱管闲事、多事。台湾也用来说一个人过分热心。
+    meaningEn: Nosy, a busybody. In Taiwan it can also mean overly helpful or meddling.
     note: 新马英语里的 "kaypoh" 就是这个词。
     noteEn: This is where Singaporean and Malaysian English "kaypoh" comes from.
     category: slang
@@ -452,6 +521,8 @@ entries:
     enReading: kee-SYOW
     zh: 发疯；疯了
     en: to go crazy
+    meaning: 发疯、疯了，也常用来说对方的想法或做法很离谱。
+    meaningEn: To go crazy — also said when someone's idea or behaviour is ridiculous.
     category: slang
 
   - id: kong-peh-tshat
@@ -460,6 +531,8 @@ entries:
     enReading: kong peh-CHAHT
     zh: 说谎
     en: to tell lies
+    meaning: 说谎。“白贼”就是谎话，“讲白贼”就是说谎话。
+    meaningEn: To tell lies. 白贼 means a lie, so "kóng pe̍h-tsha̍t" is "to speak lies".
     category: slang
 
   - id: phong-hong
@@ -469,6 +542,8 @@ entries:
     zh: 吹牛；夸大
     en: to brag
     literal: 鼓起风
+    meaning: 吹牛、说大话，也指把事情夸大。字面是把风吹得鼓起来。
+    meaningEn: To brag or exaggerate — literally "to puff up with air".
     category: slang
 
   - id: lau-khui
@@ -477,6 +552,8 @@ entries:
     enReading: lau-KWEE
     zh: 丢脸；出糗
     en: embarrassing; to lose face
+    meaning: 丢脸、出糗；表现不好、让人失望时也可以说“真漏气”。
+    meaningEn: Embarrassing, to lose face — also said of a disappointing performance.
     category: slang
     regions: [tw]
 
@@ -500,6 +577,8 @@ entries:
     enReading: jah-SAI
     zh: 骂人或表示不满（粗口）
     en: crude insult
+    meaning: 字面是“吃屎”，用来骂人或表示强烈不满。网上常写成谐音的“呷赛”。
+    meaningEn: Literally "eat shit" — used to curse someone or vent strong annoyance. Online it is often written 呷赛, which sounds the same.
     category: crude
 
   - id: kan

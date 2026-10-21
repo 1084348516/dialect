@@ -22,6 +22,8 @@ entries:
     enReading: ah-GUNG
     zh: 爷爷；祖父
     en: grandpa
+    meaning: 爷爷，父亲的父亲。客家话叫奶奶是“阿婆”，叫爷爷是“阿公”。
+    meaningEn: Grandpa (father's father). Grandma on the same side is "a po" (阿婆).
     category: kinship
 
   - id: a-po
@@ -41,6 +43,8 @@ entries:
     enReading: ah-BAH
     zh: 爸爸
     en: dad
+    meaning: 爸爸。当面叫、背后提起都可以用。
+    meaningEn: Dad — used both to address him and to talk about him.
     category: kinship
 
   - id: a-me
@@ -49,6 +53,8 @@ entries:
     enReading: ah-MEH
     zh: 妈妈
     en: mum
+    meaning: 妈妈。客家话叫妈妈是“阿姆”，注意和普通话里“阿姆”（伯母）的意思不同。
+    meaningEn: Mum. Note that in Mandarin 阿姆 can mean an aunt, but in Hakka it is your mother.
     category: kinship
 
   - id: a-go
@@ -57,6 +63,8 @@ entries:
     enReading: ah-GOH
     zh: 哥哥
     en: older brother
+    meaning: 哥哥。当面叫、背后提起都可以用。
+    meaningEn: Older brother — used both to address him and to talk about him.
     category: kinship
 
   - id: lo-moi
@@ -65,6 +73,8 @@ entries:
     enReading: loh-MOY
     zh: 妹妹
     en: younger sister
+    meaning: 妹妹。客家话的“老妹”就是妹妹，这里的“老”不是年长的意思。
+    meaningEn: Younger sister. The 老 ("old") here does not mean older — it is just part of the word.
     category: kinship
 
   - id: lo-tai
@@ -73,6 +83,8 @@ entries:
     enReading: loh-TIE
     zh: 弟弟
     en: younger brother
+    meaning: 弟弟。和“老妹”一样，“老”不是年长的意思。
+    meaningEn: Younger brother. As with "lo moi", the 老 ("old") does not mean older.
     category: kinship
 
   - id: se-ngin
@@ -83,6 +95,8 @@ entries:
     zh: 小孩
     en: child; kid
     literal: 小人
+    meaning: 小孩。“细”是小，“细人”字面就是小人，也说“细人仔”。
+    meaningEn: A child. 细 means small, so it is literally "small person"; also "se ngin zai".
     category: kinship
 
   - id: shin-mung-n
@@ -101,6 +115,8 @@ entries:
     enReading: ahn-dzuh-SEH
     zh: 谢谢
     en: thank you
+    meaning: 谢谢，台湾客家人道谢最常用的说法；梅县一带更常说“承蒙你”。
+    meaningEn: Thank you — the usual thanks among Taiwanese Hakka speakers. Around Meixian people more often say "shin mung n" (承蒙你).
     note: 台湾客家人常用。
     noteEn: Common among Hakka speakers in Taiwan.
     category: greeting
@@ -111,6 +127,8 @@ entries:
     enReading: mm-see-hahk-HEE
     zh: 不用客气
     en: you're welcome
+    meaning: 不用客气。“唔使”就是不用，回应别人道谢时说。
+    meaningEn: You're welcome. 唔使 means "no need" — the reply to thanks.
     category: greeting
 
   - id: giung-hi-fat-coi
@@ -119,6 +137,8 @@ entries:
     enReading: gyung-hee-faht-CHOY
     zh: 恭喜发财（拜年用语）
     en: wishing you prosperity
+    meaning: 过年拜年最常用的祝福语，祝对方新的一年发财。
+    meaningEn: The most common Chinese New Year greeting, wishing someone wealth in the year ahead.
     category: greeting
 
   - id: ngai
@@ -145,6 +165,8 @@ entries:
     enReading: n
     zh: 你
     en: you
+    meaning: 你。客家话的“你”读音很特别，只是一个鼻音 n。
+    meaningEn: "You. The Hakka word is unusual: just a nasal \"n\" sound."
     note: 梅县话的“你”只有一个鼻音 n，不带元音。
     noteEn: In Meixian Hakka "you" is just a nasal "n", with no vowel.
     category: daily
@@ -155,6 +177,8 @@ entries:
     enReading: ghee
     zh: 他；她
     en: he; she
+    meaning: 他、她，不分男女，和粤语一样写作“佢”。
+    meaningEn: He or she — one word for both, written 佢 as in Cantonese.
     category: daily
 
   - id: he
@@ -163,6 +187,8 @@ entries:
     enReading: heh
     zh: 是
     en: to be; yes
+    meaning: 是。客家话和粤语一样用“系”表示“是”。
+    meaningEn: To be; yes. Like Cantonese, Hakka uses 系 for "to be".
     note: 否定是“唔系”（m he）。
     noteEn: The negative is "m he" (唔系).
     category: daily
@@ -173,6 +199,8 @@ entries:
     enReading: moh
     zh: 没有
     en: don't have; there isn't
+    meaning: 没有，和粤语一样写作“冇”。
+    meaningEn: Not have; there isn't. Written 冇, as in Cantonese.
     category: daily
 
   - id: mak-ge
@@ -217,6 +245,8 @@ entries:
     enReading: gin-boo-NGIT
     zh: 今天
     en: today
+    meaning: 今天。“晡”指一天里的某段时间，“今晡日”就是今天；明天叫“天光日”。
+    meaningEn: Today. 晡 refers to a part of the day; tomorrow is "tien gong ngit" (天光日).
     category: daily
 
   - id: tien-gong-ngit
@@ -226,6 +256,8 @@ entries:
     zh: 明天
     en: tomorrow
     literal: 天亮那一天
+    meaning: 明天。“天光”是天亮，“天光日”字面就是天亮以后的那一天；今天叫“今晡日”。
+    meaningEn: Tomorrow. 天光 means daybreak, so it is literally "the day after daybreak". Today is "gin bu ngit" (今晡日).
     category: daily
 
   - id: gong-hak-fa
@@ -234,6 +266,8 @@ entries:
     enReading: gong-hahk-FAH
     zh: 说客家话
     en: to speak Hakka
+    meaning: 说客家话。客家人自己常把客家话叫“客话”。
+    meaningEn: To speak Hakka. Hakka people often call their language "hak fa" (客话).
     note: 客家人有句老话：“宁卖祖宗田，唔忘祖宗言”，意思是宁可卖掉祖产，也不能忘了祖宗的话。
     noteEn: An old Hakka saying goes, "Sell the ancestors' fields if you must, but never forget the ancestors' tongue."
     category: daily
@@ -244,6 +278,8 @@ entries:
     enReading: yahm-gook-GAI
     zh: 盐焗鸡
     en: salt-baked chicken
+    meaning: 客家名菜，把整只鸡用纸包好埋进炒热的粗盐里焗熟，皮爽肉滑，梅州、惠州一带最有名。
+    meaningEn: "A famous Hakka dish: a whole chicken wrapped in paper and baked in hot coarse salt, best known around Meizhou and Huizhou."
     category: food
 
   - id: ngiong-teu-fu
@@ -252,6 +288,8 @@ entries:
     enReading: ngyong-teh-FOO
     zh: 酿豆腐
     en: stuffed tofu
+    meaning: 客家传统名菜，在豆腐里塞进肉馅后煎或者焖煮。
+    meaningEn: "A traditional Hakka dish: tofu stuffed with minced meat, then pan-fried or braised."
     category: food
 
   - id: lui-ca

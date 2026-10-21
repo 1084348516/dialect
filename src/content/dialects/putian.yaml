@@ -25,6 +25,8 @@ entries:
     enReading: hah-BOH
     zh: 吃饱
     en: to be full (after eating)
+    meaning: 吃饱了。闽语里“吃”都说“食”，问别人吃了没常说“食糜未？”。
+    meaningEn: To be full after eating. Min dialects say 食 for "eat"; to ask whether someone has eaten, say "食糜未?".
     category: daily
 
   - id: ha-man
@@ -58,6 +60,8 @@ entries:
     enReading: GYAH
     zh: 走
     en: to walk; to go
+    meaning: 走路。闽语里“行”是走，“走”反而是跑。
+    meaningEn: To walk. In Min dialects 行 means walk, while 走 means run.
     category: daily
 
   - id: zao
@@ -89,6 +93,8 @@ entries:
     enReading: OO
     zh: 有
     en: to have; there is
+    meaning: 有，和“无”（bo）相对。
+    meaningEn: To have; there is — the opposite of 无 (bo).
     category: daily
 
   - id: ho
@@ -98,6 +104,8 @@ entries:
     enReading: HOH
     zh: 好
     en: good; OK
+    meaning: 好，可以夸东西好，也可以表示答应。
+    meaningEn: Good — also used to say "OK".
     category: daily
 
   - id: da
@@ -107,6 +115,8 @@ entries:
     enReading: DAH
     zh: 茶
     en: tea
+    meaning: 茶。闽语里“茶”的声母读 d、t 一类的音，英语 tea 就是从闽语的读音来的。
+    meaningEn: Tea. Min dialects pronounce 茶 with a d/t sound — the source of the English word "tea".
     category: daily
 
   - id: pa
@@ -127,6 +137,8 @@ entries:
     enReading: KONG
     zh: 睡觉
     en: to sleep
+    meaning: 睡觉。闽语、客家话里睡觉都说“睏”。
+    meaningEn: To sleep. Min and Hakka both use 睏 for sleeping.
     category: daily
 
   - id: gua
@@ -136,6 +148,8 @@ entries:
     enReading: GWAH
     zh: 我
     en: I; me
+    meaning: 我，和闽南语的说法相近。
+    meaningEn: I or me — close to the Hokkien word.
     category: people
 
   - id: dy
@@ -155,6 +169,8 @@ entries:
     enReading: EE
     zh: 他；她
     en: he; she
+    meaning: 他、她，不分男女。
+    meaningEn: He or she — one word for both.
     category: people
 
   - id: nang
@@ -164,6 +180,8 @@ entries:
     enReading: NAHNG
     zh: 人
     en: person; people
+    meaning: 人。“侬”在莆田话里就是人的意思，比如“笑死侬”（笑死人）；和上海话里“侬”是“你”不一样。
+    meaningEn: Person. In Putian 侬 means "person", as in 笑死侬 (hilarious) — unlike Shanghainese, where 侬 means "you".
     category: people
 
   - id: ha-lian-nai
@@ -212,6 +230,8 @@ entries:
     enReading: tah-ZOO
     zh: 读书
     en: to study; to go to school
+    meaning: 读书、上学，网上常写成谐音的“踏鞠”。
+    meaningEn: To study or go to school; online it is often written 踏鞠, which sounds similar.
     category: daily
 
   - id: chiao-si-nang
@@ -234,6 +254,8 @@ entries:
     enReading: EE-ah
     zh: 椅子
     en: chair
+    meaning: 椅子。“仔”是闽语常见的名词后缀。
+    meaningEn: A chair. 仔 is a common noun suffix in Min dialects.
     category: daily
 
   - id: kua-deng-si
@@ -280,6 +302,8 @@ entries:
     enReading: deng-WAH
     zh: 电话
     en: telephone; phone call
+    meaning: 电话，打电话、接电话都可以用。
+    meaningEn: A telephone or phone call.
     category: daily
 
   - id: sao-cu
@@ -291,6 +315,8 @@ entries:
     zh: 扫地
     en: to sweep the floor
     literal: 扫屋子（"厝"是房子）
+    meaning: 打扫屋子、扫地。“厝”是房子，闽语通用。
+    meaningEn: To sweep or clean the house. 厝 means house across the Min dialects.
     category: daily
 
   - id: gua-ai-dy
@@ -301,6 +327,8 @@ entries:
     enReading: gwah-ai-DEE
     zh: 我爱你
     en: I love you
+    meaning: 我爱你。“汝”就是你。
+    meaningEn: I love you. 汝 means "you".
     category: daily
 
   - id: a-ba
@@ -310,6 +338,8 @@ entries:
     enReading: ah-BAH
     zh: 爸爸
     en: dad
+    meaning: 爸爸。当面叫、背后提起都可以用。
+    meaningEn: Dad — used both to address him and to talk about him.
     category: kinship
 
   - id: a-ma
@@ -331,6 +361,8 @@ entries:
     enReading: ah-GONG
     zh: 爷爷；祖父
     en: grandpa
+    meaning: 爷爷，父亲的父亲。叫奶奶是“阿妈”。
+    meaningEn: Grandpa (father's father). Grandma on the same side is "a ma" (阿妈).
     category: kinship
 
   - id: a-hia
@@ -341,6 +373,8 @@ entries:
     enReading: ah-HYAH
     zh: 哥哥
     en: older brother
+    meaning: 哥哥，和闽南语的“阿兄”说法相近。
+    meaningEn: Older brother, close to the Hokkien "a-hiann".
     category: kinship
 
   - id: a-di
@@ -351,6 +385,8 @@ entries:
     enReading: ah-DEE
     zh: 弟弟
     en: younger brother
+    meaning: 弟弟。
+    meaningEn: Younger brother.
     category: kinship
 
   - id: bing-go
@@ -361,6 +397,8 @@ entries:
     enReading: bing-GOH
     zh: 苹果
     en: apple
+    meaning: 苹果。
+    meaningEn: Apple.
     category: food
 
   - id: bo-liang-sing
@@ -371,6 +409,8 @@ entries:
     enReading: boh-lyahng-SING
     zh: 没良心
     en: heartless
+    meaning: 没良心，骂人忘恩负义、不讲情义。
+    meaningEn: Heartless — calling someone ungrateful or callous.
     category: slang
 
   - id: bo-lian-ci

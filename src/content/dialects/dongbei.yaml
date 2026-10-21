@@ -96,9 +96,16 @@ entries:
     enReading: MY-tie
     zh: 脏
     en: dirty
+    meaning: 脏、不干净，东西、衣服、地方都可以说“埋汰”。
+    meaningEn: Dirty — for things, clothes or places.
     note: 也可以指挖苦、损人，比如“别埋汰我了”。
     noteEn: Can also mean to tease or put someone down, as in "stop making fun of me".
     category: daily
+    examples:
+      - text: 屋里太埋汰了。
+        pron: wu li tai mai tai le.
+        zh: 屋里太脏了。
+        en: The room is filthy.
 
   - id: mo-ji
     text: 磨叽
@@ -120,7 +127,14 @@ entries:
     enReading: duh-JIN
     zh: 舒服；带劲
     en: comfortable; satisfying
+    meaning: 舒服、带劲、称心。身体不舒服、心里别扭就说“不得劲”。
+    meaningEn: Comfortable, satisfying, just right. Feeling unwell or uneasy is "bu de jin".
     category: daily
+    examples:
+      - text: 这炕睡着真得劲。
+        pron: zhe kang shui zhao zhen de jin.
+        zh: 这炕睡着真舒服。
+        en: This kang bed is really comfy.
 
   - id: xi-han
     text: 稀罕
@@ -141,7 +155,14 @@ entries:
     enReading: guh-ying
     zh: 恶心；讨厌
     en: gross; to put someone off
+    meaning: 让人觉得恶心、心里别扭，也可以形容某个人或某件事让人厌烦。
+    meaningEn: Gross, off-putting — also said of a person or thing that rubs you the wrong way.
     category: daily
+    examples:
+      - text: 看着就膈应。
+        pron: kan zhe jiu ge ying.
+        zh: 看着就恶心。
+        en: Just looking at it makes me cringe.
 
   - id: lao-bi-zi-le
     text: 老鼻子了
@@ -162,7 +183,14 @@ entries:
     enReading: un-NAH
     zh: 是的；嗯
     en: yeah; uh-huh
+    meaning: 表示答应、同意，相当于“嗯”“是的”，语气很随和。
+    meaningEn: A relaxed "yeah" or "uh-huh" to agree or say yes.
     category: daily
+    examples:
+      - text: 嗯呐，知道了。
+        pron: en na, zhi dao le.
+        zh: 嗯，知道了。
+        en: Yeah, got it.
 
   - id: na-ga-la
     text: 那旮旯
@@ -170,6 +198,8 @@ entries:
     enReading: nah-GAH-lah
     zh: 那个角落；那地方
     en: over in that corner; that place
+    meaning: “旮旯”是角落，“那旮旯”指那个角落、那个地方；“这旮旯”就是这儿。
+    meaningEn: 旮旯 means corner, so this is "that corner" or "over there"; "zhe ga la" means "here".
     category: daily
 
   - id: bo-leng-gai
@@ -179,7 +209,14 @@ entries:
     enReading: boh-lung-GUY
     zh: 膝盖
     en: knee
+    meaning: 膝盖，东北话常带儿化说“波棱盖儿”。
+    meaningEn: Knee — often said with an -r ending, "bo leng gair".
     category: daily
+    examples:
+      - text: 摔了一跤，波棱盖儿磕破了。
+        pron: shuai le yi jiao, bo leng gair ke po le.
+        zh: 摔了一跤，膝盖磕破了。
+        en: I fell and scraped my knee.
 
   - id: ai-ya-ma-ya
     text: 哎呀妈呀
@@ -207,6 +244,8 @@ entries:
     enReading: LOW-yeh
     zh: 外公
     en: grandpa (mother's side)
+    meaning: 外公，母亲的父亲。北方普遍叫“姥爷”，爷爷（父亲的父亲）还是叫“爷爷”。
+    meaningEn: Grandpa on your mother's side — the usual northern word. Your father's father is still "ye ye".
     category: kinship
 
   - id: lao-meir
@@ -250,7 +289,14 @@ entries:
     enReading: gahng-gahng-duh
     zh: 非常好；没得说
     en: top-notch; awesome
+    meaning: 非常好、没得说，用来夸东西质量好、事情办得漂亮。
+    meaningEn: Top-notch — praising great quality or a job well done.
     category: slang
+    examples:
+      - text: 这活儿干得杠杠的。
+        pron: zhe huor gan de gang gang de.
+        zh: 这活儿干得非常好。
+        en: That job was done perfectly.
 
   - id: de-se
     text: 嘚瑟

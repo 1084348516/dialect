@@ -115,7 +115,14 @@ entries:
     enReading: shyow-DEH
     zh: 知道
     en: to know
+    meaning: 知道。四川话很少说“知道”，一般都说“晓得”。
+    meaningEn: To know. Sichuanese rarely says Mandarin "zhi dao" — "xiao de" is the everyday word.
     category: daily
+    examples:
+      - text: 我晓得了。
+        pron: wo xiao de le.
+        zh: 我知道了。
+        en: Got it.
 
   - id: xiao-bu-de
     text: 晓不得
@@ -124,7 +131,14 @@ entries:
     zh: 不知道
     en: don't know
     literal: 晓得的否定，“不晓得”。
+    meaning: 不知道，四川话把否定的“不”放在“晓”和“得”中间。
+    meaningEn: Don't know — the negative 不 goes in the middle of "xiao de".
     category: daily
+    examples:
+      - text: 我也晓不得。
+        pron: wo ye xiao bu de.
+        zh: 我也不知道。
+        en: I don't know either.
 
   - id: gao-kuai-dian
     text: 搞快点
@@ -132,7 +146,14 @@ entries:
     enReading: gow-kwhy-DYEN
     zh: 快点
     en: hurry up
+    meaning: 快点，催人抓紧时间。“搞”在四川话里用得很多，相当于“弄、做”。
+    meaningEn: Hurry up. 搞 ("to do") is an all-purpose verb in Sichuanese.
     category: daily
+    examples:
+      - text: 搞快点，要迟到了！
+        pron: gao kuai dian, yao ci dao le!
+        zh: 快点，要迟到了！
+        en: Hurry up, we'll be late!
 
   - id: zao-bu-zu
     text: 遭不住
@@ -152,6 +173,8 @@ entries:
     enReading: HIGH-dzuh
     zh: 鞋
     en: shoes
+    meaning: 鞋。四川话“鞋”读 hai，“鞋子”听起来就像普通话的“孩子”。
+    meaningEn: Shoes. 鞋 is read "hai", so "shoes" sounds just like Mandarin "children".
     note: 四川话“鞋”读作 hai，和普通话的“孩”同音，外地人常听岔。
     noteEn: In Sichuanese, 鞋 (shoe) sounds like "hai", the same as Mandarin 孩 (child), which often confuses outsiders.
     category: daily
@@ -192,6 +215,7 @@ entries:
 
   - id: yao-er
     text: 幺儿
+    textHant: 幺兒
     pron: yao er
     enReading: YOW-er
     zh: 最小的孩子；宝贝
@@ -245,7 +269,14 @@ entries:
     enReading: dah-WAHNG
     zh: 看帅哥美女
     en: to people-watch (for good-looking people)
+    meaning: 在街上看来往的帅哥美女，是成都人很有代表性的休闲方式。
+    meaningEn: People-watching — especially eyeing good-looking passers-by, a famous Chengdu pastime.
     category: slang
+    examples:
+      - text: 坐在街边打望。
+        pron: zuo zai gai bian da wang.
+        zh: 坐在街边看美女帅哥。
+        en: Sitting by the street, people-watching.
 
   - id: cong-ko-zi
     text: 冲壳子
@@ -254,7 +285,14 @@ entries:
     enReading: tsong-KOH-dzuh
     zh: 吹牛；闲聊
     en: to brag; to chat idly
+    meaning: 吹牛、说大话，也可以指闲聊瞎侃。
+    meaningEn: To brag or talk big; can also mean idle chatter.
     category: slang
+    examples:
+      - text: 你莫冲壳子了。
+        pron: ni mo cong ko zi le.
+        zh: 你别吹牛了。
+        en: Stop bragging.
 
   - id: wai
     text: 歪

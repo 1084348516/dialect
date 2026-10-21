@@ -102,6 +102,8 @@ entries:
     enReading: gah-JEH
     zh: 姐姐
     en: older sister
+    meaning: 姐姐。当面叫、背后提起都可以用。
+    meaningEn: Older sister — used both to address her and to talk about her.
     category: kinship
 
   - id: sai-lou
@@ -110,6 +112,8 @@ entries:
     enReading: sai-LOH
     zh: 弟弟
     en: younger brother
+    meaning: 弟弟。“细”是小，“佬”指男性，所以是“小的男孩”。
+    meaningEn: Younger brother. 细 means small and 佬 means man or guy.
     category: kinship
 
   - id: sai-mui
@@ -118,6 +122,8 @@ entries:
     enReading: sai-MOOY
     zh: 妹妹
     en: younger sister
+    meaning: 妹妹。“细”是小，“细妹”就是小妹。
+    meaningEn: Younger sister. 细 means small, so it is "little sister".
     category: kinship
 
   - id: lou-gung
@@ -126,6 +132,8 @@ entries:
     enReading: loh-GUNG
     zh: 丈夫
     en: husband
+    meaning: 丈夫，和普通话“老公”意思一样。
+    meaningEn: Husband — the same word as in colloquial Mandarin.
     category: kinship
 
   - id: lou-po
@@ -134,6 +142,8 @@ entries:
     enReading: loh-POH
     zh: 妻子
     en: wife
+    meaning: 妻子，和普通话“老婆”意思一样。
+    meaningEn: Wife — the same word as in colloquial Mandarin.
     category: kinship
 
   - id: m-goi
@@ -154,7 +164,14 @@ entries:
     enReading: doh-JEH
     zh: 谢谢
     en: thank you
+    meaning: 谢谢。收到礼物、别人称赞或者帮了大忙时说“多谢”；日常小事说“唔该”。
+    meaningEn: Thank you — for gifts, compliments or real favours. For small everyday services, say "m4 goi1".
     category: greeting
+    examples:
+      - text: 多谢你嘅礼物。
+        pron: do1 ze6 nei5 ge3 lai5 mat6.
+        zh: 谢谢你的礼物。
+        en: Thank you for the present.
 
   - id: sik-zo-faan-mei
     text: 食咗饭未
@@ -195,6 +212,8 @@ entries:
     enReading: nay-HOH
     zh: 你好
     en: hello
+    meaning: 你好。比较客气，熟人之间更常说“早晨”或者直接叫名字。
+    meaningEn: Hello. Fairly polite — friends more often say "zou2 san4" (morning) or just use each other's names.
     category: greeting
 
   - id: m-hou-ji-si
@@ -203,7 +222,14 @@ entries:
     enReading: mm-hoh-yee-SEE
     zh: 不好意思；对不起
     en: sorry; excuse me
+    meaning: 不好意思、对不起；麻烦别人、借过或者道歉时都可以说。
+    meaningEn: Sorry or excuse me — for bothering someone, getting past or apologising.
     category: greeting
+    examples:
+      - text: 唔好意思，我迟到。
+        pron: m4 hou2 ji3 si1, ngo5 ci4 dou3.
+        zh: 不好意思，我迟到了。
+        en: Sorry, I'm late.
 
   - id: m-sai-haak-hei
     text: 唔使客气
@@ -211,7 +237,14 @@ entries:
     enReading: mm-sai-hahk-HAY
     zh: 不用客气
     en: you're welcome
+    meaning: 不用客气。“唔使”就是不用，回应别人道谢时说；也可以简单说“唔使”。
+    meaningEn: You're welcome. 唔使 means "no need"; the short form "m4 sai2" also works.
     category: greeting
+    examples:
+      - text: 多谢晒！——唔使客气。
+        pron: do1 ze6 saai3! —— m4 sai2 haak3 hei3.
+        zh: 太感谢了！——不用客气。
+        en: Thanks so much! — You're welcome.
 
   - id: hou-noi-mou-gin
     text: 好耐冇见
@@ -219,7 +252,14 @@ entries:
     enReading: hoh-noy-moh-GIN
     zh: 好久不见
     en: long time no see
+    meaning: 好久不见。“好耐”是很久，“冇见”是没见。
+    meaningEn: Long time no see. 好耐 means "a long time" and 冇见 means "not seen".
     category: greeting
+    examples:
+      - text: 好耐冇见，你点呀？
+        pron: hou2 noi6 mou5 gin3, nei5 dim2 aa3?
+        zh: 好久不见，你怎么样？
+        en: Long time no see, how are you?
 
   - id: baai-baai
     text: 拜拜
@@ -227,6 +267,8 @@ entries:
     enReading: bye-BYE
     zh: 再见
     en: bye-bye
+    meaning: 再见，来自英语 bye-bye，是香港、广州日常道别最常用的说法。
+    meaningEn: Goodbye — from English "bye-bye", the everyday farewell in Hong Kong and Guangzhou.
     category: greeting
 
   - id: hai
@@ -317,7 +359,14 @@ entries:
     enReading: mm-JEE
     zh: 不知道
     en: I don't know
+    meaning: 不知道。“唔”是不，“知”是知道。
+    meaningEn: I don't know. 唔 means not and 知 means know.
     category: daily
+    examples:
+      - text: 我唔知呀。
+        pron: ngo5 m4 zi1 aa3.
+        zh: 我不知道啊。
+        en: I don't know.
 
   - id: zung-ji
     text: 钟意
@@ -339,7 +388,14 @@ entries:
     enReading: leng
     zh: 漂亮；好看
     en: pretty; good-looking
+    meaning: 漂亮、好看，可以夸人，也可以夸东西；“靓仔”是帅哥，“靓女”是美女。
+    meaningEn: Pretty or good-looking, for people or things. "leng3 zai2" is a handsome guy and "leng3 neoi2" a pretty girl.
     category: daily
+    examples:
+      - text: 你今日好靓。
+        pron: nei5 gam1 jat6 hou2 leng3.
+        zh: 你今天很漂亮。
+        en: You look great today.
 
   - id: tai
     text: 睇
@@ -360,7 +416,14 @@ entries:
     enReading: fahn-ook-KAY
     zh: 回家
     en: to go home
+    meaning: 回家。“返”是回，“屋企”是家。
+    meaningEn: To go home. 返 means return and 屋企 means home.
     category: daily
+    examples:
+      - text: 我而家返屋企。
+        pron: ngo5 ji4 gaa1 faan1 uk1 kei2.
+        zh: 我现在回家。
+        en: I'm heading home now.
 
   - id: jam-caa
     text: 饮茶
@@ -385,7 +448,14 @@ entries:
     enReading: hoh-SIK
     zh: 好吃
     en: tasty
+    meaning: 好吃。“食”就是吃；“好好食”是非常好吃。
+    meaningEn: Tasty. 食 means to eat; "hou2 hou2 sik6" is "really tasty".
     category: food
+    examples:
+      - text: 呢度啲嘢好好食。
+        pron: ni1 dou6 di1 je5 hou2 hou2 sik6.
+        zh: 这里的东西很好吃。
+        en: The food here is really tasty.
 
   - id: maai-daan
     text: 埋单
@@ -407,6 +477,8 @@ entries:
     enReading: hah-GOW
     zh: 虾饺
     en: shrimp dumpling (har gow)
+    meaning: 广式早茶的经典点心，用透明的澄面皮包着整只虾仁蒸熟。
+    meaningEn: "A dim sum classic: whole prawns wrapped in a translucent wheat-starch skin and steamed."
     category: food
 
   - id: siu-maai
@@ -415,6 +487,8 @@ entries:
     enReading: syoo-MAI
     zh: 烧卖
     en: siu mai
+    meaning: 广式早茶的经典点心，猪肉和虾做馅，开口蒸，顶上常放蟹籽或胡萝卜粒。
+    meaningEn: "A dim sum classic: open-topped pork and prawn dumplings, often topped with roe or diced carrot."
     category: food
 
   - id: caa-siu
@@ -423,6 +497,8 @@ entries:
     enReading: chah-SYOO
     zh: 叉烧
     en: barbecued pork (char siu)
+    meaning: 广式烧味，把猪肉用蜜汁腌好后烤成，甜咸带焦香；叉烧包、叉烧饭都很常见。
+    meaningEn: Cantonese barbecued pork, marinated in a sweet glaze and roasted — found in char siu buns and on rice.
     category: food
 
   - id: gung-hei-faat-coi
@@ -454,6 +530,8 @@ entries:
     enReading: sun-neen-fai-LOK
     zh: 新年快乐
     en: happy new year
+    meaning: 过年见面说的祝福语，和普通话“新年快乐”意思一样。
+    meaningEn: The New Year greeting, the same as Mandarin "xin nian kuai le".
     category: newyear
 
   - id: san-tai-gin-hong
@@ -472,6 +550,8 @@ entries:
     enReading: mahn-see-yoo-YEE
     zh: 万事如意
     en: may all go as you wish
+    meaning: 祝对方事事顺心，是过年拜年常用的吉祥话。
+    meaningEn: Wishing that everything goes the way someone hopes — a classic New Year blessing.
     category: newyear
 
   - id: sai-lei
@@ -481,7 +561,14 @@ entries:
     enReading: sai-LAY
     zh: 厉害
     en: awesome; impressive
+    meaning: 厉害、了不起，可以夸人很有本事，也可以说东西很强。
+    meaningEn: Awesome, impressive — for a capable person or something powerful.
     category: slang
+    examples:
+      - text: 你好犀利！
+        pron: nei5 hou2 sai1 lei6!
+        zh: 你真厉害！
+        en: You're amazing!
 
   - id: hou-zeng
     text: 好正
@@ -513,7 +600,14 @@ entries:
     enReading: baht-GWAH
     zh: 爱打听；八卦
     en: gossipy; nosy
+    meaning: 爱打听别人的私事、爱讲是非；也可以指八卦新闻本身。
+    meaningEn: Nosy, fond of gossip — or the gossip itself.
     category: slang
+    examples:
+      - text: 你咪咁八卦啦。
+        pron: nei5 mai5 gam3 baat3 gwaa3 laa1.
+        zh: 你别这么八卦了。
+        en: Don't be so nosy.
 
   - id: ceoi-seoi
     text: 吹水
@@ -521,7 +615,14 @@ entries:
     enReading: chui-SUI
     zh: 闲聊；吹牛
     en: to chat idly; to talk big
+    meaning: 闲聊、天南地北地聊天，也有吹牛的意思。
+    meaningEn: To chat about anything and everything; can also mean to talk big.
     category: slang
+    examples:
+      - text: 一齐饮茶吹水。
+        pron: jat1 cai4 jam2 caa4 ceoi1 seoi2.
+        zh: 一起喝茶聊天。
+        en: Have tea and a chat together.
 
   - id: mou-so-wai
     text: 冇所谓
@@ -529,7 +630,14 @@ entries:
     enReading: moh-soh-WAI
     zh: 无所谓
     en: doesn't matter; whatever
+    meaning: 无所谓、都可以。“冇”是没有，相当于普通话的“无”。
+    meaningEn: Doesn't matter, whatever. 冇 means "not have", like Mandarin 无.
     category: slang
+    examples:
+      - text: 食乜都冇所谓。
+        pron: sik6 mat1 dou1 mou5 so2 wai6.
+        zh: 吃什么都无所谓。
+        en: I don't mind what we eat.
 
   - id: ci-sin
     text: 黐线
@@ -538,4 +646,11 @@ entries:
     zh: 神经病；发疯
     en: crazy; nuts
     literal: 线路搭错
+    meaning: 神经病、发疯，常用来说对方的想法或做法很离谱，熟人之间也常开玩笑说。
+    meaningEn: Crazy, nuts — said when someone's idea or behaviour is ridiculous; also used jokingly among friends.
     category: slang
+    examples:
+      - text: 你黐线㗎？
+        pron: nei5 ci1 sin3 gaa3?
+        zh: 你疯了吗？
+        en: Are you crazy?
