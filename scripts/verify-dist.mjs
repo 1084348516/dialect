@@ -62,14 +62,15 @@ if (failures.length === 0) {
   check(cards === live.length, `home should render ${live.length} live dialect cards, got ${cards}`);
   for (const d of soon) check(home.includes(d.name), `home should still list coming-soon dialect ${d.name}`);
 
-  // 选填内容没写时，词条页不应出现对应的区块（标签文字见 src/i18n/ui.ts）
+  // 选填内容没写时，词条页不应出现对应的区块（标签文字见 src/i18n/ui.ts）。
+  // 匹配区块标签的标记而不是纯文字，释义、提示里提到“各地说法”“例句”这类词不算
   const optional = [
-    ['例句', (e) => e.examples?.length],
-    ['各地说法', (e) => e.variants?.length],
-    ['使用提示', (e) => e.note],
-    ['字面意思', (e) => e.literal],
-    ['谐音（近似）', (e) => e.homophone],
-    ['English 读法', (e) => e.enReading],
+    ['<h2>例句</h2>', (e) => e.examples?.length],
+    ['<h2>各地说法</h2>', (e) => e.variants?.length],
+    ['<p class="tip">使用提示：', (e) => e.note],
+    ['<p class="literal">字面意思：', (e) => e.literal],
+    ['<span class="reading-label">谐音（近似）</span>', (e) => e.homophone],
+    ['<span class="reading-label">English 读法</span>', (e) => e.enReading],
   ];
   for (const d of live) {
     for (const e of d.entries) {
