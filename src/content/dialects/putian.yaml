@@ -150,6 +150,8 @@ entries:
     en: I; me
     meaning: 我，和闽南语的说法相近。
     meaningEn: I or me — close to the Hokkien word.
+    note: 本字就是“我”，网上写成“瓜”“寡”都是谐音。
+    noteEn: The proper character is 我; the 瓜 or 寡 you see online are just sound-alikes.
     category: people
 
   - id: dy
@@ -192,10 +194,25 @@ entries:
     enReading: hah-lyen-NYE
     zh: 骂人的脏话
     en: a curse word
-    meaning: 骂人的脏话，意思接近"要命""找死""混蛋"，属于比较恶毒的诅咒，常被当口头禅。
-    meaningEn: A curse, roughly "damn you" / "go to hell" / "bastard". Quite vicious, though often used as a verbal tic.
+    meaning: 骂人的脏话。"下"是"食"（吃）的谐音写法，字面意思和男性的体液有关，非常下流，是比较恶毒的侮辱，不过也常被当口头禅。
+    meaningEn: A vulgar curse. 下 stands in for 食 ("to eat"), and the phrase literally refers to male bodily fluids. Very obscene and insulting, though often used as a verbal tic.
+    literal: "“食”男性体液（下流说法）"
     note: 日常生活中应避免使用。
     noteEn: Avoid using it in everyday conversation.
+    category: crude
+
+  - id: ha-lao-yi
+    text: 下老已
+    pron: ha lao yi
+    homophone: 下老已
+    enReading: hah-low-YEE
+    zh: 骂人的脏话
+    en: a vulgar curse
+    meaning: 骂人的脏话。"下"是"食"（吃）的谐音写法，字面意思涉及女性的私密部位，非常下流，用来侮辱人或发泄不满。
+    meaningEn: A vulgar curse. 下 stands in for 食 ("to eat"), and the phrase literally refers to a woman's private parts. Very obscene — used to insult someone or vent anger.
+    literal: "“食”女性私处（下流说法）"
+    note: 非常粗俗冒犯，了解即可，不要对人说。
+    noteEn: Highly offensive — good to recognize, not to use.
     category: crude
 
   - id: di-iu-gua-sao
@@ -340,18 +357,20 @@ entries:
     en: dad
     meaning: 爸爸。当面叫、背后提起都可以用。
     meaningEn: Dad — used both to address him and to talk about him.
+    note: 传统说法是“老父”（lo o），现在口语里“阿爸”也很常用。
+    noteEn: The traditional word is 老父 (lo o); "a ba" is also common in everyday speech today.
     category: kinship
 
   - id: a-ma
-    text: 阿妈
-    alt: [阿码, 阿嬷]
+    text: 阿嬷
+    alt: [阿妈, 阿码]
     pron: a ma
     homophone: 阿码
     enReading: ah-MAH
-    zh: 奶奶；祖母
+    zh: 奶奶；外婆
     en: grandma
-    meaning: 奶奶，父亲的母亲。注意不是妈妈。
-    meaningEn: Grandma (father's mother) — not "mom".
+    meaning: 奶奶，父亲的母亲；外婆也叫“阿嬷”。注意不是妈妈，妈妈叫“娘奶”。
+    meaningEn: Grandma — your father's mother, and your mother's mother is called the same. Not "mom" — mother is 娘奶.
     category: kinship
 
   - id: a-gong
@@ -359,10 +378,10 @@ entries:
     pron: a gong
     homophone: 阿公
     enReading: ah-GONG
-    zh: 爷爷；祖父
+    zh: 爷爷；外公
     en: grandpa
-    meaning: 爷爷，父亲的父亲。叫奶奶是“阿妈”。
-    meaningEn: Grandpa (father's father). Grandma on the same side is "a ma" (阿妈).
+    meaning: 爷爷，父亲的父亲；外公也叫“阿公”。奶奶、外婆都叫“阿嬷”。
+    meaningEn: Grandpa — your father's father, and your mother's father is called the same. Both grandmothers are 阿嬷 (a ma).
     category: kinship
 
   - id: a-hia
@@ -380,9 +399,9 @@ entries:
   - id: a-di
     text: 阿弟
     alt: [阿哩]
-    pron: a di
+    pron: a li
     homophone: 阿哩
-    enReading: ah-DEE
+    enReading: ah-LEE
     zh: 弟弟
     en: younger brother
     meaning: 弟弟。
@@ -423,4 +442,148 @@ entries:
     en: shameless
     note: 骂人的话，语气较重。
     noteEn: An insult with a fairly strong tone.
+    category: slang
+
+  - id: niu-le
+    text: 娘奶
+    pron: niu le
+    enReading: nyoo-LEH
+    zh: 妈妈；母亲
+    en: mum; mother
+    meaning: 妈妈、母亲，莆田话很有特色的叫法，和普通话差别很大。注意“阿嬷”是奶奶，不是妈妈。
+    meaningEn: Mum or mother — a distinctive Putian word, quite unlike Mandarin. Note that 阿嬷 (a ma) is grandma, not mum.
+    category: kinship
+
+  - id: lo-o
+    text: 老父
+    pron: lo o
+    enReading: loh-OH
+    zh: 爸爸；父亲
+    en: dad; father
+    meaning: 父亲，莆田话传统的叫法；现在口语里也常说“阿爸”。
+    meaningEn: Father — the traditional Putian word. "A ba" (阿爸) is also common today.
+    category: kinship
+
+  - id: gyo
+    text: 囝
+    pron: gyo
+    enReading: gyoh
+    zh: 儿子
+    en: son
+    meaning: 儿子。闽语里“囝”指孩子、儿子，“红囝”是婴儿，“囝婿”是女婿。
+    meaningEn: Son. In Min dialects 囝 means child or son — compare 红囝 (baby) and 囝婿 (son-in-law).
+    category: kinship
+
+  - id: ang-gyo
+    text: 红囝
+    pron: ang gyo
+    enReading: ahng-GYOH
+    zh: 婴儿
+    en: baby
+    meaning: 婴儿、刚出生不久的小孩。字面是“红色的孩子”，因为新生儿皮肤红红的。
+    meaningEn: A baby or newborn — literally "red child", after a newborn's reddish skin.
+    literal: 红色的孩子
+    category: kinship
+
+  - id: de-a
+    text: 低仔
+    pron: de a
+    enReading: deh-AH
+    zh: 小孩；孩子
+    en: child; kid
+    meaning: 小孩、孩子，泛指小朋友。
+    meaningEn: A child or kid, in general.
+    category: kinship
+
+  - id: sing-niu
+    text: 婶娘
+    pron: sing niu
+    enReading: sing-NYOO
+    zh: 女孩
+    en: girl
+    meaning: 女孩、姑娘。和普通话里“婶娘”（婶婶）的意思完全不同，别弄混。
+    meaningEn: A girl. Nothing to do with Mandarin 婶娘 ("aunt") — easy to mix up.
+    category: kinship
+
+  - id: de-bou-yo
+    text: 丈夫囝
+    pron: de bou yo
+    enReading: deh-boh-YOH
+    zh: 男孩
+    en: boy
+    meaning: 男孩。“丈夫”在莆田话里指男人，加上“囝”就是男孩子。
+    meaningEn: A boy. 丈夫 means "man" in Putian, and adding 囝 ("child") makes it "boy".
+    category: kinship
+
+  - id: sing-mu
+    text: 新妇
+    pron: sing mu
+    enReading: sing-MOO
+    zh: 儿媳妇
+    en: daughter-in-law
+    meaning: 儿媳妇，儿子的妻子。闽语普遍这么叫，字面是“新来的妇人”。
+    meaningEn: Daughter-in-law, your son's wife. Common across Min dialects — literally "the new woman".
+    category: kinship
+
+  - id: gyo-lai
+    text: 囝婿
+    pron: gyo lai
+    enReading: gyoh-LIE
+    zh: 女婿
+    en: son-in-law
+    meaning: 女婿，女儿的丈夫。
+    meaningEn: Son-in-law, your daughter's husband.
+    category: kinship
+
+  - id: diu-nang
+    text: 丈侬
+    pron: diu nang
+    enReading: dyoo-NAHNG
+    zh: 岳父
+    en: father-in-law (wife's father)
+    meaning: 岳父，妻子的父亲。“侬”在莆田话里是人；岳母叫“丈姆”。
+    meaningEn: Your wife's father. 侬 means "person" in Putian; your wife's mother is 丈姆.
+    category: kinship
+
+  - id: diu-ng
+    text: 丈姆
+    pron: diu ng
+    enReading: dyoo-NG
+    zh: 岳母
+    en: mother-in-law (wife's mother)
+    meaning: 岳母，妻子的母亲；岳父叫“丈侬”。
+    meaningEn: Your wife's mother; your wife's father is 丈侬.
+    category: kinship
+
+  - id: gua-o
+    text: 外家
+    pron: gua o
+    enReading: gwah-OH
+    zh: 娘家
+    en: a married woman's parents' home
+    meaning: 娘家，已婚女性父母的家。
+    meaningEn: A married woman's parents' home — the family she was born into.
+    category: kinship
+
+  - id: ga-e
+    text: 家个
+    pron: ga e
+    enReading: gah-EH
+    zh: 自己
+    en: oneself
+    meaning: 自己。口语里常把两个音合成一个音 gai，比如“我 gai 行”（我自己走）。
+    meaningEn: Oneself. In speech the two syllables often merge into one, "gai", as in "gua gai gia" (I'll walk by myself).
+    category: people
+
+  - id: a-mi
+    text: 阿毜
+    alt: [阿毜狮]
+    pron: a mi
+    enReading: ah-MEE
+    zh: 小屁孩（贬称）
+    en: brat
+    meaning: 对小孩带贬义的称呼，类似“小屁孩”，也说“阿毜狮”。
+    meaningEn: A dismissive word for a child, like "brat"; also 阿毜狮.
+    note: 带有轻视意味，当着孩子家长说不礼貌。
+    noteEn: Belittling — rude to say in front of the child's parents.
     category: slang
