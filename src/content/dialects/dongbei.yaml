@@ -13,6 +13,7 @@ categories:
   - { id: daily, name: 日常用语, nameEn: Everyday }
   - { id: kinship, name: 亲属称谓, nameEn: Family }
   - { id: slang, name: 俚语, nameEn: Slang }
+  - { id: food, name: 饮食, nameEn: Food }
 
 entries:
   - id: za-zheng
@@ -179,6 +180,7 @@ entries:
 
   - id: en-na
     text: 嗯呐
+    alt: [嗯哪]
     pron: en na
     enReading: un-NAH
     zh: 是的；嗯
@@ -361,3 +363,252 @@ entries:
         pron: ta ke neng bai hua le.
         zh: 他可真能侃。
         en: He really can talk.
+
+  - id: biao
+    text: 彪
+    pron: biao
+    enReading: byow
+    zh: 傻；缺心眼
+    en: dim; daft
+    meaning: 形容人傻、缺心眼，做事不过脑子，和“虎”意思相近，常说“彪乎乎的”。
+    meaningEn: Daft or dim — someone who acts without thinking. Close to "hu" (虎), and often said as "biao hu hu de".
+    category: slang
+    examples:
+      - text: 这人有点儿彪。
+        pron: zhe ren you dianr biao.
+        zh: 这人有点儿傻。
+        en: This guy is a bit daft.
+
+  - id: la-dao-ba
+    text: 拉倒吧
+    pron: la dao ba
+    enReading: lah-DOW-bah
+    zh: 算了吧
+    en: forget it; yeah right
+    meaning: 算了吧、别提了；也用来表示不相信对方的话，相当于“得了吧”。
+    meaningEn: Forget it, drop it — also used to brush off something you don't believe, like "yeah right".
+    category: daily
+    examples:
+      - text: 拉倒吧，我才不信呢。
+        pron: la dao ba, wo cai bu xin ne.
+        zh: 得了吧，我才不信呢。
+        en: Yeah right, I don't believe you.
+
+  - id: xiao-ting
+    text: 消停
+    pron: xiao ting
+    enReading: shyow-ting
+    zh: 安静；老实下来
+    en: to settle down; to quiet down
+    meaning: 安静下来、老实下来，不再折腾；也可以形容日子过得安稳。
+    meaningEn: To calm down and stop making trouble; can also describe a peaceful, uneventful life.
+    category: daily
+    examples:
+      - text: 你消停会儿吧！
+        pron: ni xiao ting huir ba!
+        zh: 你安静一会儿吧！
+        en: Give it a rest for a minute!
+
+  - id: nao-ting
+    text: 闹挺
+    pron: nao ting
+    enReading: now-ting
+    zh: 心烦；闹心
+    en: fed up; restless
+    meaning: 心里烦、闹心，事情不顺或者后悔的时候常说；也可以形容周围吵闹。
+    meaningEn: Feeling fed up or restless, when things go wrong or you regret something; can also describe a noisy place.
+    category: daily
+    examples:
+      - text: 这两天心里老闹挺了。
+        pron: zhe liang tian xin li lao nao ting le.
+        zh: 这两天心里特别烦。
+        en: I've been really on edge these past few days.
+
+  - id: da-xiao
+    text: 打小
+    pron: da xiao
+    enReading: dah-SHYOW
+    zh: 从小
+    en: since childhood
+    meaning: 从小、小时候起。“打”在这里是“从”的意思。
+    meaningEn: Since childhood. 打 here means "from".
+    category: daily
+    examples:
+      - text: 我俩打小就认识。
+        pron: wo lia da xiao jiu ren shi.
+        zh: 我们俩从小就认识。
+        en: We've known each other since we were kids.
+
+  - id: xin-si
+    text: 寻思
+    pron: xin si
+    enReading: SHIN-suh
+    zh: 想；琢磨
+    en: to think; to figure
+    meaning: 想、琢磨、打算。“寻”在东北话里读 xín，“我寻思……”是很常见的开头。
+    meaningEn: To think, mull over or plan. 寻 is read "xín", and "wo xin si…" ("I figured…") is a very common way to start a sentence.
+    category: daily
+    examples:
+      - text: 我寻思明天再去。
+        pron: wo xin si ming tian zai qu.
+        zh: 我想明天再去。
+        en: I figured I'd go tomorrow instead.
+
+  - id: xia-hei
+    text: 下黑
+    alt: [下黑儿]
+    pron: xia hei
+    enReading: shyah-HAY
+    zh: 天黑；傍晚
+    en: nightfall; evening
+    meaning: 天黑的时候、傍晚，口语里常带儿化说“下黑儿”。
+    meaningEn: Nightfall or evening; often said with an -r ending, "xia heir".
+    category: daily
+    examples:
+      - text: 下黑儿再回来。
+        pron: xia heir zai hui lai.
+        zh: 天黑了再回来。
+        en: Come back after dark.
+
+  - id: ga-ba
+    text: 嘎巴
+    alt: [嘎巴儿]
+    pron: ga ba
+    enReading: GAH-bah
+    zh: 痂；干了的硬块
+    en: scab; dried-on crust
+    meaning: 伤口结的痂，也指干了粘在东西上的硬块，比如衣服上的饭嘎巴。
+    meaningEn: A scab on a wound, or any crust dried onto something, like food stuck on clothes.
+    note: “嘎巴脆”是形容东西很脆，和这里的“嘎巴”意思不同。
+    noteEn: '"Ga ba cui" (嘎巴脆) means very crunchy — a different use of the same sound.'
+    category: daily
+    examples:
+      - text: 别抠那嘎巴。
+        pron: bie kou na ga ba.
+        zh: 别抠那块痂。
+        en: Stop picking at that scab.
+
+  - id: niao-qiao
+    text: 鸟悄
+    alt: [鸟悄儿]
+    pron: niao qiao
+    enReading: nyow-CHYOW
+    zh: 悄悄地；不声不响
+    en: quietly; on the sly
+    meaning: 悄悄地、不声不响，不让别人发现。“鸟”在这里读 niǎo。
+    meaningEn: Quietly, without anyone noticing. 鸟 is read "niǎo" here.
+    category: daily
+    examples:
+      - text: 他鸟悄地走了。
+        pron: ta niao qiao de zou le.
+        zh: 他悄悄地走了。
+        en: He slipped away quietly.
+
+  - id: de-de-se-se
+    text: 嘚嘚瑟瑟
+    alt: [得得瑟瑟]
+    pron: de de se se
+    enReading: duh-duh-SUH-suh
+    zh: 冻得发抖
+    en: shivering
+    meaning: 冻得直哆嗦、浑身发抖，也说“打嘚瑟”。
+    meaningEn: Shivering with cold; also "da de se".
+    note: 和“嘚瑟”（显摆）不是一个意思，要看上下文。
+    noteEn: Not the same as "de se" (嘚瑟, to show off) — context tells them apart.
+    category: daily
+    examples:
+      - text: 冻得嘚嘚瑟瑟的。
+        pron: dong de de de se se de.
+        zh: 冻得直发抖。
+        en: Shivering with cold.
+
+  - id: keng-chi-bie-du
+    text: 吭哧瘪肚
+    pron: keng chi bie du
+    enReading: kung-chih-byeh-DOO
+    zh: 说话吞吞吐吐
+    en: to hem and haw
+    meaning: 说话吞吞吐吐、半天说不明白；也可以形容做事费劲、不利索。
+    meaningEn: To hem and haw, unable to get the words out; can also mean struggling clumsily with a task.
+    category: daily
+    examples:
+      - text: 吭哧瘪肚半天也没说明白。
+        pron: keng chi bie du ban tian ye mei shuo ming bai.
+        zh: 吞吞吐吐半天也没说清楚。
+        en: He hemmed and hawed for ages and still didn't get it out.
+
+  - id: mao-leng-san-guang
+    text: 毛愣三光
+    pron: mao leng san guang
+    enReading: mow-lung-sahn-GWAHNG
+    zh: 毛躁；做事不稳
+    en: scatterbrained; careless
+    meaning: 形容人做事毛躁、慌慌张张，不踏实。
+    meaningEn: Describes someone who rushes about carelessly and is never steady.
+    category: slang
+    examples:
+      - text: 别毛愣三光的，慢点儿。
+        pron: bie mao leng san guang de, man dianr.
+        zh: 别毛手毛脚的，慢一点。
+        en: Don't be so scatterbrained — slow down.
+
+  - id: qianr-deng
+    text: 欠儿登
+    pron: qianr deng
+    enReading: chyar-DUNG
+    zh: 爱多事、爱出头的人
+    en: busybody; show-off
+    meaning: 形容人爱多事、爱出头，哪儿有事往哪儿凑，也指爱打小报告的人。
+    meaningEn: A busybody who has to get involved in everything; also someone who tells tales on others.
+    category: slang
+    examples:
+      - text: 就你欠儿登！
+        pron: jiu ni qianr deng!
+        zh: 就你爱多事！
+        en: Trust you to stick your nose in!
+
+  - id: zha-hu
+    text: 咋呼
+    alt: [扎呼, 咋唬]
+    pron: zha hu
+    enReading: JAH-hoo
+    zh: 大声嚷嚷；咋咋呼呼
+    en: to make a racket; to bluster
+    meaning: 大声嚷嚷、咋咋呼呼，也形容人爱张扬、虚张声势。
+    meaningEn: To shout and make a racket; also describes someone loud and blustering.
+    category: slang
+    examples:
+      - text: 别咋呼了，孩子睡了。
+        pron: bie zha hu le, hai zi shui le.
+        zh: 别嚷嚷了，孩子睡了。
+        en: Keep it down, the kid's asleep.
+
+  - id: ba-jiang-yan-zi
+    text: 拔犟眼子
+    pron: ba jiang yan zi
+    enReading: bah-jyahng-YEN-dzuh
+    zh: 抬杠；较劲
+    en: to argue for the sake of it
+    meaning: 抬杠、故意唱反调，非要跟人较劲。
+    meaningEn: To argue for the sake of it — contradicting someone just to be stubborn.
+    category: slang
+    examples:
+      - text: 你别跟我拔犟眼子。
+        pron: ni bie gen wo ba jiang yan zi.
+        zh: 你别跟我抬杠。
+        en: Stop arguing with me just to be contrary.
+
+  - id: bao-mi
+    text: 苞米
+    pron: bao mi
+    enReading: bow-MEE
+    zh: 玉米
+    en: corn; maize
+    meaning: 玉米。东北盛产玉米，烤苞米、苞米面、苞米碴子都是常见吃食。
+    meaningEn: Corn. The Northeast grows a lot of it — grilled corn, cornmeal and cracked-corn porridge are everyday foods.
+    category: food
+    examples:
+      - text: 来根烤苞米。
+        pron: lai gen kao bao mi.
+        zh: 来一根烤玉米。
+        en: I'll have a grilled corn on the cob.
