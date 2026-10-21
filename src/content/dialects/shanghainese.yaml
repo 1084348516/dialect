@@ -358,6 +358,30 @@ entries:
     meaningEn: To chat or shoot the breeze; also written 嘎三胡.
     category: slang
 
+  - id: wa-theq
+    text: 瓦特
+    alt: [坏脱]
+    pron: wa theq
+    homophone: 瓦特
+    enReading: wah-TUH
+    zh: 坏了；完蛋了
+    en: broken; done for
+    meaning: 东西坏掉了，或者事情搞砸了、人不行了。本字是“坏脱”（坏掉），“瓦特”是网上流行的谐音写法，常说“瓦特了”。
+    meaningEn: Broken, or more loosely ruined or done for. The original characters are 坏脱 ("broken off"); 瓦特 (the Chinese name of James Watt) is the popular phonetic spelling online, usually as "wa theq leq".
+    literal: “坏脱”，坏掉了。
+    note: 也可以拿来自嘲，比如“脑子瓦特了”就是脑子坏掉了、犯糊涂。
+    noteEn: Often self-mocking — "my brain's wa theq" means you're not thinking straight.
+    category: slang
+    examples:
+      - text: 电脑又瓦特了。
+        pron: di nau yi wa theq leq.
+        zh: 电脑又坏了。
+        en: The computer's broken again.
+      - text: 侬脑子瓦特了？
+        pron: non nau tsy wa theq leq?
+        zh: 你脑子坏掉了吧？
+        en: Have you lost your mind?
+
   - id: gaon-du
     text: 戆大
     pron: gaon du

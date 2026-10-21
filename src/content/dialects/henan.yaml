@@ -1,0 +1,402 @@
+name: 河南话
+nameEn: Henanese
+status: live
+order: 9
+reviewed: false
+areas: 河南全省，山东西南部、安徽北部、河北南部等地
+areasEn: Henan province, plus parts of southwestern Shandong, northern Anhui and southern Hebei
+intro: 通行于河南及周边，属中原官话，和普通话很接近，大多数人都能听懂，但声调不同，还有不少自己的词，比如“中”“得劲”“弄啥嘞”。拼读按普通话拼音近似记音，不标声调。
+introEn: Spoken across Henan and neighbouring areas. It belongs to Central Plains Mandarin and is close enough to standard Mandarin that most people can follow it, but the tones differ and it has many words of its own, like "zhong" (OK!) and "de jin" (feels great). Readings are written as approximate pinyin without tone marks.
+romanization: { name: 近似拼音, nameEn: Approximate pinyin }
+
+categories:
+  - { id: daily, name: 日常用语, nameEn: Everyday }
+  - { id: greeting, name: 日常问候, nameEn: Greetings }
+  - { id: kinship, name: 亲属称谓, nameEn: Family }
+  - { id: slang, name: 俚语, nameEn: Slang }
+  - { id: food, name: 饮食, nameEn: Food }
+  - { id: crude, name: 粗口, nameEn: Crude, caution: true }
+
+entries:
+  - id: zhong
+    text: 中
+    pron: zhong
+    enReading: jong
+    zh: 行；好；可以
+    en: OK; fine; good
+    meaning: 河南话最有代表性的词，表示同意、可以、好。问人行不行说“中不中”，回答“中”就是行，“不中”就是不行。
+    meaningEn: The signature Henan word, meaning "OK", "fine" or "good". Ask "zhong bu zhong?" (OK or not?) and the answer is "zhong" or "bu zhong".
+    category: daily
+    featured: true
+    examples:
+      - text: 明儿个一块儿去，中不中？
+        pron: mingr ge yi kuair qu, zhong bu zhong?
+        zh: 明天一起去，行不行？
+        en: Let's go together tomorrow — OK?
+      - text: 中！
+        pron: zhong!
+        zh: 行！
+        en: OK!
+
+  - id: de-jin
+    text: 得劲
+    pron: de jin
+    enReading: duh-JIN
+    zh: 舒服；痛快；带劲
+    en: comfortable; feels great
+    meaning: 舒服、痛快、合心意。身上舒服、吃得过瘾、事情办得顺心都可以说“得劲”；不舒服就说“不得劲”。
+    meaningEn: Comfortable, satisfying, just right. Feeling well, eating your fill or things going your way are all "de jin"; feeling off is "bu de jin".
+    category: daily
+    featured: true
+    examples:
+      - text: 这碗烩面吃哩可得劲！
+        pron: zhe wan hui mian chi li ke de jin!
+        zh: 这碗烩面吃得真过瘾！
+        en: This bowl of braised noodles really hit the spot!
+      - text: 我今儿个有点不得劲。
+        pron: wo jinr ge you dian bu de jin.
+        zh: 我今天有点不舒服。
+        en: I'm not feeling too well today.
+
+  - id: nong-sha-lei
+    text: 弄啥嘞
+    alt: [弄啥咧, 弄啥哩]
+    pron: nong sha lei
+    homophone: 弄啥累
+    enReading: nong-shah-LAY
+    zh: 干什么呢
+    en: what are you doing?
+    meaning: 问对方在干什么，相当于普通话的“干什么呢”。语气可以很随意，也可以带点质问。
+    meaningEn: Asks what someone is doing — a casual question or a bit of a challenge, depending on tone.
+    category: daily
+    featured: true
+    examples:
+      - text: 恁搁那儿弄啥嘞？
+        pron: nen ge nar nong sha lei?
+        zh: 你们在那儿干什么呢？
+        en: What are you all doing over there?
+
+  - id: za
+    text: 咋
+    pron: za
+    enReading: dzah
+    zh: 怎么
+    en: how; why
+    meaning: 怎么、为什么。“咋办”就是怎么办，“咋着”就是怎么样、怎么了。
+    meaningEn: How or why. "Za ban" is "what do we do", "za zhuo" is "how's it going / what's wrong".
+    category: daily
+    examples:
+      - text: 你咋才来？
+        pron: ni za cai lai?
+        zh: 你怎么才来？
+        en: Why are you only getting here now?
+      - text: 咋着了？
+        pron: za zhuo le?
+        zh: 怎么了？
+        en: What's wrong?
+
+  - id: an
+    text: 俺
+    pron: an
+    enReading: ahn
+    zh: 我；我们
+    en: I; we
+    meaning: 我，也可以指我们。说“俺家”“俺娘”比说“我家”“我妈”更有河南味。
+    meaningEn: I or we. "An jia" (my home) and "an niang" (my mum) sound much more Henan than the Mandarin forms.
+    category: daily
+
+  - id: nen
+    text: 恁
+    pron: nen
+    enReading: nun
+    zh: 你们；你（的）
+    en: you (plural); your
+    meaning: 一般指“你们”，也常用来说“你的”“你家的”，比如“恁爹”“恁家”。
+    meaningEn: Usually "you (plural)", and often "your", as in "nen die" (your dad) or "nen jia" (your family).
+    category: daily
+
+  - id: ge
+    text: 搁
+    pron: ge
+    enReading: guh
+    zh: 在；放
+    en: at; to put
+    meaning: 既可以当“在”用，也可以当“放”用。“搁这儿”就是在这儿，“搁桌子上”就是放到桌子上。
+    meaningEn: Means both "at / in" and "to put". "Ge zher" is "right here"; "ge zhuo zi shang" is "put it on the table".
+    category: daily
+
+  - id: bai
+    text: 白
+    pron: bai
+    enReading: bye
+    zh: 别；不要
+    en: don't
+    meaning: 表示劝阻，相当于“别”。“白说了”是别说了，“白管他”是别管他。
+    meaningEn: Means "don't". "Bai shuo le" is "stop talking"; "bai guan ta" is "leave him be".
+    category: daily
+    examples:
+      - text: 白吵了，中不中？
+        pron: bai chao le, zhong bu zhong?
+        zh: 别吵了，行不行？
+        en: Stop arguing, OK?
+
+  - id: ke
+    text: 可
+    pron: ke
+    enReading: kuh
+    zh: 很；非常
+    en: very; really
+    meaning: 放在形容词前表示程度高，相当于“很”“特别”。“可好”就是很好，“可热”就是很热。
+    meaningEn: Placed before an adjective to mean "very". "Ke hao" is "really good"; "ke re" is "really hot".
+    category: daily
+
+  - id: mu-you
+    text: 木有
+    alt: [冇有]
+    pron: mu you
+    enReading: moo-YO
+    zh: 没有
+    en: there isn't; haven't
+    meaning: 没有。河南不少地方“没”读成 mu，网上流行的“木有”就是这么来的。
+    meaningEn: There isn't, or haven't. Many Henan speakers say "mei" (no) as "mu", which is where the internet spelling 木有 comes from.
+    category: daily
+
+  - id: guan
+    text: 管
+    pron: guan
+    enReading: gwahn
+    zh: 行；可以
+    en: OK; will do
+    meaning: 和“中”意思差不多，表示行、可以，豫东、豫南一带说得多。“管不管”就是行不行。
+    meaningEn: Much like "zhong" — OK, will do. Heard more in eastern and southern Henan. "Guan bu guan?" means "OK or not?"
+    category: daily
+
+  - id: jinr-ge
+    text: 今儿个
+    pron: jinr ge
+    enReading: jeer-guh
+    zh: 今天
+    en: today
+    meaning: 今天。同样的说法还有“夜儿个”（昨天）、“明儿个”（明天）。
+    meaningEn: Today. Likewise "yer ge" (夜儿个) is yesterday and "mingr ge" (明儿个) is tomorrow.
+    category: daily
+
+  - id: yer-ge
+    text: 夜儿个
+    alt: [夜个]
+    pron: yer ge
+    enReading: yehr-guh
+    zh: 昨天
+    en: yesterday
+    meaning: 昨天。“夜儿”指前一天，和“今儿个”“明儿个”是一套说法。
+    meaningEn: Yesterday — part of the same set as "jinr ge" (today) and "mingr ge" (tomorrow).
+    category: daily
+
+  - id: ge-jiu
+    text: 圪蹴
+    alt: [圪蹲]
+    pron: ge jiu
+    enReading: guh-JYO
+    zh: 蹲
+    en: to squat
+    meaning: 蹲下。河南、山西一带常说，蹲在门口吃饭就是“圪蹴那儿吃饭”。
+    meaningEn: To squat. Common in Henan and Shanxi — eating crouched by the doorway is "ge jiu nar chi fan".
+    category: daily
+
+  - id: chi-le-mei
+    text: 吃了冇
+    alt: [吃了没]
+    pron: chi le mao
+    enReading: chir-luh-MAO
+    zh: 吃了没有
+    en: have you eaten?
+    meaning: 熟人见面的问候，不一定真问吃没吃，相当于打个招呼。“冇”在这里读近似 mao。
+    meaningEn: A greeting between people who know each other — less a real question than a way of saying hello.
+    category: greeting
+    featured: true
+
+  - id: he-tang
+    text: 喝汤
+    pron: he tang
+    enReading: huh-TAHNG
+    zh: 吃晚饭
+    en: to have supper
+    meaning: 河南很多地方把吃晚饭叫“喝汤”，因为过去晚饭常常是一碗稀饭或面汤。傍晚见面问“喝汤了冇”就是问吃过晚饭没有。
+    meaningEn: In much of Henan, supper is called "drinking soup", because the evening meal used to be a simple bowl of porridge or noodle soup. "He tang le mao?" in the evening means "had supper yet?"
+    category: greeting
+    examples:
+      - text: 喝汤了冇？
+        pron: he tang le mao?
+        zh: 吃过晚饭了吗？
+        en: Had supper yet?
+
+  - id: die
+    text: 爹
+    pron: die
+    enReading: dyeh
+    zh: 爸爸
+    en: dad
+    meaning: 爸爸。河南农村和老一辈多叫“爹”，城里年轻人也叫“爸”。
+    meaningEn: Dad. The usual word in the countryside and among older people; younger city folk also say "ba".
+    category: kinship
+
+  - id: niang
+    text: 娘
+    pron: niang
+    enReading: nyahng
+    zh: 妈妈
+    en: mum
+    meaning: 妈妈。和“爹”是一对，常说“俺娘”。
+    meaningEn: Mum — the counterpart of "die" (dad), as in "an niang" (my mum).
+    category: kinship
+
+  - id: lao-niang
+    text: 姥娘
+    pron: lao niang
+    enReading: lao-NYAHNG
+    zh: 外婆；姥姥
+    en: grandma (mother's side)
+    meaning: 外婆，母亲的母亲。外公叫“姥爷”。
+    meaningEn: Grandma on your mother's side. Grandpa on that side is "lao ye" (姥爷).
+    category: kinship
+
+  - id: jin-zi
+    text: 妗子
+    pron: jin zi
+    enReading: jin-dzuh
+    zh: 舅妈
+    en: aunt (mother's brother's wife)
+    meaning: 舅妈，舅舅的妻子。北方很多地方都这么叫。
+    meaningEn: Your mother's brother's wife. Used across much of northern China.
+    category: kinship
+
+  - id: nir
+    text: 妮儿
+    alt: [妮]
+    pron: nir
+    enReading: neer
+    zh: 女孩；闺女
+    en: girl; daughter
+    meaning: 女孩子，也指女儿。“小妮儿”是小姑娘，“俺妮儿”是我闺女。
+    meaningEn: A girl, or someone's daughter. "Xiao nir" is a little girl; "an nir" is my daughter.
+    category: kinship
+
+  - id: pen-kong
+    text: 喷空
+    pron: pen kong
+    enReading: pun-KONG
+    zh: 聊天；闲扯
+    en: to chat; to shoot the breeze
+    meaning: 聊天、闲扯，天南海北地瞎聊。吃完饭蹲门口“喷会儿空”是很有河南味的场景。
+    meaningEn: To chat about nothing in particular. Squatting by the door after a meal for a bit of "pen kong" is a classic Henan scene.
+    category: slang
+    examples:
+      - text: 来，坐这儿喷会儿空。
+        pron: lai, zuo zher pen huir kong.
+        zh: 来，坐这儿聊会儿天。
+        en: Come sit here and have a chat.
+
+  - id: pai-chang
+    text: 排场
+    pron: pai chang
+    enReading: pie-chahng
+    zh: 漂亮；体面
+    en: good-looking; impressive
+    meaning: 夸人长得好看、东西体面大方。“这闺女长哩怪排场”就是这姑娘长得挺漂亮。
+    meaningEn: Good-looking or impressive. "Zhe gui nü zhang li guai pai chang" means "that girl is really pretty".
+    category: slang
+
+  - id: guai
+    text: 怪
+    pron: guai
+    enReading: gwhy
+    zh: 挺；很
+    en: quite; pretty
+    meaning: 放在形容词前，相当于“挺”。“怪好”就是挺好，“怪美”就是挺美、挺舒服。
+    meaningEn: Before an adjective it means "quite" or "pretty". "Guai hao" is "pretty good".
+    category: slang
+
+  - id: mai-pai
+    text: 卖派
+    pron: mai pai
+    enReading: my-PIE
+    zh: 炫耀；显摆
+    en: to show off
+    meaning: 炫耀、显摆，故意让别人看见自己的好东西或本事。
+    meaningEn: To show off — making sure everyone sees your new things or what you can do.
+    category: slang
+
+  - id: mi-deng
+    text: 迷瞪
+    pron: mi deng
+    enReading: mee-dung
+    zh: 迷糊；糊涂
+    en: dazed; muddled
+    meaning: 迷迷糊糊、没反应过来。刚睡醒或者被绕晕了都可以说“迷瞪”。
+    meaningEn: Dazed or muddled — just woken up, or lost track of what's going on.
+    category: slang
+
+  - id: guai-guai
+    text: 我哩乖乖
+    alt: [乖乖]
+    pron: wo li guai guai
+    enReading: woh-lee-gwhy-GWHY
+    zh: 天哪（表示惊讶）
+    en: oh my goodness
+    meaning: 表示惊讶、感叹，相当于“我的天哪”。也可以只说“乖乖”。
+    meaningEn: An exclamation of surprise, like "oh my goodness". Can be shortened to "guai guai".
+    category: slang
+
+  - id: hui-mian
+    text: 烩面
+    pron: hui mian
+    enReading: hway-MYEN
+    zh: 烩面（河南特色面食）
+    en: Henan braised noodles
+    meaning: 河南最有名的面食，宽面片配羊肉汤或牛肉汤，汤浓料足，郑州满街都是。
+    meaningEn: Henan's most famous noodle dish — wide hand-pulled noodles in rich mutton or beef broth, found all over Zhengzhou.
+    category: food
+
+  - id: hu-la-tang
+    text: 胡辣汤
+    pron: hu la tang
+    enReading: hoo-lah-TAHNG
+    zh: 胡辣汤（河南特色早餐）
+    en: hot and peppery soup
+    meaning: 河南人的经典早餐，胡椒和辣椒调味的浓汤，常配油条、水煎包。逍遥镇胡辣汤最有名。
+    meaningEn: The classic Henan breakfast — a thick soup seasoned with black pepper and chilli, eaten with fried dough sticks or pan-fried buns.
+    category: food
+
+  - id: mo
+    text: 馍
+    pron: mo
+    enReading: maw
+    zh: 馒头
+    en: steamed bun
+    meaning: 馒头，也泛指各种面食饼子。“蒸馍”是馒头，“烙馍”是一种薄饼。
+    meaningEn: Steamed bun, or flatbread in general. "Zheng mo" is a steamed bun; "lao mo" is a thin griddle bread.
+    category: food
+
+  - id: xin-qiu
+    text: 信球
+    pron: xin qiu
+    enReading: shin-CHYO
+    zh: 傻瓜；二愣子
+    en: idiot; fool
+    meaning: 骂人傻、做事不过脑子，是河南最有名的骂人话之一。
+    meaningEn: Calls someone an idiot who doesn't think — one of Henan's best-known insults.
+    note: 有点粗俗，熟人之间开玩笑可以说，对不熟的人说很不礼貌。
+    noteEn: Somewhat crude. Fine as a joke between friends, rude to anyone else.
+    category: crude
+
+  - id: han-zi
+    text: 憨子
+    pron: han zi
+    enReading: hahn-dzuh
+    zh: 傻子
+    en: fool; simpleton
+    meaning: 傻子、笨蛋。“憨”在河南话里就是傻的意思。
+    meaningEn: A fool or simpleton. 憨 means "silly" in Henanese.
+    note: 骂人的话，对人说不礼貌。
+    noteEn: An insult — not polite to say to someone.
+    category: crude
