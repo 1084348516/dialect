@@ -73,7 +73,8 @@ const zhHans = {
   metaHomeTitle: 'Familect 家乡话 — 方言常用语词典',
   metaHomeDesc: '粤语、闽南语等方言常用词句：怎么写、怎么读、什么意思。',
   metaDialectTitle: '{dialect}常用语 — 写法、读音、意思',
-  metaEntryTitle: '{text} {pron} — {dialect}怎么说“{gloss}”',
+  metaEntryTitle: '{text} {pron} 是什么意思？{dialect}“{gloss}”怎么说',
+  metaEntryTitleSame: '{dialect}“{gloss}”怎么说？{text} {pron} 读音和用法',
   metaDialectDesc: '收录 {n} 条{dialect}常用语：怎么写、怎么读、什么意思。',
   metaEntryDesc: '{dialect}“{text}”读作 {pron}，意思是{gloss}。',
 };
@@ -152,7 +153,8 @@ const en: Record<UiKey, string> = {
   metaHomeTitle: 'Familect — everyday Chinese dialect phrases',
   metaHomeDesc: 'How to write, say and understand everyday phrases in Cantonese, Hokkien and more.',
   metaDialectTitle: '{dialect} phrases — writing, pronunciation, meaning',
-  metaEntryTitle: '{text} ({pron}) — how to say “{gloss}” in {dialect}',
+  metaEntryTitle: '{text} ({pron}) meaning — how to say “{gloss}” in {dialect}',
+  metaEntryTitleSame: '{text} ({pron}) meaning — how to say “{gloss}” in {dialect}',
   metaDialectDesc: '{n} everyday {dialect} phrases: how to write, say and understand them.',
   metaEntryDesc: '{text} ({pron}) in {dialect} means “{gloss}”.',
 };

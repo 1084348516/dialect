@@ -18,6 +18,8 @@ export const entrySchema = z.object({
   id: slug,
   text,
   alt: z.array(text).default([]),
+  /** 繁体页标题用的繁体字形；自动转换出错时才需要写 */
+  textHant: optText,
   pron: text,
   homophone: optText,
   enReading: optText,

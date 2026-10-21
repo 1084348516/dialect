@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import FeedbackForm from '../components/FeedbackForm.astro';
 import { LANGS, homePath, dialectPath, entryPath, pick, glossLine, type Lang } from '../i18n/langs';
 import { t } from '../i18n/ui';
+import { toHant, toHans } from '../i18n/convert';
 import { relatedEntries, neighbors } from '../lib/entries';
 import type { Dialect } from '../lib/schema';
 
@@ -31,9 +32,15 @@ const related = relatedEntries(d, e);
 const { prev, next } = neighbors(d, e.id);
 
 const gloss = pick(lang, e.zh, e.en ?? e.zh);
-const title = `${t(lang, 'metaEntryTitle', { text: e.text, pron: e.pron, gloss, dialect: name })} | Familect`;
+// 页面上的方言原文不转换，但繁体页的标题和摘要用繁体字形，方便匹配繁体搜索词
+const hant = e.textHant ?? toHant(e.text);
+const metaText = lang === 'zh-hant' && hant !== e.text ? `${hant}（${e.text}）` : e.text;
+const descText = lang === 'zh-hant' ? hant : e.text;
+// 词条和普通话说法一样时（如“新年快乐”），问“是什么意思”不合适，改问“怎么说”
+const sameAsGloss = lang !== 'en' && toHans(gloss).startsWith(toHans(e.text));
+const title = `${t(lang, sameAsGloss ? 'metaEntryTitleSame' : 'metaEntryTitle', { text: metaText, pron: e.pron, gloss, dialect: name })} | Familect`;
 // 搜索结果摘要：先给方言、读音和意思，有详细释义再接在后面
-const description = [t(lang, 'metaEntryDesc', { text: e.text, pron: e.pron, gloss, dialect: name }), meaningMain !== gloss ? meaningMain : '']
+const description = [t(lang, 'metaEntryDesc', { text: descText, pron: e.pron, gloss, dialect: name }), meaningMain !== gloss ? meaningMain : '']
   .filter(Boolean)
   .join(lang === 'en' ? ' ' : '');
 const abs = (p: string) => new URL(p, Astro.site).href;
@@ -42,7 +49,7 @@ const jsonLd = [
     '@context': 'https://schema.org',
     '@type': 'DefinedTerm',
     name: e.text,
-    alternateName: [e.pron, ...e.alt],
+    alternateName: [...new Set([e.pron, ...(hant !== e.text ? [hant] : []), ...e.alt])],
     description: meaningMain,
     url: abs(entryPath(lang, d.id, e.id)),
     inDefinedTermSet: { '@type': 'DefinedTermSet', name: t(lang, 'metaDialectTitle', { dialect: name }), url: abs(dialectPath(lang, d.id)) },
