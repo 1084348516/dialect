@@ -71,6 +71,7 @@ if (failures.length === 0) {
     ['<p class="literal">字面意思：', (e) => e.literal],
     ['<span class="reading-label">谐音（近似）</span>', (e) => e.homophone],
     ['<span class="reading-label">English 读法</span>', (e) => e.enReading],
+    ['<span class="reading-label">常见拼法</span>', (e) => e.spellings?.length],
   ];
   for (const d of live) {
     for (const e of d.entries) {

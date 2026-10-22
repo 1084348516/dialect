@@ -8,6 +8,7 @@ areasEn: Xiamen, Quanzhou, Zhangzhou, Taiwan, Singapore, Malaysia
 intro: 通行于福建南部、台湾，以及新加坡、马来西亚、菲律宾等地的华人社区。各地读音和用词有差异，词条中会分别标注。拼音采用台罗。
 introEn: Spoken in southern Fujian, Taiwan, and Chinese communities in Singapore, Malaysia and the Philippines. Pronunciation and wording vary by place; entries note the differences. Romanization follows Tâi-lô.
 romanization: { name: 台罗拼音, nameEn: Tâi-lô }
+traditional: true
 
 regions:
   - { id: xm, name: 厦门, nameEn: Xiamen }
@@ -32,6 +33,7 @@ entries:
     pron: a-má
     homophone: 阿妈
     enReading: ah-MAH
+    spellings: [ah ma]
     zh: 奶奶；祖母
     en: grandma
     meaning: 奶奶，父亲的母亲。日常当面称呼和背后提起都可以用。
@@ -60,6 +62,7 @@ entries:
     pron: a-kong
     homophone: 阿公
     enReading: ah-KONG
+    spellings: [ah kong, ah gong]
     zh: 爷爷；祖父
     en: grandpa
     meaning: 爷爷，父亲的父亲。
@@ -162,6 +165,7 @@ entries:
     pron: to-siā
     homophone: 多下
     enReading: doh-SIAH
+    spellings: [to sia, toh sia]
     zh: 谢谢
     en: thank you
     meaning: 谢谢。闽南语最通用的道谢说法，台湾也常说“感谢”（kám-siā）；别人帮你做事时还可以说“劳力”。
@@ -180,6 +184,7 @@ entries:
     pron: tsia̍h-pá--buē
     homophone: 甲饱没
     enReading: jah-PAH-bweh
+    spellings: [chia pa boe, jiak ba buay]
     zh: 吃饱了吗（打招呼）
     en: have you eaten?
     meaning: 字面是“吃饱了没有”，是闽南人熟人见面最常用的问候。网上常写成谐音的“呷饱未”“甲饱没”。回答一般说“食饱矣”（吃饱了）。
@@ -198,6 +203,7 @@ entries:
     pron: pháinn-sè
     homophone: 派谢
     enReading: PIE-seh
+    spellings: [paiseh, paisay, pai seh]
     zh: 不好意思；抱歉
     en: sorry / paiseh
     meaning: 不好意思、抱歉，也可以表示害羞、难为情。麻烦别人、道歉、婉拒时都常用。
@@ -218,6 +224,7 @@ entries:
     pron: lí hó
     homophone: 里火
     enReading: lee-HOH
+    spellings: [li ho, lee hor]
     zh: 你好
     en: hello
     meaning: 你好。闽南人日常见面其实更常问“食饱未？”，“你好”多用在比较客气或初次见面的场合。
@@ -228,6 +235,7 @@ entries:
     text: 再会
     pron: tsài-huē
     enReading: jai-HWEH
+    spellings: [chai hue]
     zh: 再见
     en: goodbye
     meaning: 再见，比较正式的道别说法；日常口语里也常说“拜拜”。
@@ -305,6 +313,7 @@ entries:
     pron: m̄-tsai
     homophone: 嗯栽
     enReading: mm-JAI
+    spellings: [m chai]
     zh: 不知道
     en: I don't know
     category: daily
@@ -332,6 +341,7 @@ entries:
     text: 足
     pron: tsiok
     enReading: jyok
+    spellings: [chiok]
     zh: 很；非常
     en: very
     category: daily
@@ -372,6 +382,7 @@ entries:
     pron: tshù
     homophone: 粗
     enReading: choo
+    spellings: [chu]
     zh: 房子；家
     en: house; home
     category: daily
@@ -386,6 +397,7 @@ entries:
     pron: hó-tsia̍h
     homophone: 好呷
     enReading: hoh-JAH
+    spellings: [ho chiak, ho jiak]
     zh: 好吃
     en: tasty
     category: food
@@ -424,6 +436,7 @@ entries:
     pron: ô-á-tsian
     homophone: 蚵阿煎
     enReading: oh-ah-JEN
+    spellings: [o a chian]
     zh: 海蛎煎
     en: oyster omelette
     meaning: 用蚵仔（小牡蛎）、鸡蛋和番薯粉一起煎成的小吃，是闽南、台湾夜市的代表美食。
@@ -435,6 +448,7 @@ entries:
     text: 卤肉饭
     pron: lóo-bah-pn̄g
     enReading: loh-bah-PNG
+    spellings: [lo bah png, loh bah png]
     zh: 卤肉饭
     en: braised pork rice
     meaning: 把肥瘦相间的猪肉丁卤透后浇在白饭上，是台湾最有代表性的家常小吃。
@@ -456,6 +470,7 @@ entries:
     text: 恭喜发财
     pron: kiong-hí huat-tsâi
     enReading: kyong-HEE hwat-CHAI
+    spellings: [kiong hee huat chai]
     zh: 恭喜发财（拜年用语）
     en: wishing you prosperity
     meaning: 过年见面最常用的祝福语，祝对方新的一年发财。
@@ -467,6 +482,7 @@ entries:
     pron: âng-pau
     homophone: 昂包
     enReading: ahng-POW
+    spellings: [ang pao, ang pow]
     zh: 红包
     en: red packet
     note: 新马英语里常写作 "ang pow" 或 "ang bao"。
@@ -490,6 +506,7 @@ entries:
     pron: kóo-tsui
     homophone: 古追
     enReading: koh-JWEE
+    spellings: [ko chui]
     zh: 可爱
     en: cute
     meaning: 可爱，多用来形容小孩、小动物或者小巧的东西。
@@ -505,6 +522,7 @@ entries:
     text: 鸡婆
     pron: ke-pô
     enReading: keh-POH
+    spellings: [kaypoh, kay poh]
     zh: 多管闲事
     en: nosy; busybody
     meaning: 爱管闲事、多事。台湾也用来说一个人过分热心。
@@ -519,6 +537,7 @@ entries:
     pron: khí-siáu
     homophone: 起肖
     enReading: kee-SYOW
+    spellings: [khi siao, kee siao]
     zh: 发疯；疯了
     en: to go crazy
     meaning: 发疯、疯了，也常用来说对方的想法或做法很离谱。

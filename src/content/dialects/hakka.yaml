@@ -8,6 +8,7 @@ areasEn: Meizhou, southern Jiangxi, western Fujian, Taiwan, Malaysia
 intro: 通行于广东东部、江西南部、福建西部和台湾，也是马来西亚、印尼等地很多华人的家乡话。各地口音差别大，词条以梅县话为准，拼读为按普通话近似记音。
 introEn: Spoken in eastern Guangdong, southern Jiangxi, western Fujian and Taiwan, and the heritage language of many Chinese families in Malaysia and Indonesia. Accents vary a lot; entries follow the Meixian accent, and readings are rough Mandarin-based approximations.
 romanization: { name: 近似拼读, nameEn: Approximate reading }
+traditional: true
 
 categories:
   - { id: kinship, name: 亲属称谓, nameEn: Family }
@@ -183,6 +184,7 @@ entries:
 
   - id: he
     text: 系
+    textHant: 係
     pron: he
     enReading: heh
     zh: 是

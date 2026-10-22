@@ -23,6 +23,8 @@ export const entrySchema = z.object({
   pron: text,
   homophone: optText,
   enReading: optText,
+  /** 网上常见的非正式拼法（如 m goy、paiseh），方便按这些拼法搜索的人找到 */
+  spellings: z.array(text).default([]),
   zh: text,
   en: optText,
   meaning: optText,
@@ -49,6 +51,8 @@ export const dialectSchema = z
     intro: optText,
     introEn: optText,
     romanization: z.object({ name: text, nameEn: text }).optional(),
+    /** 使用者主要写繁体字（港台、东南亚），英文页标题和摘要用繁体字形 */
+    traditional: z.boolean().default(false),
     regions: z.array(regionSchema).default([]),
     categories: z.array(categorySchema).default([]),
     entries: z.array(entrySchema).default([]),

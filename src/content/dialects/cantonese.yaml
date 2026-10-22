@@ -8,6 +8,7 @@ areasEn: Guangzhou, Hong Kong, Macau; Chinese communities in North America, the 
 intro: 通行于广东、香港、澳门及广西部分地区，也是北美、英国、澳洲等地华人社区的常用语言。拼音采用粤拼。
 introEn: Spoken in Guangdong, Hong Kong, Macau and parts of Guangxi, and widely in Chinese communities in North America, the UK and Australia. Romanization follows Jyutping.
 romanization: { name: 粤拼, nameEn: Jyutping }
+traditional: true
 
 categories:
   - { id: kinship, name: 亲属称谓, nameEn: Family }
@@ -23,6 +24,7 @@ entries:
     pron: maa4 maa4
     homophone: 麻麻
     enReading: MAH-mah
+    spellings: [ma ma]
     zh: 奶奶；祖母
     en: grandma
     meaning: 奶奶，父亲的母亲。
@@ -34,6 +36,7 @@ entries:
     pron: je4 je2
     homophone: 耶耶
     enReading: yeh-YEH
+    spellings: [yeh yeh]
     zh: 爷爷；祖父
     en: grandpa
     meaning: 爷爷，父亲的父亲。
@@ -45,6 +48,7 @@ entries:
     alt: [外婆]
     pron: po4 po2
     enReading: poh-POH
+    spellings: [po po, popo]
     zh: 外婆
     en: grandma (mother's side)
     meaning: 外婆，母亲的母亲。
@@ -58,6 +62,7 @@ entries:
     alt: [外公]
     pron: gung4 gung1
     enReading: gung-GUNG
+    spellings: [gung gung, kung kung]
     zh: 外公
     en: grandpa (mother's side)
     meaning: 外公，母亲的父亲。
@@ -69,6 +74,7 @@ entries:
     pron: lou5 dau6
     homophone: 佬斗
     enReading: loh-DOW
+    spellings: [lo dau, lo dou]
     zh: 老爸（口语）
     en: dad (casual)
     note: 跟朋友提起自己爸爸时常用；当面叫爸爸一般说"爸爸"或"阿爸"。
@@ -90,6 +96,7 @@ entries:
     pron: daai6 lou2
     homophone: 歹佬
     enReading: dai-LOH
+    spellings: [dai lo, dai lou]
     zh: 哥哥
     en: older brother
     note: 也可以用来称呼老大、带头的人。
@@ -100,6 +107,7 @@ entries:
     text: 家姐
     pron: gaa1 ze1
     enReading: gah-JEH
+    spellings: [ga je]
     zh: 姐姐
     en: older sister
     meaning: 姐姐。当面叫、背后提起都可以用。
@@ -110,6 +118,7 @@ entries:
     text: 细佬
     pron: sai3 lou2
     enReading: sai-LOH
+    spellings: [sai lo]
     zh: 弟弟
     en: younger brother
     meaning: 弟弟。“细”是小，“佬”指男性，所以是“小的男孩”。
@@ -130,6 +139,7 @@ entries:
     text: 老公
     pron: lou5 gung1
     enReading: loh-GUNG
+    spellings: [lo gung, lou gung]
     zh: 丈夫
     en: husband
     meaning: 丈夫，和普通话“老公”意思一样。
@@ -140,6 +150,7 @@ entries:
     text: 老婆
     pron: lou5 po4
     enReading: loh-POH
+    spellings: [lo po, lou po]
     zh: 妻子
     en: wife
     meaning: 妻子，和普通话“老婆”意思一样。
@@ -151,6 +162,7 @@ entries:
     pron: m4 goi1
     homophone: 嗯该
     enReading: mm-GOY
+    spellings: [m goi, m goy, mm goi]
     zh: 谢谢；劳驾
     en: thank you / excuse me
     note: 别人为你做事（递东西、让路、服务）时说唔该；收到礼物或称赞时说多谢。
@@ -162,6 +174,7 @@ entries:
     pron: do1 ze6
     homophone: 多谢
     enReading: doh-JEH
+    spellings: [doh je, dor je]
     zh: 谢谢
     en: thank you
     meaning: 谢谢。收到礼物、别人称赞或者帮了大忙时说“多谢”；日常小事说“唔该”。
@@ -178,6 +191,7 @@ entries:
     pron: sik6 zo2 faan6 mei6
     homophone: 色左饭未
     enReading: sik-joh-FAHN-may
+    spellings: [sik jo fan mei]
     zh: 吃饭了吗？
     en: have you eaten yet?
     literal: 吃了饭没有？
@@ -199,6 +213,7 @@ entries:
     pron: zou2 san4
     homophone: 走神
     enReading: joh-SUN
+    spellings: [jo san, joe sun]
     zh: 早上好
     en: good morning
     note: 粤语里"早晨"是早上见面的问候语，不是指时间段。
@@ -210,6 +225,7 @@ entries:
     pron: nei5 hou2
     homophone: 内好
     enReading: nay-HOH
+    spellings: [nei ho, lei hou]
     zh: 你好
     en: hello
     meaning: 你好。比较客气，熟人之间更常说“早晨”或者直接叫名字。
@@ -220,6 +236,7 @@ entries:
     text: 唔好意思
     pron: m4 hou2 ji3 si1
     enReading: mm-hoh-yee-SEE
+    spellings: [m ho yi si, mm hou yi si]
     zh: 不好意思；对不起
     en: sorry; excuse me
     meaning: 不好意思、对不起；麻烦别人、借过或者道歉时都可以说。
@@ -235,6 +252,7 @@ entries:
     text: 唔使客气
     pron: m4 sai2 haak3 hei3
     enReading: mm-sai-hahk-HAY
+    spellings: [m sai hak hei]
     zh: 不用客气
     en: you're welcome
     meaning: 不用客气。“唔使”就是不用，回应别人道谢时说；也可以简单说“唔使”。
@@ -250,6 +268,7 @@ entries:
     text: 好耐冇见
     pron: hou2 noi6 mou5 gin3
     enReading: hoh-noy-moh-GIN
+    spellings: [ho noi mo gin]
     zh: 好久不见
     en: long time no see
     meaning: 好久不见。“好耐”是很久，“冇见”是没见。
@@ -273,6 +292,7 @@ entries:
 
   - id: hai
     text: 系
+    textHant: 係
     pron: hai6
     enReading: hai
     zh: 是
@@ -289,6 +309,7 @@ entries:
     pron: mou5
     homophone: 冒
     enReading: moh
+    spellings: [mo]
     zh: 没有
     en: don't have; there isn't
     category: daily
@@ -303,6 +324,7 @@ entries:
     pron: mat1 je5
     homophone: 乜野
     enReading: mut-YEH
+    spellings: [mat ye, mud yeh]
     zh: 什么
     en: what
     category: daily
@@ -317,6 +339,7 @@ entries:
     pron: dim2 gaai2
     homophone: 点改
     enReading: deem-GAI
+    spellings: [dim gai]
     zh: 为什么
     en: why
     category: daily
@@ -331,6 +354,7 @@ entries:
     pron: bin1 dou6
     homophone: 边度
     enReading: been-DOH
+    spellings: [bin do]
     zh: 哪里
     en: where
     category: daily
@@ -344,6 +368,7 @@ entries:
     text: 几多钱
     pron: gei2 do1 cin2
     enReading: gay-doh-CHEEN
+    spellings: [gei do chin]
     zh: 多少钱
     en: how much (money)?
     category: daily
@@ -357,6 +382,7 @@ entries:
     text: 唔知
     pron: m4 zi1
     enReading: mm-JEE
+    spellings: [m ji, mm ji]
     zh: 不知道
     en: I don't know
     meaning: 不知道。“唔”是不，“知”是知道。
@@ -373,6 +399,7 @@ entries:
     alt: [中意]
     pron: zung1 ji3
     enReading: jung-YEE
+    spellings: [jung yi]
     zh: 喜欢
     en: to like
     category: daily
@@ -414,6 +441,7 @@ entries:
     text: 返屋企
     pron: faan1 uk1 kei2
     enReading: fahn-ook-KAY
+    spellings: [fan uk kei]
     zh: 回家
     en: to go home
     meaning: 回家。“返”是回，“屋企”是家。
@@ -430,6 +458,7 @@ entries:
     pron: jam2 caa4
     homophone: 任茶
     enReading: yum-CHAH
+    spellings: [yum cha]
     zh: 喝早茶
     en: yum cha; dim sum
     meaning: 去茶楼喝茶吃点心，是广东、香港人的日常习惯，不只是喝茶。
@@ -446,6 +475,7 @@ entries:
     text: 好食
     pron: hou2 sik6
     enReading: hoh-SIK
+    spellings: [ho sik]
     zh: 好吃
     en: tasty
     meaning: 好吃。“食”就是吃；“好好食”是非常好吃。
@@ -462,6 +492,7 @@ entries:
     alt: [买单]
     pron: maai4 daan1
     enReading: mai-DAHN
+    spellings: [mai dan]
     zh: 结账
     en: the bill, please
     category: food
@@ -475,6 +506,7 @@ entries:
     text: 虾饺
     pron: haa1 gaau2
     enReading: hah-GOW
+    spellings: [har gow]
     zh: 虾饺
     en: shrimp dumpling (har gow)
     meaning: 广式早茶的经典点心，用透明的澄面皮包着整只虾仁蒸熟。
@@ -485,6 +517,7 @@ entries:
     text: 烧卖
     pron: siu1 maai2
     enReading: syoo-MAI
+    spellings: [siu mai, shumai]
     zh: 烧卖
     en: siu mai
     meaning: 广式早茶的经典点心，猪肉和虾做馅，开口蒸，顶上常放蟹籽或胡萝卜粒。
@@ -495,6 +528,7 @@ entries:
     text: 叉烧
     pron: caa1 siu1
     enReading: chah-SYOO
+    spellings: [char siu]
     zh: 叉烧
     en: barbecued pork (char siu)
     meaning: 广式烧味，把猪肉用蜜汁腌好后烤成，甜咸带焦香；叉烧包、叉烧饭都很常见。
@@ -506,6 +540,7 @@ entries:
     pron: gung1 hei2 faat3 coi4
     homophone: 工喜发菜
     enReading: gung-HAY-faht-choy
+    spellings: [gong hei fat choy, kung hei fat choi]
     zh: 恭喜发财（拜年用语）
     en: wishing you prosperity
     note: 过年见面的常用祝福语，小孩说完常接一句"利是逗来"（红包拿来）。
@@ -518,6 +553,7 @@ entries:
     alt: [利市]
     pron: lai6 si6
     enReading: lai-SEE
+    spellings: [lai see]
     zh: 红包
     en: red packet (lai see)
     note: 已婚的人要给未婚的晚辈派利是。
@@ -574,6 +610,7 @@ entries:
     text: 好正
     pron: hou2 zeng3
     enReading: hoh-JENG
+    spellings: [ho jeng]
     zh: 很好；很棒
     en: great; excellent
     note: 可以形容东西好吃、好看，也可以形容人长得好看。
@@ -585,6 +622,7 @@ entries:
     alt: [搞定]
     pron: gaau2 dim6
     enReading: gow-DEEM
+    spellings: [gau dim]
     zh: 搞定；办好
     en: done; sorted
     category: slang
@@ -598,6 +636,7 @@ entries:
     text: 八卦
     pron: baat3 gwaa3
     enReading: baht-GWAH
+    spellings: [bat gwa]
     zh: 爱打听；八卦
     en: gossipy; nosy
     meaning: 爱打听别人的私事、爱讲是非；也可以指八卦新闻本身。
@@ -613,6 +652,7 @@ entries:
     text: 吹水
     pron: ceoi1 seoi2
     enReading: chui-SUI
+    spellings: [chui sui]
     zh: 闲聊；吹牛
     en: to chat idly; to talk big
     meaning: 闲聊、天南地北地聊天，也有吹牛的意思。
@@ -628,6 +668,7 @@ entries:
     text: 冇所谓
     pron: mou5 so2 wai6
     enReading: moh-soh-WAI
+    spellings: [mo so wai]
     zh: 无所谓
     en: doesn't matter; whatever
     meaning: 无所谓、都可以。“冇”是没有，相当于普通话的“无”。
@@ -643,6 +684,7 @@ entries:
     text: 黐线
     pron: ci1 sin3
     enReading: chee-SEEN
+    spellings: [chi sin]
     zh: 神经病；发疯
     en: crazy; nuts
     literal: 线路搭错

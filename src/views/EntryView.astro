@@ -32,15 +32,21 @@ const related = relatedEntries(d, e);
 const { prev, next } = neighbors(d, e.id);
 
 const gloss = pick(lang, e.zh, e.en ?? e.zh);
-// 页面上的方言原文不转换，但繁体页的标题和摘要用繁体字形，方便匹配繁体搜索词
+// 页面上的方言原文不转换，但繁体页的标题和摘要用繁体字形，方便匹配繁体搜索词；
+// 粤语这类使用者主要写繁体的方言，英文页也用繁体
 const hant = e.textHant ?? toHant(e.text);
-const metaText = lang === 'zh-hant' && hant !== e.text ? `${hant}（${e.text}）` : e.text;
-const descText = lang === 'zh-hant' ? hant : e.text;
-// 词条和普通话说法一样时（如“新年快乐”），问“是什么意思”不合适，改问“怎么说”
-const sameAsGloss = lang !== 'en' && toHans(gloss).startsWith(toHans(e.text));
-const title = `${t(lang, sameAsGloss ? 'metaEntryTitleSame' : 'metaEntryTitle', { text: metaText, pron: e.pron, gloss, dialect: name })} | Familect`;
-// 搜索结果摘要：先给方言、读音和意思，有详细释义再接在后面
-const description = [t(lang, 'metaEntryDesc', { text: descText, pron: e.pron, gloss, dialect: name }), meaningMain !== gloss ? meaningMain : '']
+const useHant = lang === 'zh-hant' || (lang === 'en' && d.traditional);
+const metaText = lang === 'zh-hant' && hant !== e.text ? `${hant}（${e.text}）` : useHant ? hant : e.text;
+const descText = useHant ? hant : e.text;
+// 词条和普通话说法一样时（如“新年快乐”），问“是什么意思”不合适，改问“怎么说”；
+// 英文页的粗口释义是“crude curse”这类描述，不能问 how to say，改成词条在前
+const termFirst = lang === 'en' ? cat.caution : toHans(gloss).startsWith(toHans(e.text));
+const title = `${t(lang, termFirst ? 'metaEntryTitleSame' : 'metaEntryTitle', { text: metaText, pron: e.pron, gloss, dialect: name })} | Familect`;
+// 搜索结果摘要：先给方言、读音和意思，有详细释义再接在后面，没有就用使用提示补上。
+// 英文页没有英文提示时不拿中文凑；常见拼法只放英文页，按拼法搜的基本是英文用户
+const spellings = lang === 'en' && e.spellings.length > 0 ? t(lang, 'metaEntrySpellings', { spellings: e.spellings.join(', ') }) : '';
+const extra = meaningMain !== gloss ? meaningMain : lang === 'en' ? e.noteEn : e.note;
+const description = [t(lang, 'metaEntryDesc', { text: descText, pron: e.pron, gloss, dialect: name }), spellings, extra]
   .filter(Boolean)
   .join(lang === 'en' ? ' ' : '');
 const abs = (p: string) => new URL(p, Astro.site).href;
@@ -49,7 +55,7 @@ const jsonLd = [
     '@context': 'https://schema.org',
     '@type': 'DefinedTerm',
     name: e.text,
-    alternateName: [...new Set([e.pron, ...(hant !== e.text ? [hant] : []), ...e.alt])],
+    alternateName: [...new Set([e.pron, ...(hant !== e.text ? [hant] : []), ...e.alt, ...e.spellings])],
     description: meaningMain,
     url: abs(entryPath(lang, d.id, e.id)),
     inDefinedTermSet: { '@type': 'DefinedTermSet', name: t(lang, 'metaDialectTitle', { dialect: name }), url: abs(dialectPath(lang, d.id)) },
@@ -85,6 +91,7 @@ const jsonLd = [
             <div class="reading"><span class="reading-label">{pick(lang, romanization.name, romanization.nameEn)}</span><span class="reading-value pron">{e.pron}</span></div>
             {e.homophone && <div class="reading"><span class="reading-label">{t(lang, 'homophone')}</span><span class="reading-value">{e.homophone}</span></div>}
             {e.enReading && <div class="reading"><span class="reading-label">{t(lang, 'enReading')}</span><span class="reading-value">{e.enReading}</span></div>}
+            {e.spellings.length > 0 && <div class="reading"><span class="reading-label">{t(lang, 'spellings')}</span><span class="reading-value">{e.spellings.join(', ')}</span></div>}
           </div>
           <div class="headword-foot">
             <span class="audio-soon" aria-disabled="true" data-nosnippet>

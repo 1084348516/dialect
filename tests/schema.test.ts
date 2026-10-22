@@ -13,12 +13,14 @@ describe('dialectSchema', () => {
     const d = dialectSchema.parse(rawMinnan);
     const akong = d.entries[1];
     expect(akong.alt).toEqual([]);
+    expect(akong.spellings).toEqual([]);
     expect(akong.regions).toEqual([]);
     expect(akong.examples).toEqual([]);
     expect(akong.featured).toBe(false);
     expect(akong.note).toBeUndefined();
     expect(d.entries[0].variants[1].text).toBeUndefined();
     expect(d.reviewed).toBe(false);
+    expect(d.traditional).toBe(false);
   });
 
   it('treats homophone, enReading and English glosses as optional', () => {

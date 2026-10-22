@@ -19,6 +19,7 @@ const zhHans = {
   homophoneShort: '谐音',
   homophone: '谐音（近似）',
   enReading: 'English 读法',
+  spellings: '常见拼法',
   audioSoon: '真人录音即将上线',
   alsoWritten: '也写作：',
   meaning: '意思',
@@ -77,6 +78,7 @@ const zhHans = {
   metaEntryTitleSame: '{dialect}“{gloss}”怎么说？{text} {pron} 读音和用法',
   metaDialectDesc: '收录 {n} 条{dialect}常用语：怎么写、怎么读、什么意思。',
   metaEntryDesc: '{dialect}“{text}”读作 {pron}，意思是{gloss}。',
+  metaEntrySpellings: '也有人拼作 {spellings}。',
 };
 
 export type UiKey = keyof typeof zhHans;
@@ -99,6 +101,7 @@ const en: Record<UiKey, string> = {
   homophoneShort: 'sounds like',
   homophone: 'Sound-alike (approx.)',
   enReading: 'English pronunciation',
+  spellings: 'Common spellings',
   audioSoon: 'Native audio coming soon',
   alsoWritten: 'Also written: ',
   meaning: 'Meaning',
@@ -153,10 +156,11 @@ const en: Record<UiKey, string> = {
   metaHomeTitle: 'Familect — everyday Chinese dialect phrases',
   metaHomeDesc: 'How to write, say and understand everyday phrases in Cantonese, Hokkien and more.',
   metaDialectTitle: '{dialect} phrases — writing, pronunciation, meaning',
-  metaEntryTitle: '{text} ({pron}) meaning — how to say “{gloss}” in {dialect}',
-  metaEntryTitleSame: '{text} ({pron}) meaning — how to say “{gloss}” in {dialect}',
+  metaEntryTitle: 'How to say “{gloss}” in {dialect}: {text} ({pron}) meaning',
+  metaEntryTitleSame: '{text} ({pron}) meaning in {dialect} — “{gloss}”',
   metaDialectDesc: '{n} everyday {dialect} phrases: how to write, say and understand them.',
   metaEntryDesc: '{text} ({pron}) in {dialect} means “{gloss}”.',
+  metaEntrySpellings: 'Also spelled {spellings}.',
 };
 
 const zhHant = Object.fromEntries(Object.entries(zhHans).map(([k, v]) => [k, toHant(v)])) as Record<UiKey, string>;
