@@ -2,6 +2,7 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parse } from 'yaml';
+import * as OpenCC from 'opencc-js';
 
 const dist = join(process.cwd(), 'dist');
 const contentDir = join(process.cwd(), 'src/content/dialects');
@@ -15,6 +16,10 @@ const dialects = readdirSync(contentDir)
 const live = dialects.filter((d) => d.status === 'live');
 const soon = dialects.filter((d) => d.status !== 'live');
 const entryCount = live.reduce((n, d) => n + (d.entries ?? []).length, 0);
+// 有词条的分类才有分类页
+const usedCategories = (d) => d.categories.filter((c) => d.entries.some((e) => e.category === c.id));
+const toHant = OpenCC.Converter({ from: 'cn', to: 'tw' });
+const hantOf = (e) => e.textHant ?? toHant(e.text);
 
 const prefixes = { 'zh-hans': '', 'zh-hant': 'zh-hant/', en: 'en/' };
 const infoPages = ['about', 'privacy', 'contact'];
@@ -31,6 +36,7 @@ for (const p of Object.values(prefixes)) {
   for (const d of live) {
     mustExist.push(`${p}${d.id}/index.html`, `${p}${d.id}/export/index.html`);
     for (const e of d.entries) mustExist.push(`${p}${d.id}/${e.id}/index.html`);
+    for (const c of usedCategories(d)) mustExist.push(`${p}${d.id}/${c.id}/index.html`);
   }
 }
 for (const p of mustExist) check(existsSync(join(dist, p)), `missing dist/${p}`);
@@ -87,8 +93,33 @@ if (failures.length === 0) {
       }
       if (e.variants?.some((v) => !v.text)) check(html.includes('[待母语者确认]'), `${page} should show placeholder for empty variants`);
 
-      const hant = read(`zh-hant/${page}`);
-      check(new RegExp(`<h1[^>]*>${e.text}</h1>`).test(hant), `zh-hant/${page} headword must stay unconverted (${e.text})`);
+      // 词条原文：简体页照写，繁体页用繁体字形，使用者主要写繁体的方言英文页也用繁体
+      const h1 = (html) => html.match(/<h1 class="headword-text">(.*?)<\/h1>/)?.[1];
+      check(h1(html) === e.text, `${page} headword should be ${e.text}, got ${h1(html)}`);
+      check(h1(read(`zh-hant/${page}`)) === hantOf(e), `zh-hant/${page} headword should be ${hantOf(e)}`);
+      const enHead = d.traditional ? hantOf(e) : e.text;
+      check(h1(read(`en/${page}`)) === enHead, `en/${page} headword should be ${enHead}`);
+      check(html.includes(`href="/${d.id}/${e.category}/"`) && !html.includes('?cat='), `${page} breadcrumb should link to the category page /${d.id}/${e.category}/`);
+    }
+  }
+
+  for (const d of live) {
+    const dialectHtml = read(`${d.id}/index.html`);
+    for (const c of usedCategories(d)) {
+      check(dialectHtml.includes(`href="/${d.id}/${c.id}/"`), `${d.id}/index.html should link to the category page /${d.id}/${c.id}/`);
+      const inCat = d.entries.filter((e) => e.category === c.id);
+      for (const [lang, p] of Object.entries(prefixes)) {
+        const page = `${p}${d.id}/${c.id}/index.html`;
+        const html = read(page);
+        check(new RegExp(`rel="canonical" href="[^"]*/${p}${d.id}/${c.id}/"`).test(html), `${page} should be its own canonical`);
+        check(html.includes(`lang="${htmlLang[lang]}"`), `${page} should have lang="${htmlLang[lang]}"`);
+        const listed = (html.match(/<li data-entry/g) ?? []).length;
+        check(listed === inCat.length, `${page} should list ${inCat.length} entries, got ${listed}`);
+        for (const e of inCat) check(html.includes(`href="/${p}${d.id}/${e.id}/"`), `${page} should link to /${p}${d.id}/${e.id}/`);
+        check(html.includes('class="caution-note"') === Boolean(c.caution), `${page} caution note should ${c.caution ? '' : 'not '}be shown`);
+      }
+      const zh = read(`${d.id}/${c.id}/index.html`);
+      check(zh.includes(`<title>${d.name}${c.name}：`), `${d.id}/${c.id}/index.html title should start with ${d.name}${c.name}`);
     }
   }
 
@@ -111,6 +142,9 @@ if (failures.length === 0) {
   }
   for (const p of Object.values(prefixes)) {
     for (const page of infoPages) check(sitemap.includes(`/${p}${page}/<`), `sitemap should list /${p}${page}/`);
+    for (const d of live) {
+      for (const c of usedCategories(d)) check(sitemap.includes(`/${p}${d.id}/${c.id}/<`), `sitemap should list /${p}${d.id}/${c.id}/`);
+    }
   }
   check(!sitemap.includes('/404'), 'sitemap should not list 404');
   check(!sitemap.includes('/export/'), 'sitemap should not list export pages');

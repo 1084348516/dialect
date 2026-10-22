@@ -22,7 +22,7 @@ const data = {
   subtitle: d.romanization ? `${name} · ${pick(lang, d.romanization.name, d.romanization.nameEn)}` : name,
   footerLabel: t(lang, 'exportCardFooter'),
   footerUrl: `${site.host}${site.pathname.replace(/\/$/, '')}`,
-  entries: d.entries.map((e) => toCardEntry(lang, e)),
+  entries: d.entries.map((e) => toCardEntry(lang, d, e)),
 };
 const json = JSON.stringify(data).replace(/</g, '\\u003c');
 ---

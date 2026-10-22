@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { relatedEntries, neighbors, isCaution } from '../src/lib/entries';
+import { relatedEntries, neighbors, isCaution, categoryEntries, usedCategories } from '../src/lib/entries';
 import { makeDialect, rawMinnan } from './fixtures';
 
 const minnan = makeDialect();
@@ -19,6 +19,15 @@ describe('entries helpers', () => {
     expect(neighbors(minnan, 'a-ma')).toEqual({ prev: undefined, next: minnan.entries[1] });
     expect(neighbors(minnan, 'a-kong')).toEqual({ prev: minnan.entries[0], next: minnan.entries[2] });
     expect(neighbors(minnan, 'to-sia').next).toBeUndefined();
+  });
+
+  it('categoryEntries keeps YAML order within one category', () => {
+    expect(categoryEntries(minnan, 'kinship').map((e) => e.id)).toEqual(['a-ma', 'a-kong']);
+    expect(categoryEntries(minnan, 'crude')).toEqual([]);
+  });
+
+  it('usedCategories skips categories without entries', () => {
+    expect(usedCategories(minnan).map((c) => c.id)).toEqual(['kinship', 'greeting']);
   });
 
   it('isCaution reads the category flag', () => {

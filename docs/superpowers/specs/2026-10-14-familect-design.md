@@ -83,6 +83,7 @@ dialect/
 
 ```yaml
 name: 闽南语
+nameHant: 台語                # 繁体页用的名称（可选），当地叫法和自动转换结果不同时才写
 nameEn: Hokkien / Taiwanese
 status: live                 # live | soon
 order: 1                     # 首页排序
@@ -92,6 +93,7 @@ areasEn: Xiamen, Quanzhou, Zhangzhou, Taiwan, Singapore, Malaysia
 intro: 通行于福建南部、台湾，以及新加坡、马来西亚、菲律宾等地的华人社区……
 introEn: Spoken in southern Fujian, Taiwan, and Chinese communities in ...
 romanization: { name: 台罗拼音, nameEn: Tâi-lô }
+traditional: true            # 可选，使用者主要写繁体时，英文页标题和摘要也用繁体字形
 
 regions:                     # 地区筛选标签（可选）
   - { id: xm, name: 厦门, nameEn: Xiamen }
@@ -107,9 +109,11 @@ entries:
   - id: a-ma                 # 网址 slug：小写字母、数字、连字符
     text: 阿嬷                # 方言原文（正字），不做繁简转换
     alt: [阿妈, 阿嫲]          # 也写作（可选）
+    textHant: ~              # 繁体页标题用的繁体字形（可选），自动转换出错时才写
     pron: a-má               # 标准拼音（按该方言的 romanization）
     homophone: 阿妈           # 谐音（近似，可选，不写就不显示）
     enReading: ah-MAH        # English 读法（可选，不写就不显示）
+    spellings: [ah ma]       # 网上常见的非正式拼法（可选），显示在页面上，英文摘要里也会带上
     zh: 奶奶；祖母             # 简短释义，用于列表
     en: grandma              # 可选，不写时英文界面显示中文
     meaning: 奶奶，父亲的母亲。日常当面称呼和背后提起都可以用。   # 详细释义（可选，缺省时用 zh）
@@ -137,6 +141,7 @@ entries:
 - 必填字段：`id`、`text`、`pron`、`zh`、`category`。`homophone`、`enReading`、`en` 可以先不写，以后再补
 - `category` 必须是本方言 `categories` 中已定义的 id；`regions` 中的每一项必须是 `regions` 中已定义的 id
 - 同一方言内词条 id 不能重复
+- 词条 id 不能和本方言的分类 id 相同，词条 id 和分类 id 都不能是 `export`（三者的网址都在方言目录下）
 - 任何一条不满足，构建失败，并报出方言文件名和词条 id
 
 ## 5. 页面
@@ -160,22 +165,33 @@ entries:
 3. 标题「闽南语」，后面跟衬线体墨绿色的英文名；下面是 intro，说明使用的拼音方案
 4. 地区标签行：全部、厦门、泉州……（只在 `regions` 有定义时显示）
 5. 左栏是分类列表：全部词条、各分类，`caution` 的分类右侧标「慎用」。右栏是词条卡片，每张显示原文（衬线大字）、拼音（墨绿）· 谐音，以及中文 · 英文。属于 caution 分类的词条右侧带砖红标签
-6. 筛选结果写进网址（`?cat=kinship&region=tw`），刷新或分享后状态不变；不支持 JS 时显示全部词条
+6. 筛选结果写进网址（`?cat=kinship&region=tw`），刷新或分享后状态不变；不支持 JS 时显示全部词条。分类链接的 href 指向分类页（`/minnan/kinship/`，供搜索引擎收录），点击时仍由脚本就地筛选
 7. 手机端：左侧分类栏变成横向滚动的标签
 8. `reviewed: false` 时，列表底部显示「示例数据，正式上线前需母语者校对」
 
 ### 5.3 词条页 `/minnan/a-ma/`
 
-1. 面包屑：首页 / 闽南语 / 亲属称谓 / 阿嬷。分类链接到 `/minnan/?cat=kinship`
+1. 面包屑：首页 / 闽南语 / 亲属称谓 / 阿嬷。分类链接到分类页 `/minnan/kinship/`
 2. 词头卡片：大号衬线原文，旁边是「闽南语 · 亲属称谓」。下面三个小格子：拼音（标题用 romanization 名称）、谐音（近似）、English 读法。再下面是「真人录音即将上线」的虚线占位按钮，以及「也写作：……」
 3. 意思：中文释义和英文释义。有 `note` 时显示浅绿底的「使用提示」；有 `literal` 时显示「字面意思」
 4. 例句：每句一张卡片，依次是原文、拼音（墨绿）、中文 · English
 5. 各地说法：表格，列为地区、说法、备注。`text` 为空时显示「[待母语者确认]」
-6. 右侧栏「相关词条」：同分类的其他词条，最多 6 条。手机端放到正文后面
+6. 右侧栏「相关词条」：同分类的其他词条，最多 6 条，下面是「更多亲属称谓 →」链接到分类页。手机端放到正文后面
 7. 底部：上一条 / 下一条（按 YAML 中的顺序），以及「报告问题」按钮，点击展开反馈表单
 8. 可选字段为空时，对应的区块整块不显示
 
-### 5.4 404 页
+### 5.4 分类页 `/minnan/kinship/`
+
+（2026-10-22 加入，让「台語粗口」「Chinese New Year wishes in Cantonese」这类按分类搜的词有对应的页面。）
+
+1. 只给有词条的分类生成，三种语言都有，进 sitemap
+2. 面包屑：首页 / 闽南语 / 亲属称谓
+3. 标题「闽南语亲属称谓」（英文「Hokkien / Taiwanese: Family」），下面一句「共 n 条」；`caution` 分类加一行砖红提示
+4. 分类标签行：全部词条（链接到方言页）和本方言其他有词条的分类，当前分类高亮
+5. 词条卡片列表，和方言页的卡片一样
+6. 网页标题「闽南语亲属称谓：n 条常用说法的写法、读音和意思」，摘要列出前几条原文（英文页带英文释义）
+
+### 5.5 404 页
 
 简单说明找不到页面，附回首页链接。
 
@@ -183,7 +199,8 @@ entries:
 
 - **网址**：简体无前缀（`/minnan/a-ma/`），繁体为 `/zh-hant/minnan/a-ma/`，英文为 `/en/minnan/a-ma/`
 - **界面文字**：放在 `src/i18n/ui.ts`，三语对照。缺少某个 key 时构建报错
-- **繁体内容**：中文字段（`name`、`intro`、`zh`、`meaning`、`note`、`literal`、例句的 `zh`、`variants` 的 `region` 和 `note`、分类和地区名称）在构建时用 OpenCC 转换（简体 → 台湾正体，`cn → tw`）。**不转换**的字段包括 `text`、`alt`、`homophone`、例句原文，以及所有拼音和英文字段，因为方言用字是固定写法
+- **繁体内容**：中文字段（`name`、`intro`、`zh`、`meaning`、`note`、`literal`、例句的 `zh`、`variants` 的 `region` 和 `note`、分类和地区名称）在构建时用 OpenCC 转换（简体 → 台湾正体，`cn → tw`）。方言名称写了 `nameHant` 时直接用它（闽南语在繁体页叫「台語」）。**不转换**的字段包括 `alt`、`homophone`、例句原文，以及所有拼音和英文字段，因为方言用字是固定写法
+- **词条原文的显示字形**（2026-10-22 起）：繁体页的词头、列表卡片、相关词条、上下条、导出图片用繁体字形（`textHant`，没写时用 OpenCC 转换 `text`）；`traditional: true` 的方言（粤语、闽南语、客家话）英文页也用繁体。只换简繁对应的字，方言特有字 OpenCC 本来就不动；转换出错的写 `textHant` 纠正。逻辑在 `src/i18n/convert.ts` 的 `headword`
 - **英文版**：界面为英文。词条页的 meaning 区块先显示英文释义再显示中文；列表卡片的次行改为「英文 · 中文」。`noteEn`、`meaningEn` 缺省时退回中文版本
 - **切换**：语言切换按钮链接到当前页面的另一个语言版本。切换时把选择写入 `localStorage`
 - **自动选择语言**：打开任意简体页面（无前缀网址）时，`<head>` 里的脚本先看 `localStorage` 里有没有手动选过的语言，没有就看浏览器的第一语言：`zh-CN`/`zh-SG`/`zh-Hans` → 简体，`zh-TW`/`zh-HK`/`zh-MO`/`zh-Hant` → 繁体，其他语言 → 英文，然后跳到当前页面对应的语言版本。带 `/zh-hant/`、`/en/` 前缀的网址视为明确选择，不跳；搜索引擎爬虫不跳；404 页不跳。判断逻辑在 `src/i18n/detect.ts`。按 IP 地区判断暂不做

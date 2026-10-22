@@ -70,17 +70,21 @@ describe('toCardEntry', () => {
   const aMa = d.entries.find((e) => e.id === 'a-ma')!;
 
   it('uses the Chinese gloss and homophone on Chinese pages', () => {
-    expect(toCardEntry('zh-hans', aMa)).toEqual({ id: 'a-ma', text: '阿嬷', pron: 'a-má', sub: '谐音 阿妈', gloss: '奶奶；祖母' });
+    expect(toCardEntry('zh-hans', d, aMa)).toEqual({ id: 'a-ma', text: '阿嬷', pron: 'a-má', sub: '谐音 阿妈', gloss: '奶奶；祖母' });
   });
 
   it('uses the English gloss and reading on English pages', () => {
-    expect(toCardEntry('en', aMa)).toEqual({ id: 'a-ma', text: '阿嬷', pron: 'a-má', sub: 'sounds like ah-MAH', gloss: 'grandma' });
+    expect(toCardEntry('en', d, aMa)).toEqual({ id: 'a-ma', text: '阿嬷', pron: 'a-má', sub: 'sounds like ah-MAH', gloss: 'grandma' });
+  });
+
+  it('uses the traditional headword on zh-hant pages', () => {
+    expect(toCardEntry('zh-hant', d, aMa).text).toBe('阿嬤');
   });
 
   it('falls back when optional fields are missing', () => {
     const bare = { ...aMa, homophone: undefined, enReading: undefined, en: undefined };
-    expect(toCardEntry('zh-hans', bare).sub).toBeUndefined();
-    expect(toCardEntry('en', bare)).toMatchObject({ sub: undefined, gloss: '奶奶；祖母' });
+    expect(toCardEntry('zh-hans', d, bare).sub).toBeUndefined();
+    expect(toCardEntry('en', d, bare)).toMatchObject({ sub: undefined, gloss: '奶奶；祖母' });
   });
 });
 

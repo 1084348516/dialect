@@ -1,4 +1,5 @@
 name: 闽南语
+nameHant: 台語
 nameEn: Hokkien / Taiwanese
 status: live
 order: 1
@@ -117,6 +118,7 @@ entries:
     text: 阿兄
     pron: a-hiann
     enReading: ah-HYAH
+    spellings: [ah hia, ahia]
     zh: 哥哥
     en: older brother
     meaning: 哥哥。“兄”读 hiann，前面可以加排行，比如“大兄”（tuā-hiann，大哥）。
@@ -534,6 +536,7 @@ entries:
 
   - id: khi-siau
     text: 起痟
+    alt: [起肖]
     pron: khí-siáu
     homophone: 起肖
     enReading: kee-SYOW

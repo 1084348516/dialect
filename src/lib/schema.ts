@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 export const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 export const RESERVED_IDS = ['zh-hans', 'zh-hant', 'en', 'search', 'fonts', 'api', '_astro'];
-/** 方言目录下的功能页，词条 id 不能与之重名 */
+/** 方言目录下的功能页，词条 id 和分类 id 都不能与之重名 */
 export const RESERVED_ENTRY_IDS = ['export'];
 
 const slug = z.string().regex(SLUG_RE, 'must be a slug: lowercase letters, digits and single hyphens');
@@ -42,6 +42,8 @@ export const entrySchema = z.object({
 export const dialectSchema = z
   .object({
     name: text,
+    /** 繁体页用的名称；当地叫法和简体名称转换结果不同时才需要写，如闽南语在台湾叫“台語” */
+    nameHant: optText,
     nameEn: text,
     status: z.enum(['live', 'soon']),
     order: z.number().int(),
@@ -80,9 +82,14 @@ export const dialectSchema = z
     dupes(d.entries.map((e) => e.id), 'entry', 'entries');
 
     const catIds = new Set(d.categories.map((c) => c.id));
+    d.categories.forEach((c, i) => {
+      if (RESERVED_ENTRY_IDS.includes(c.id)) issue(['categories', i, 'id'], `category id "${c.id}" is reserved`);
+    });
     const regionIds = new Set(d.regions.map((r) => r.id));
     d.entries.forEach((e, i) => {
       if (RESERVED_ENTRY_IDS.includes(e.id)) issue(['entries', i, 'id'], `entry id "${e.id}" is reserved`);
+      // 分类页和词条页都在方言目录下（/minnan/kinship/、/minnan/a-ma/），网址不能撞
+      if (catIds.has(e.id)) issue(['entries', i, 'id'], `entry id "${e.id}" clashes with a category id`);
       if (!catIds.has(e.category)) issue(['entries', i, 'category'], `entry "${e.id}": unknown category "${e.category}"`);
       e.regions.forEach((r, j) => {
         if (!regionIds.has(r)) issue(['entries', i, 'regions', j], `entry "${e.id}": unknown region "${r}"`);

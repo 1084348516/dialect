@@ -32,6 +32,7 @@ const zhHans = {
   variantNote: '备注',
   toBeConfirmed: '[待母语者确认]',
   related: '相关词条',
+  moreInCategory: '更多{cat} →',
   prev: '上一条',
   next: '下一条',
   report: '报告问题',
@@ -79,6 +80,11 @@ const zhHans = {
   metaDialectDesc: '收录 {n} 条{dialect}常用语：怎么写、怎么读、什么意思。',
   metaEntryDesc: '{dialect}“{text}”读作 {pron}，意思是{gloss}。',
   metaEntrySpellings: '也有人拼作 {spellings}。',
+  categoryHeading: '{dialect}{cat}',
+  categoryLead: '共 {n} 条，点开每一条可以看读音、意思和用法。',
+  categoryCaution: '这一类说法比较粗俗，了解意思就好，用的时候注意场合。',
+  metaCategoryTitle: '{dialect}{cat}：{n} 条常用说法的写法、读音和意思',
+  metaCategoryDesc: '收录 {n} 条{dialect}{cat}：{list}，每条都有写法、读音和意思。',
 };
 
 export type UiKey = keyof typeof zhHans;
@@ -114,6 +120,7 @@ const en: Record<UiKey, string> = {
   variantNote: 'Notes',
   toBeConfirmed: '[to be confirmed]',
   related: 'Related entries',
+  moreInCategory: 'More in {cat} →',
   prev: 'Previous',
   next: 'Next',
   report: 'Report a problem',
@@ -161,6 +168,11 @@ const en: Record<UiKey, string> = {
   metaDialectDesc: '{n} everyday {dialect} phrases: how to write, say and understand them.',
   metaEntryDesc: '{text} ({pron}) in {dialect} means “{gloss}”.',
   metaEntrySpellings: 'Also spelled {spellings}.',
+  categoryHeading: '{dialect}: {cat}',
+  categoryLead: '{n} entries. Open one for its pronunciation, meaning and usage.',
+  categoryCaution: 'These are crude expressions — useful to recognise, but mind where you use them.',
+  metaCategoryTitle: '{dialect} phrases: {cat} — {n} words with meaning and pronunciation',
+  metaCategoryDesc: '{n} {dialect} words and phrases ({cat}): {list}. Each with pronunciation and meaning.',
 };
 
 const zhHant = Object.fromEntries(Object.entries(zhHans).map(([k, v]) => [k, toHant(v)])) as Record<UiKey, string>;

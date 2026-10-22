@@ -1,6 +1,7 @@
 import { t } from '../i18n/ui';
 import type { Lang } from '../i18n/langs';
-import type { Entry } from './schema';
+import { headword } from '../i18n/convert';
+import type { Dialect, Entry } from './schema';
 
 /** 小红书竖版 3:4 */
 export const CARD_W = 1080;
@@ -81,11 +82,11 @@ export function wrapLines(text: string, maxWidth: number, measure: (s: string) =
 }
 
 /** 卡片上每个词显示的内容：中文页给谐音，英文页给英文读法。 */
-export function toCardEntry(lang: Lang, e: Entry): CardEntry {
+export function toCardEntry(lang: Lang, d: Pick<Dialect, 'traditional'>, e: Entry): CardEntry {
   const reading = lang === 'en' ? e.enReading : e.homophone;
   return {
     id: e.id,
-    text: e.text,
+    text: headword(lang, d, e),
     pron: e.pron,
     sub: reading ? `${t(lang, 'homophoneShort')} ${reading}` : undefined,
     gloss: (lang === 'en' ? e.en : undefined) ?? e.zh,

@@ -1,4 +1,13 @@
-import type { Dialect, Entry } from './schema';
+import type { Category, Dialect, Entry } from './schema';
+
+export function categoryEntries(d: Dialect, categoryId: string): Entry[] {
+  return d.entries.filter((e) => e.category === categoryId);
+}
+
+/** 有词条的分类，只给这些生成分类页 */
+export function usedCategories(d: Dialect): Category[] {
+  return d.categories.filter((c) => d.entries.some((e) => e.category === c.id));
+}
 
 export function relatedEntries(d: Dialect, entry: Entry, max = 6): Entry[] {
   return d.entries.filter((e) => e.category === entry.category && e.id !== entry.id).slice(0, max);

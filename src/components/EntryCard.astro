@@ -1,20 +1,22 @@
 ---
 import { entryPath, glossLine, type Lang } from '../i18n/langs';
 import { t } from '../i18n/ui';
-import type { Entry } from '../lib/schema';
+import { headword } from '../i18n/convert';
+import type { Dialect, Entry } from '../lib/schema';
 
 interface Props {
   lang: Lang;
-  dialectId: string;
+  dialect: Dialect;
   entry: Entry;
   badge?: string;
 }
-const { lang, dialectId, entry: e, badge } = Astro.props;
+const { lang, dialect: d, entry: e, badge } = Astro.props;
+const text = headword(lang, d, e);
 ---
 <li data-entry data-id={e.id} data-cat={e.category} data-regions={e.regions.join(' ')}>
-  <input type="checkbox" class="entry-pick" value={e.id} aria-label={t(lang, 'exportPick', { text: e.text })} />
-  <a class="entry-card" href={entryPath(lang, dialectId, e.id)}>
-    <span class="entry-card-text serif">{e.text}</span>
+  <input type="checkbox" class="entry-pick" value={e.id} aria-label={t(lang, 'exportPick', { text })} />
+  <a class="entry-card" href={entryPath(lang, d.id, e.id)}>
+    <span class="entry-card-text serif">{text}</span>
     <span class="entry-card-body">
       <span class="entry-card-line1"><span class="pron">{e.pron}</span>{e.homophone && ` · ${t(lang, 'homophoneShort')} ${e.homophone}`}</span>
       <span>{glossLine(lang, e.zh, e.en)}</span>

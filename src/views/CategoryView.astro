@@ -1,0 +1,62 @@
+---
+import Base from '../layouts/Base.astro';
+import EntryCard from '../components/EntryCard.astro';
+import { LANGS, homePath, dialectPath, categoryPath, pick, type Lang } from '../i18n/langs';
+import { t } from '../i18n/ui';
+import { headword } from '../i18n/convert';
+import { categoryEntries, usedCategories } from '../lib/entries';
+import type { Dialect } from '../lib/schema';
+
+interface Props {
+  lang: Lang;
+  dialects: Dialect[];
+  dialectId: string;
+  categoryId: string;
+}
+const { lang, dialects, dialectId, categoryId } = Astro.props;
+const d = dialects.find((x) => x.id === dialectId)!;
+const c = d.categories.find((x) => x.id === categoryId)!;
+const entries = categoryEntries(d, c.id);
+const alternates = Object.fromEntries(LANGS.map((l) => [l, categoryPath(l, d.id, c.id)])) as Record<Lang, string>;
+const name = pick(lang, d.name, d.nameEn);
+const catName = pick(lang, c.name, c.nameEn);
+const vars = { dialect: name, cat: catName, n: entries.length };
+// 摘要里列出前几条原文，按词搜的人在搜索结果里就能看到；英文页带上英文释义
+const list = lang === 'en'
+  ? entries.slice(0, 4).map((e) => `${headword(lang, d, e)} “${e.en ?? e.zh}”`).join(', ')
+  : entries.slice(0, 6).map((e) => headword(lang, d, e)).join('、');
+const abs = (p: string) => new URL(p, Astro.site).href;
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t(lang, 'home'), item: abs(homePath(lang)) },
+    { '@type': 'ListItem', position: 2, name, item: abs(dialectPath(lang, d.id)) },
+    { '@type': 'ListItem', position: 3, name: catName, item: abs(categoryPath(lang, d.id, c.id)) },
+  ],
+};
+---
+<Base lang={lang} title={`${t(lang, 'metaCategoryTitle', vars)} | Familect`} description={t(lang, 'metaCategoryDesc', { ...vars, list })} alternates={alternates} jsonLd={[breadcrumb]} feedbackDialect={d.id}>
+  <div class="wrap page">
+    <nav class="breadcrumb"><a href={homePath(lang)}>{t(lang, 'home')}</a> / <a href={dialectPath(lang, d.id)}>{name}</a> / <span>{catName}</span></nav>
+
+    <header class="dialect-head">
+      <h1>{t(lang, 'categoryHeading', vars)}</h1>
+      <p class="lead">{t(lang, 'categoryLead', vars)}</p>
+      {c.caution && <p class="caution-note">{t(lang, 'categoryCaution')}</p>}
+    </header>
+
+    <nav class="chips category-nav">
+      <a class="chip" href={dialectPath(lang, d.id)}>{t(lang, 'allEntries')}</a>
+      {usedCategories(d).map((x) => (
+        <a class:list={['chip', { 'is-active': x.id === c.id }]} href={categoryPath(lang, d.id, x.id)} aria-current={x.id === c.id ? 'page' : undefined}>
+          {pick(lang, x.name, x.nameEn)}
+        </a>
+      ))}
+    </nav>
+
+    <ul class="entry-list">
+      {entries.map((e) => <EntryCard lang={lang} dialect={d} entry={e} />)}
+    </ul>
+  </div>
+</Base>

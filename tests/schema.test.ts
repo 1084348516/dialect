@@ -67,6 +67,16 @@ describe('dialectSchema', () => {
     expect(issues(bad).join()).toMatch(/entry id "export" is reserved/);
   });
 
+  it('rejects entry ids that clash with category pages', () => {
+    const bad = { ...rawMinnan, entries: [...entries, { ...entries[1], id: 'greeting' }] };
+    expect(issues(bad).join()).toMatch(/entry id "greeting" clashes with a category/);
+  });
+
+  it('rejects category ids that clash with dialect sub-pages', () => {
+    const bad = { ...rawMinnan, categories: [...rawMinnan.categories, { id: 'export', name: '导出', nameEn: 'Export' }] };
+    expect(issues(bad).join()).toMatch(/category id "export" is reserved/);
+  });
+
   it('rejects bad slugs and missing required fields', () => {
     expect(issues({ ...rawMinnan, entries: [{ ...entries[1], id: 'A_kong' }] }).length).toBeGreaterThan(0);
     const { pron: _omit, ...noPron } = entries[1];

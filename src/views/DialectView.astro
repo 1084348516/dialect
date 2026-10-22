@@ -1,9 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import EntryCard from '../components/EntryCard.astro';
-import { LANGS, homePath, dialectPath, exportPath, pick, type Lang } from '../i18n/langs';
+import { LANGS, homePath, dialectPath, categoryPath, exportPath, pick, type Lang } from '../i18n/langs';
 import { t } from '../i18n/ui';
-import { isCaution } from '../lib/entries';
+import { isCaution, usedCategories } from '../lib/entries';
 import type { Dialect } from '../lib/schema';
 
 interface Props {
@@ -17,6 +17,7 @@ const alternates = Object.fromEntries(LANGS.map((l) => [l, dialectPath(l, d.id)]
 const name = pick(lang, d.name, d.nameEn);
 const otherName = pick(lang, d.nameEn, d.name);
 const intro = pick(lang, d.intro, d.introEn) ?? '';
+const withPage = new Set(usedCategories(d).map((c) => c.id));
 const catName = (id: string) => {
   const c = d.categories.find((x) => x.id === id)!;
   return pick(lang, c.name, c.nameEn);
@@ -50,10 +51,11 @@ const breadcrumb = {
     <div class="dialect-layout">
       <aside>
         <p class="cat-label">{t(lang, 'categories')}</p>
+        <!-- 有词条的分类链接到分类页，方便搜索引擎收录；点击时由下面的脚本就地筛选 -->
         <div class="cat-list" data-filter-group="cat">
           <a class="cat-item is-active" href="?" data-value="">{t(lang, 'allEntries')}</a>
           {d.categories.map((c) => (
-            <a class="cat-item" href={`?cat=${c.id}`} data-value={c.id} data-name={pick(lang, c.name, c.nameEn)}>
+            <a class="cat-item" href={withPage.has(c.id) ? categoryPath(lang, d.id, c.id) : `?cat=${c.id}`} data-value={c.id} data-name={pick(lang, c.name, c.nameEn)}>
               <span>{pick(lang, c.name, c.nameEn)}</span>
               {c.caution && <small>{t(lang, 'caution')}</small>}
             </a>
@@ -68,7 +70,7 @@ const breadcrumb = {
         </div>
         <ul class="entry-list">
           {d.entries.map((e) => (
-            <EntryCard lang={lang} dialectId={d.id} entry={e} badge={isCaution(d, e) ? catName(e.category) : undefined} />
+            <EntryCard lang={lang} dialect={d} entry={e} badge={isCaution(d, e) ? catName(e.category) : undefined} />
           ))}
         </ul>
         <p class="filter-empty" hidden>{t(lang, 'filterEmpty')}</p>

@@ -22,6 +22,10 @@ export function entryPath(lang: Lang, dialectId: string, entryId: string): strin
   return `${prefix(lang)}/${dialectId}/${entryId}/`;
 }
 
+export function categoryPath(lang: Lang, dialectId: string, categoryId: string): string {
+  return `${prefix(lang)}/${dialectId}/${categoryId}/`;
+}
+
 export function exportPath(lang: Lang, dialectId: string): string {
   return `${prefix(lang)}/${dialectId}/export/`;
 }

@@ -95,6 +95,8 @@ a.dialect-card:hover, a.entry-card:hover, a.related:hover { border-color: var(--
 .cat-item.is-active small { color: #ccc; }
 .list-title { font-size: 22px; margin: 0 0 12px; }
 .entry-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.category-nav { margin-bottom: 24px; }
+.caution-note { color: var(--warn); max-width: 36em; margin: -12px 0 24px; }
 .entry-card { display: flex; align-items: center; gap: 16px; padding: 16px 18px; color: var(--ink); text-decoration: none; }
 .entry-card-text { font-size: 24px; flex: 0 0 110px; }
 .entry-card-body { flex: 1; display: flex; flex-direction: column; font-size: 14px; line-height: 1.6; min-width: 0; }
@@ -168,6 +170,7 @@ tr:last-child td { border-bottom: 0; }
 .entry-pager a { text-decoration: none; }
 .entry-pager a[rel="next"] { margin-left: auto; }
 .entry-aside { display: grid; gap: 8px; }
+.related-more { font-size: 14px; color: var(--accent); text-decoration: none; padding: 4px 2px; }
 .related { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 14px 16px; color: var(--ink); text-decoration: none; }
 .related span { font-size: 17px; }
 .related small { color: var(--muted); }

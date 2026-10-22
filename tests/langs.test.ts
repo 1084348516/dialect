@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { LANGS, HTML_LANG, prefix, homePath, dialectPath, entryPath, exportPath, infoPath, pick, glossLine } from '../src/i18n/langs';
+import { LANGS, HTML_LANG, prefix, homePath, dialectPath, entryPath, categoryPath, exportPath, infoPath, pick, glossLine } from '../src/i18n/langs';
 
 describe('langs', () => {
   it('lists three languages with html lang codes', () => {
@@ -14,6 +14,8 @@ describe('langs', () => {
     expect(dialectPath('en', 'minnan')).toBe('/en/minnan/');
     expect(entryPath('zh-hans', 'minnan', 'a-ma')).toBe('/minnan/a-ma/');
     expect(entryPath('zh-hant', 'minnan', 'a-ma')).toBe('/zh-hant/minnan/a-ma/');
+    expect(categoryPath('zh-hans', 'minnan', 'kinship')).toBe('/minnan/kinship/');
+    expect(categoryPath('en', 'minnan', 'kinship')).toBe('/en/minnan/kinship/');
     expect(exportPath('zh-hans', 'minnan')).toBe('/minnan/export/');
     expect(exportPath('en', 'minnan')).toBe('/en/minnan/export/');
     expect(infoPath('zh-hans', 'about')).toBe('/about/');

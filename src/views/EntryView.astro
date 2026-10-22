@@ -1,9 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import FeedbackForm from '../components/FeedbackForm.astro';
-import { LANGS, homePath, dialectPath, entryPath, pick, glossLine, type Lang } from '../i18n/langs';
+import { LANGS, homePath, dialectPath, categoryPath, entryPath, pick, glossLine, type Lang } from '../i18n/langs';
 import { t } from '../i18n/ui';
-import { toHant, toHans } from '../i18n/convert';
+import { toHant, toHans, headword } from '../i18n/convert';
 import { relatedEntries, neighbors } from '../lib/entries';
 import type { Dialect } from '../lib/schema';
 
@@ -32,12 +32,12 @@ const related = relatedEntries(d, e);
 const { prev, next } = neighbors(d, e.id);
 
 const gloss = pick(lang, e.zh, e.en ?? e.zh);
-// 页面上的方言原文不转换，但繁体页的标题和摘要用繁体字形，方便匹配繁体搜索词；
-// 粤语这类使用者主要写繁体的方言，英文页也用繁体
+// 繁体页用繁体字形显示原文，粤语这类使用者主要写繁体的方言英文页也用繁体（见 headword）；
+// 繁体页标题再带上简体写法，两种字形的搜索词都能对上
 const hant = e.textHant ?? toHant(e.text);
-const useHant = lang === 'zh-hant' || (lang === 'en' && d.traditional);
-const metaText = lang === 'zh-hant' && hant !== e.text ? `${hant}（${e.text}）` : useHant ? hant : e.text;
-const descText = useHant ? hant : e.text;
+const text = headword(lang, d, e);
+const metaText = lang === 'zh-hant' && text !== e.text ? `${text}（${e.text}）` : text;
+const descText = text;
 // 词条和普通话说法一样时（如“新年快乐”），问“是什么意思”不合适，改问“怎么说”；
 // 英文页的粗口释义是“crude curse”这类描述，不能问 how to say，改成词条在前
 const termFirst = lang === 'en' ? cat.caution : toHans(gloss).startsWith(toHans(e.text));
@@ -66,7 +66,8 @@ const jsonLd = [
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: t(lang, 'home'), item: abs(homePath(lang)) },
       { '@type': 'ListItem', position: 2, name, item: abs(dialectPath(lang, d.id)) },
-      { '@type': 'ListItem', position: 3, name: e.text, item: abs(entryPath(lang, d.id, e.id)) },
+      { '@type': 'ListItem', position: 3, name: catName, item: abs(categoryPath(lang, d.id, cat.id)) },
+      { '@type': 'ListItem', position: 4, name: text, item: abs(entryPath(lang, d.id, e.id)) },
     ],
   },
 ];
@@ -76,15 +77,15 @@ const jsonLd = [
     <nav class="breadcrumb">
       <a href={homePath(lang)}>{t(lang, 'home')}</a> /
       <a href={dialectPath(lang, d.id)}>{name}</a> /
-      <a href={`${dialectPath(lang, d.id)}?cat=${cat.id}`}>{catName}</a> /
-      <span>{e.text}</span>
+      <a href={categoryPath(lang, d.id, cat.id)}>{catName}</a> /
+      <span>{text}</span>
     </nav>
 
     <div class="entry-layout">
       <article class="entry-main">
         <section class="card headword">
           <div class="headword-top">
-            <h1 class="headword-text">{e.text}</h1>
+            <h1 class="headword-text">{text}</h1>
             <span class="headword-meta">{name} · {catName}</span>
           </div>
           <div class="readings">
@@ -142,8 +143,8 @@ const jsonLd = [
         <!-- 翻页、反馈表单这类界面文字不要出现在搜索结果摘要里 -->
         <div data-nosnippet>
           <nav class="entry-pager">
-            {prev && <a rel="prev" href={entryPath(lang, d.id, prev.id)}>← {t(lang, 'prev')} · {prev.text}</a>}
-            {next && <a rel="next" href={entryPath(lang, d.id, next.id)}>{t(lang, 'next')} · {next.text} →</a>}
+            {prev && <a rel="prev" href={entryPath(lang, d.id, prev.id)}>← {t(lang, 'prev')} · {headword(lang, d, prev)}</a>}
+            {next && <a rel="next" href={entryPath(lang, d.id, next.id)}>{t(lang, 'next')} · {headword(lang, d, next)} →</a>}
           </nav>
 
           <FeedbackForm lang={lang} dialectId={d.id} entryId={e.id} />
@@ -155,10 +156,11 @@ const jsonLd = [
           <p class="aside-label">{t(lang, 'related')}</p>
           {related.map((r) => (
             <a class="card related" href={entryPath(lang, d.id, r.id)}>
-              <span class="serif">{r.text}</span>
+              <span class="serif">{headword(lang, d, r)}</span>
               <small>{pick(lang, r.zh, r.en ?? r.zh)}</small>
             </a>
           ))}
+          <a class="related-more" href={categoryPath(lang, d.id, cat.id)}>{t(lang, 'moreInCategory', { cat: catName })}</a>
         </aside>
       )}
     </div>
