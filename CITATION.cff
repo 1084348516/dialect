@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use Familect's dialect data, please cite it as below."
+title: "Familect 家乡话：汉语方言常用语词典"
+type: dataset
+authors:
+  - name: "bright"
+    alias: "1084348516"
+    website: "https://familect.org"
+url: "https://familect.org"
+repository-code: "https://github.com/1084348516/dialect"
+abstract: "汉语方言常用语词典：8 种方言 300 余条词条的写法、读音、含义及用法，简体、繁體和英文三种语言版本。"
+keywords:
+  - Chinese dialects
+  - dialect dictionary
+  - Cantonese
+  - Hakka
+  - Hokkien
+  - Minnan
+  - Sichuanese
+  - Shanghainese
+  - lexicography
+license:
+  - CC-BY-4.0
+  - MIT
+date-released: "2026-11-03"

@@ -1,6 +1,12 @@
 # Familect 家乡话
 
-方言常用语词典：怎么写、怎么读、什么意思。Astro 静态站，部署在 Cloudflare Workers（静态资源 + 反馈接口）。
+[**familect.org**](https://familect.org) — 方言常用语词典：怎么写、怎么读、什么意思。
+
+8 种汉语方言 · 300+ 词条 · 简体 / 繁體 / English
+
+![Familect 家乡话](public/og.png)
+
+Astro 静态站，部署在 Cloudflare Workers（静态资源 + 反馈接口）。词条数据开放，许可见文末「许可与引用」。
 
 ## 本地开发
 
@@ -79,3 +85,9 @@ npx wrangler d1 execute familect --remote --command "DELETE FROM feedback WHERE 
 ## 字体
 
 标题使用思源宋体 Bold（`fonts/src/`，SIL OFL 许可）。`npm run build` 和 `npm run dev` 会先执行 `scripts/subset-font.mjs`，只保留网站实际用到的字，输出到 `public/fonts/`。
+
+## 许可与引用
+
+- **词条数据**（`src/content/dialects/*.yaml`）：[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)，转载、改编或研究使用请注明来源 Familect（https://familect.org）。全文见 `LICENSE-DATA`。
+- **其余源代码**：MIT，见 `LICENSE`。
+- 引用格式见 `CITATION.cff`，GitHub 仓库页的「Cite this repository」会按它生成。
